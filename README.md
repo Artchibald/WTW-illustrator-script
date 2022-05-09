@@ -38,7 +38,6 @@
     ·
     <a href="https://github.com/Artchibald/WTW-illustrator-script/issues">Request Feature</a>
         ·
-    <a href="https://ai-scripting.docsforadobe.dev/">Adobe Illustrator API documentation</a>
 
   </p>
 </div>
@@ -67,6 +66,10 @@
 A loop based on design patterns: do this 100 times. I know this.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+# Useful links.
+
+<a href="https://ai-scripting.docsforadobe.dev/">Adobe Illustrator API documentation</a>
 
 # Programming technique.
 
