@@ -25,7 +25,7 @@
     <img src="images/WTW.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">A JS script that automates icon export processes in Illustrator</h3>
+<h3 align="center">A JS script that automates icon export processes in Adobe Illustrator</h3>
 
   <p align="center">
     Useful links
