@@ -63,15 +63,21 @@
 
 # Overview
 
-A loop based on design patterns: do this 100 times. I know this.
+This script automates exports from Illustrator.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # Useful links.
 
-<a href="https://ai-scripting.docsforadobe.dev/">Adobe Illustrator API documentation</a>
+<a href="https://ai-scripting.docsforadobe.dev/">Adobe Illustrator API documentation</a> > This is where all the commands are referenced for re-use.
 
-# Programming technique.
+# How to use this script?
+
+1. Open Adobe illustrator
+2. Open the icons template in Illustrator that you will find in this repository (no others, just this one).
+3. Go to File > Scripts > Other Scripts...
+4. Select the JS file from this repo called XXXXXXXX.js, it will run automatically.
+5. View the exported assets in your folder XXXXXX.
 
 [![technique][technique]](https://github.com/Artchibald/typescript)
 
@@ -80,5 +86,3 @@ A loop based on design patterns: do this 100 times. I know this.
 
 <!-- [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
 [contributors-url]: https://github.com/github_username/repo_name/graphs/contributors -->
-
-[owngenerics]: images/owngenerics.png
