@@ -25,19 +25,21 @@
     <img src="images/WTW.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Typescript cheat sheet</h3>
+<h3 align="center">A JS script that automates icon export processes in Illustrator</h3>
 
   <p align="center">
-    Snippets and explanations
+    Useful links
     <br />
-    <a href="https://github.com/Artchibald/typescript"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Artchibald/WTW-illustrator-script"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Artchibald/typescript">View Demo</a>
     ·
-    <a href="https://github.com/Artchibald/typescript/issues">Report Bug</a>
+    <a href="https://github.com/Artchibald/WTW-illustrator-script/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Artchibald/typescript/issues">Request Feature</a>
+    <a href="https://github.com/Artchibald/WTW-illustrator-script/issues">Request Feature</a>
+        ·
+    <a href="https://ai-scripting.docsforadobe.dev/">Adobe Illustrator API documentation</a>
+
   </p>
 </div>
 
@@ -46,8 +48,6 @@
   <summary>Table of Contents</summary>
 <ol>
    <li><a href="#WTF">WTF</a></li>
-   <li><a href="#5-JS-Fundamentals">5 JS Fundamentals</a></li>
-   <li><a href="#prerequisites">prerequisites</a></li>
    <li><a href="#Fixes-your-errors">Fixes your errors</a></li>
       <li><a href="#Promises">Other js stuff to know(more to be added here): Promises</a></li>
    <li>
@@ -55,14 +55,6 @@
       <ul>
          <li><a href="#Type-assignment-and-type-inference">Type assignment and type inference</a></li>
          <li><a href="#The-core-job-of-typescript">The core job of typescript</a></li>
-         <li><a href="#All-object-types">All object types</a></li>
-         <li><a href="#UNION-Types">UNION Types</a></li>
-         <li><a href="#Litteral-Types">Litteral Types</a></li>
-         <li><a href="#Type-aliases">Type aliases</a></li>
-         <li><a href="#Function-return-and-void">Function return and void</a></li>
-         <li><a href="#Function-types">Function types</a></li>
-         <li><a href="#Unknown-type">Unknown type</a></li>
-         <li><a href="#Never-type">Never type</a></li>
       </ul>
    </li>
 </ol>
@@ -70,7 +62,7 @@
 
 <!-- ABOUT THE PROJECT -->
 
-# WTF
+# Overview
 
 A loop based on design patterns: do this 100 times. I know this.
 
