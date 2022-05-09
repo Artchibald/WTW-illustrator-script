@@ -46,14 +46,14 @@
 <details>
   <summary>Table of Contents</summary>
 <ol>
-   <li><a href="#WTF">WTF</a></li>
-   <li><a href="#Fixes-your-errors">Fixes your errors</a></li>
-      <li><a href="#Promises">Other js stuff to know(more to be added here): Promises</a></li>
+   <li><a href="#WTF">Overview</a></li>
+   <li><a href="#xxx">TBC</a></li>
+      <li><a href="#Promises">TBC</a></li>
    <li>
-      <a href="#Core-types">CORE TYPES</a>
+      <a href="#Core-types">TBC</a>
       <ul>
-         <li><a href="#Type-assignment-and-type-inference">Type assignment and type inference</a></li>
-         <li><a href="#The-core-job-of-typescript">The core job of typescript</a></li>
+         <li><a href="#Type-assignment-and-type-inference">TBC</a></li>
+         <li><a href="#The-core-job-of-typescript">TBC</a></li>
       </ul>
    </li>
 </ol>
@@ -79,7 +79,7 @@ This script automates exports from Illustrator.
 4. Select the JS file from this repo called XXXXXXXX.js, it will run automatically.
 5. View the exported assets in your folder XXXXXX.
 
-[![technique][technique]](https://github.com/Artchibald/typescript)
+<!-- [![technique][technique]](https://github.com/Artchibald/typescript) -->
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
