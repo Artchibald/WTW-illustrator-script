@@ -50,6 +50,10 @@ This script automates exports from Illustrator.
 
 <a href="https://ai-scripting.docsforadobe.dev/">Adobe Illustrator API documentation</a> > This is where all the commands are referenced for re-use.
 
+# Graphical representation
+
+[![Course outline][outline]](https://github.com/Artchibald/typescript)
+
 # How to use this script?
 
 1. Open Adobe illustrator
@@ -84,3 +88,5 @@ This script automates exports from Illustrator.
 
 Github repo set up. Review.
 Typescript implementation into repo.
+
+[outline]: images/outline.png
