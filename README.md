@@ -60,7 +60,7 @@ This script automates exports from Illustrator.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-# Brief from client ot be implemented
+# Brief from client to be implemented
 
 - Take an established artboard (provided by WTW in Illustrator format)
 - Set up a script that takes any icon on this artboard and exports it in the prescribed sizes, colors, and file formats —
