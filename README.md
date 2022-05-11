@@ -60,6 +60,24 @@ This script automates exports from Illustrator.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+# Brief from client ot be implemented
+
+- Take an established artboard (provided by WTW in Illustrator format)
+- Set up a script that takes any icon on this artboard and exports it in the prescribed sizes, colors, and file formats —
+- the attached Illustrator file sample has layers for each prescribed color for the background and layers for the two color options for the icon that sits - on the square background to demonstrate the options needed.
+- PNG - 24, 32, 48, 64, 512 (this is for web, email ppt)
+- PNG-300 (for PPT – needs to be grouped separately from the other sizes in above bullet)
+- SVG and EPS - 64x64 (two file types)
+- Leverage a naming convention (predetermined from WTW that includes icon color, background color, size for pngs)
+- TBD
+- Possible examples:
+- Accuracy-black-UV-64, Accuracy-black-submarine-64, Accuracy-black-mandarin-64, etc.
+- Accuracy-dkUV-UV-24, Accuracy-dkUV-submarine-24, Accuracy-dkUV-mandarin-24, etc.
+- Set up a script to read files and export a contact sheet
+- Automate a process by which files can be stored in one place, wrapped up with contact sheet and Zipped?
+- TBD:
+- Grouped in folders by Category and by filetype, for example Business Communication SVG, Business Communication EPS, Business Communication PNG (all sizes except 300), Business Communication PPT (300 size only)
+
 # Timescale breakdown
 
 ## Day 1
