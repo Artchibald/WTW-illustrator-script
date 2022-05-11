@@ -9,7 +9,7 @@
 <h3 align="center">A JS script that automates icon export processes in Adobe Illustrator</h3>
 
   <p align="center">
-    Useful links
+    Useful links 
     <br />
     <a href="https://github.com/Artchibald/WTW-illustrator-script"><strong>Explore the docs »</strong></a>
     <br />
@@ -40,8 +40,6 @@
 </ol>
 </details>
 
-<!-- ABOUT THE PROJECT -->
-
 # Overview
 
 This script automates exports from Illustrator.
@@ -60,13 +58,6 @@ This script automates exports from Illustrator.
 4. Select the JS file from this repo called XXXXXXXX.js, it will run automatically.
 5. View the exported assets in your folder XXXXXX.
 
-<!-- [![technique][technique]](https://github.com/Artchibald/typescript) -->
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-<!-- [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors -->
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # Timescale breakdown
@@ -74,3 +65,4 @@ This script automates exports from Illustrator.
 ## Day 1
 
 Github repo set up. Review.
+Typescript implementation into repo.
