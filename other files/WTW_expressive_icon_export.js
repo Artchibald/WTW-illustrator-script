@@ -24,8 +24,8 @@ var CMYKColorElements = [
 var CSTasks = (function () {
     var tasks = {};
     /********************
-    POSITION AND MOVEMENT
-    ********************/
+      POSITION AND MOVEMENT
+      ********************/
     //takes an artboards array
     //returns the leftmost and topmost position of all the artboards as an array [x,y]
     tasks.getArtboardsTopLeft = function (artboards) {
@@ -52,12 +52,13 @@ var CSTasks = (function () {
         object.translate(-offset[0], -offset[1]);
     };
     /*********************************
-    SELECTING, GROUPING AND UNGROUPING
-    **********************************/
+      SELECTING, GROUPING AND UNGROUPING
+      **********************************/
     //take a document
     //returns a selection with everything in that document
     tasks.selectEverything = function (doc) {
         doc.selection = null;
+        var i;
         for (i = 0; i < doc.pathItems.length; i++) {
             doc.pathItems[i].selected = true;
         }
@@ -67,6 +68,7 @@ var CSTasks = (function () {
     //returns a group made from that collection
     tasks.createGroup = function (doc, collection) {
         var newGroup = doc.groupItems.add();
+        var k;
         for (k = 0; k < collection.length; k++) {
             collection[k].moveToBeginning(newGroup);
         }
@@ -75,26 +77,28 @@ var CSTasks = (function () {
     //takes a group
     //ungroups that group at the top layer (no recursion for nested groups)
     tasks.ungroupOnce = function (group) {
+        var i;
+        var ElementPlacement;
         for (i = group.pageItems.length - 1; i >= 0; i--) {
             group.pageItems[i].move(group.pageItems[i].layer, ElementPlacement.PLACEATEND);
         }
     };
     /****************************
-    CREATING AND SAVING DOCUMENTS
-    *****************************/
+      CREATING AND SAVING DOCUMENTS
+      *****************************/
     //take a source document and a colorspace (e.g. DocumentColorSpace.RGB)
     //opens and returns a new document with the source document's units and the specified colorspace
     tasks.newDocument = function (sourceDoc, colorSpace) {
         var preset = new DocumentPreset();
-        preset.colorMode = colorSpace;
-        preset.units = sourceDoc.rulerUnits;
-        var newDoc = app.documents.addDocument(colorSpace, preset);
+        DocumentPreset.colorMode = colorSpace;
+        DocumentPreset.units = sourceDoc.rulerUnits;
+        var newDoc = Documents.addDocument(colorSpace, preset);
         newDoc.pageOrigin = sourceDoc.pageOrigin;
         newDoc.rulerOrigin = sourceDoc.rulerOrigin;
         return newDoc;
     };
     //take a source document and a colorspace (e.g. DocumentColorSpace.RGB)
-    //opens and returns a new document with the source document's units and artboards, the specified colorspace 
+    //opens and returns a new document with the source document's units and artboards, the specified colorspace
     tasks.duplicateArtboardsInNewDoc = function (sourceDoc, colorspace) {
         var rectsToCopy = new Array(sourceDoc.artboards.length);
         for (var i = 0; i < sourceDoc.artboards.length; i++) {
@@ -109,8 +113,8 @@ var CSTasks = (function () {
         return newDoc;
     };
     /***
-    TEXT
-    ****/
+      TEXT
+      ****/
     //takes a document, message string, position array and font size
     //creates a text frame with the message
     tasks.createTextFrame = function (doc, message, pos, size) {
@@ -121,8 +125,8 @@ var CSTasks = (function () {
         textRef.textRange.characterAttributes.size = size;
     };
     /***************
-    COLOR CONVERSION
-    ****************/
+      COLOR CONVERSION
+      ****************/
     //takes two equal-length arrays of corresponding colors [[R,G,B], [R2,G2,B2],...] and [[C,M,Y,K],[C2,M2,Y2,K2],...] (fairly human readable)
     //returns an array of ColorElements [[RGBColor,CMYKColor],[RGBColor2,CMYKColor2],...] (usable by the script for fill colors etc.)
     tasks.initializeColors = function (RGBArray, CMYKArray) {
@@ -145,6 +149,7 @@ var CSTasks = (function () {
     //returns an array with an index to the RGB color if it is in the array
     tasks.indexRGBColors = function (pathItems, matchArray) {
         var colorIndex = new Array(pathItems.length);
+        var i;
         for (i = 0; i < pathItems.length; i++) {
             var itemColor = pathItems[i].fillColor;
             colorIndex[i] = tasks.matchRGB(itemColor, matchArray);
@@ -154,10 +159,12 @@ var CSTasks = (function () {
     //take a single RGBColor and an array of corresponding RGB and CMYK colors [[RGBColor,CMYKColor],[RGBColor2,CMYKColor2],...]
     //returns the index in the array if it finds a match, otherwise returns -1
     tasks.matchRGB = function (color, matchArray) {
+        //compares a single color RGB color against RGB colors in [[RGB],[CMYK]] array
         for (var i = 0; i < matchArray.length; i++) {
             if (Math.abs(color.red - matchArray[i][0].red) < 1 &&
                 Math.abs(color.green - matchArray[i][0].green) < 1 &&
-                Math.abs(color.blue - matchArray[i][0].blue) < 1) { //can't do equality because it adds very small decimals
+                Math.abs(color.blue - matchArray[i][0].blue) < 1) {
+                //can't do equality because it adds very small decimals
                 return i;
             }
         }
@@ -172,7 +179,13 @@ var CSTasks = (function () {
             if (colorIndex[i] >= 0 && colorIndex[i] < colorArray.length)
                 pathItems[i].fillColor = colorArray[colorIndex[i]][1];
             else {
-                var unmatchedColor = "(" + pathItems[i].fillColor.red + ", " + pathItems[i].fillColor.green + ", " + pathItems[i].fillColor.blue + ")";
+                var unmatchedColor = "(" +
+                    pathItems[i].fillColor.red +
+                    ", " +
+                    pathItems[i].fillColor.green +
+                    ", " +
+                    pathItems[i].fillColor.blue +
+                    ")";
                 unmatchedColors.push(unmatchedColor);
             }
         }
@@ -199,8 +212,8 @@ var CSTasks = (function () {
     //returns a sorted array with only unique elements
     tasks.unique = function (a) {
         if (a.length > 0) {
-            sorted = a.sort();
-            uniq = [sorted[0]];
+            var sorted = a.sort();
+            var uniq = [sorted[0]];
             for (var i = 1; i < sorted.length; i++) {
                 if (sorted[i] != sorted[i - 1])
                     uniq.push(sorted[i]);
@@ -210,13 +223,13 @@ var CSTasks = (function () {
         return [];
     };
     return tasks;
-}());
+})();
 function main() {
     var sourceDoc = app.activeDocument;
     var colors = CSTasks.initializeColors(RGBColorElements, CMYKColorElements);
     /*****************************
-    Find or create the save folder
-    ******************************/
+      Find or create the save folder
+      ******************************/
     var name = sourceDoc.name.split(".")[0];
     var nameArray = name.split("_");
     //strip out the "_expressive" from the filename
@@ -228,16 +241,16 @@ function main() {
     if (!destFolder.exists)
         destFolder.create();
     /*****************
-    export EPS in RGB
-    *****************/
-    var rgbFilename = '/' + name + '_RGB.eps';
+      export EPS in RGB
+      *****************/
+    var rgbFilename = "/" + name + "_RGB.eps";
     var rgbDestFile = new File(destFolder + rgbFilename);
     var rgbSaveOpts = new EPSSaveOptions();
-    rgbSaveOpts.cmykPostScript = false;
+    EPSSaveOptions.cmykPostScript = false;
     sourceDoc.saveAs(rgbDestFile, rgbSaveOpts);
     /*************************
-    Duplicate document in CMYK
-    **************************/
+      Duplicate document in CMYK
+      **************************/
     //select everything in the document, get their colors,
     var sel = CSTasks.selectEverything(sourceDoc);
     var colorIndex = CSTasks.indexRGBColors(sourceDoc.pathItems, colors);
@@ -247,23 +260,24 @@ function main() {
     //create a new file in CMYK color mode that duplicates all the artboards and their contents
     var cmykDoc = CSTasks.duplicateArtboardsInNewDoc(sourceDoc, DocumentColorSpace.CMYK);
     cmykDoc.swatches.removeAll();
+    var ElementPlacement;
     var copiedGroup = everythingGroup.duplicate(cmykDoc.layers[0], ElementPlacement.PLACEATEND);
     var abCorner = CSTasks.getArtboardsTopLeft(cmykDoc.artboards);
     var dest = [abCorner[0] + offset[0], abCorner[1] + offset[1]];
     CSTasks.translateObjectTo(copiedGroup, dest);
     CSTasks.ungroupOnce(copiedGroup);
-    //convert colors to cmyk and keep track of the unconverted colors	
+    //convert colors to cmyk and keep track of the unconverted colors
     CSTasks.convertToCMYK(cmykDoc, cmykDoc.pathItems, colors, colorIndex);
     /*****************
-    export EPS in CMYK
-    *****************/
-    var cmykFilename = '/' + name + '_CMYK.eps';
+      export EPS in CMYK
+      *****************/
+    var cmykFilename = "/" + name + "_CMYK.eps";
     var cmykDestFile = new File(destFolder + cmykFilename);
     var cmykSaveOpts = new EPSSaveOptions();
     cmykDoc.saveAs(cmykDestFile, cmykSaveOpts);
     /*****************
-    close and clean up
-    *****************/
+      close and clean up
+      *****************/
     cmykDoc.close(SaveOptions.DONOTSAVECHANGES);
     cmykDoc = null;
     CSTasks.ungroupOnce(everythingGroup);
