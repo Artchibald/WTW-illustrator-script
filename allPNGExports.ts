@@ -1,7 +1,8 @@
 try {
-  alert(
-    "Make sure all icons are inside the layer called 'icons'. Make sure all background colors are on individual layers after the icons layer."
-  );
+  // uncomment instructions when going live
+  // alert(
+  //   "Make sure all icons are inside the layer called 'icons'. Make sure all background colors are on individual layers after the icons layer. Assets will be saved where the .ai file is saved."
+  // );
 
   // create 512x512 folder if it doesn't exist
   function create512x512Folder() {

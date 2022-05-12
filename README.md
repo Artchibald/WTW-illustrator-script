@@ -82,11 +82,33 @@ This script automates exports from Illustrator.
 - TBD:
 - Grouped in folders by Category and by filetype, for example Business Communication SVG, Business Communication EPS, Business Communication PNG (all sizes except 300), Business Communication PPT (300 size only)
 
+# Issues to be explored
+
 # Timescale breakdown
 
 ## Day 1
 
 Github repo set up. Review.
 Typescript implementation into repo.
+Implemented the latest Javascript tech stack, called Typescript. This is a language created by Microsoft recently, the typescript purpose is to make Javascript less error prone. It is working as expected and suggesting code snippets as it should in my code editor which is great. This will be very useful as we progress.
+Reviewed the Javascript code supplied by the client and typescript has flagged some issues I need to address. Parts of the script are not working as expected. I want to re-use as much as I can to save time, this is on going. If I have any new breakthroughs here, I will let you know.
+Started writing the new version of the script. Took a while to figure out how to declare the size of the exported pngs. Successfully managed to turn on and off multiple background color layers in the script, and automatically save a set of icons in the 512x512 category with different background colours. These include the color in the filename too. This has lead me to think about how to refactor my code to avoid unnecessary repetitions as I progress.
+My next task for this afternoon is to sketch/draw out the functionality/requirements of this script based on the brief from the client. I think that will be useful to make sure we are on the same page. I will send over soon. I will add this to the repository on github.com too.
 
-[outline]: images/outline.png
+## Day 2
+
+Nice breakthrough today.
+Re-used some parts of the supplied scripts.
+The script currently does:
+
+1. show instructions dialog alert
+2. creates a folder called 512x512 next to where the illustrator file is saved.
+3. Loops through all the icons, however many there may be (12 currently), and saves them as 512x512 PNGS against the background colors (3 currently). 3 x 12 = 36 pngs created. If there were more, it would create more automatically thanks top the loop I created today.
+   Now I just have to duplicate that script action for the other png sizes required which should be quite easy: 24x24, 32x32, 48x48, 64x64.
+   Next I will write something similar to generate the svgs and EPS versions.
+   Saving them with the correct filenames as per client request will be quite easy as it is working as expected.
+   Then the client brief talks about a "Contact sheet". A kind of map of all the created assets I assume. I haven't got to this part yet.
+   I think this is good progress for day 2.
+   I have created an unlisted youtube video to show you the progress:
+   https://www.youtube.com/watch?v=N26Mwt0gQoo
+   Because I can't attach files to this chat.
