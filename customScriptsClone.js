@@ -1,8 +1,19 @@
 try {
+    alert("Make sure all icons are inside the layer called 'icons'. Make sure all background colors are on individual layers after the icons layer.");
+    // create 512x512 folder if it doesn't exist
+    function create512x512Folder() {
+        var sourceDoc = app.activeDocument;
+        var name = "512x512";
+        var destFolder = Folder(sourceDoc.path + "/" + name);
+        if (!destFolder.exists)
+            destFolder.create();
+    }
+    create512x512Folder();
     function saveAsPNGAt512x512IconBg(layerName) {
-        // target icons sublayer WORKING
+        // target icons sublayers
         var myIconsLayer = app.activeDocument.layers["icons"];
         var myIconsSublayers = myIconsLayer.layers;
+        // loop through icons and export png for each
         for (var j = 0; j < myIconsSublayers.length; j++) {
             var iconLayer = myIconsSublayers[j];
             iconLayer.visible = true;
@@ -18,6 +29,7 @@ try {
             iconLayer.visible = false;
         }
     }
+    // Look through background colors and execute save them out functions.
     for (var i = 1; i < app.activeDocument.layers.length; i++) {
         var bgLayer = app.activeDocument.layers[i];
         bgLayer.visible = true;
