@@ -26,12 +26,12 @@ try {
     alert("the guide layer doesn't exist, the script should still work though");
   }
 
-  /**********************************
-   ** CREATE FOLDERS
+  /********************************** 
+   ** CREATE REQUIRED FOLDERS
    ***********************************/
   function create512x512Folder() {
     var sourceDoc = app.activeDocument;
-    var name = "512x512";
+    var name = "512x512"; 
     var destFolder = Folder(sourceDoc.path + "/" + name);
     if (!destFolder.exists) destFolder.create();
   }

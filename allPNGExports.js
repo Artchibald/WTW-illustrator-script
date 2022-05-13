@@ -27,7 +27,7 @@ try {
         alert("the guide layer doesn't exist, the script should still work though");
     }
     /**********************************
-     ** CREATE FOLDERS
+     ** CREATE REQUIRED FOLDERS
      ***********************************/
     function create512x512Folder() {
         var sourceDoc = app.activeDocument;
