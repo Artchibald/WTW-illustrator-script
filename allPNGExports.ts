@@ -13,7 +13,8 @@ try {
     app.activeDocument.layers["icons"].visible = true;
   } catch (e) {
     alert(
-      "can't locate the top level layer called 'icons', the script won't work without it."
+      "can't locate the top level layer called 'icons', the script won't work without it.",
+      e.message
     );
   }
   /**********************************
@@ -25,7 +26,10 @@ try {
     guideLayer.locked = false;
     guideLayer.remove();
   } catch (e) {
-    alert("the guide layer doesn't exist, the script will still work though.");
+    alert(
+      "the guide layer doesn't exist, the script will still work though.",
+      e.message
+    );
   }
 
   /**********************************
@@ -96,13 +100,13 @@ try {
     }
     createEPSFolder();
   } catch (e) {
-    alert("Something went wrong while creating the folders.");
+    alert("Something went wrong while creating the folders.", e.message);
   }
   /**********************************
    ** MAIN EXPORT LOOP
    ***********************************/
   try {
-    function saveAsPNGAt24x24IconBg(layerName) {
+    function saveAsPNGAt24x24(layerName) {
       // target icons sublayers
       var myIconsLayer = app.activeDocument.layers["icons"];
       var myIconsSublayers = myIconsLayer.layers;
@@ -125,7 +129,7 @@ try {
       }
     }
 
-    function saveAsPNGAt32x32IconBg(layerName) {
+    function saveAsPNGAt32x32(layerName) {
       // target icons sublayers
       var myIconsLayer = app.activeDocument.layers["icons"];
       var myIconsSublayers = myIconsLayer.layers;
@@ -148,7 +152,7 @@ try {
       }
     }
 
-    function saveAsPNGAt48x48IconBg(layerName) {
+    function saveAsPNGAt48x48(layerName) {
       // target icons sublayers
       var myIconsLayer = app.activeDocument.layers["icons"];
       var myIconsSublayers = myIconsLayer.layers;
@@ -171,7 +175,7 @@ try {
       }
     }
 
-    function saveAsPNGAt64x64IconBg(layerName) {
+    function saveAsPNGAt64x64(layerName) {
       // target icons sublayers
       var myIconsLayer = app.activeDocument.layers["icons"];
       var myIconsSublayers = myIconsLayer.layers;
@@ -194,7 +198,7 @@ try {
       }
     }
 
-    function saveAsPNGAt300x300IconBg(layerName) {
+    function saveAsPNGAt300x300(layerName) {
       // target icons sublayers
       var myIconsLayer = app.activeDocument.layers["icons"];
       var myIconsSublayers = myIconsLayer.layers;
@@ -217,7 +221,7 @@ try {
       }
     }
 
-    function saveAsPNGAt512x512IconBg(layerName) {
+    function saveAsPNGAt512x512(layerName) {
       // target icons sublayers
       var myIconsLayer = app.activeDocument.layers["icons"];
       var myIconsSublayers = myIconsLayer.layers;
@@ -239,8 +243,28 @@ try {
         iconLayer.visible = false;
       }
     }
+
+    function saveAsSVG(layerName) {
+      // target icons sublayers
+      var myIconsLayer = app.activeDocument.layers["icons"];
+      var myIconsSublayers = myIconsLayer.layers;
+      // loop through icons and export png for each
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        var iconLayer = myIconsSublayers[j];
+        iconLayer.visible = true;
+        var svgFile = new File(
+          `${app.activeDocument.path}/SVG/${iconLayer.name}${layerName}.svg`
+        );
+        var type = ExportType.SVG;
+        var opts = new ExportOptionsSVG();
+        ExportOptionsSVG.embedRasterImages = true;
+        ExportOptionsSVG.fontSubsetting = SVGFontSubsetting.GLYPHSUSED;
+        app.activeDocument.exportFile(svgFile, type, opts);
+        iconLayer.visible = false;
+      }
+    }
   } catch (e) {
-    alert("Something went wrong while trying to save the icons.");
+    alert("Something went wrong while trying to export the icons.", e.message);
   }
   /**********************************
    ** LOOP LAYER VISIBILITY OF ICONS AGAINST BACKGROUND COLORS AND EXECUTE SAVE FUNCTIONS
@@ -248,17 +272,18 @@ try {
   for (let i = 1; i < app.activeDocument.layers.length; i++) {
     var bgLayer = app.activeDocument.layers[i];
     bgLayer.visible = true;
-    saveAsPNGAt24x24IconBg(bgLayer.name);
-    saveAsPNGAt32x32IconBg(bgLayer.name);
-    saveAsPNGAt48x48IconBg(bgLayer.name);
-    saveAsPNGAt64x64IconBg(bgLayer.name);
-    saveAsPNGAt300x300IconBg(bgLayer.name);
-    saveAsPNGAt512x512IconBg(bgLayer.name);
+    saveAsPNGAt24x24(bgLayer.name);
+    saveAsPNGAt32x32(bgLayer.name);
+    saveAsPNGAt48x48(bgLayer.name);
+    saveAsPNGAt64x64(bgLayer.name);
+    saveAsPNGAt300x300(bgLayer.name);
+    saveAsPNGAt512x512(bgLayer.name);
+    saveAsSVG(bgLayer.name);
     bgLayer.visible = false;
   }
 
   // close the document here without saving!
   app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
-} catch (err) {
-  alert(err.message);
+} catch (e) {
+  alert(e.message);
 }
