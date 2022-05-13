@@ -1,10 +1,26 @@
 try {
   // uncomment instructions when going live
   // alert(
-  //   "Make sure all icons are inside the layer called 'icons'. Make sure all background colors are on individual layers after the icons layer. Assets will be saved where the .ai file is saved."
+  //   "Make sure all layers are invisible and unlocked to avoid bugs. Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. Make sure all background colors are on individual layers after the icons layer with correct layer names. Assets will be saved where the .ai file is saved."
   // );
 
-  // create 512x512 folder if it doesn't exist
+  // if icons layer is invisible, make it visible to avoid bugs
+  try {
+    app.activeDocument.layers["icons"].visible = true;
+  } catch (e) {
+    alert("can't locate the top level layer called 'icons'");
+  }
+  // unlock and delete the guide layer if it exists
+  try {
+    let guideLayer = app.activeDocument.layers["Guides (DO NOT MOVE)"];
+    guideLayer.visible = true;
+    guideLayer.locked = false;
+    guideLayer.remove();
+  } catch (e) {
+    alert("the guide layer doesn't exist, the script should still work though");
+  }
+
+  // create a new 512x512 folder next to current illustrator file saved location if it doesn't exist
   function create512x512Folder() {
     var sourceDoc = app.activeDocument;
     var name = "512x512";
@@ -29,8 +45,8 @@ try {
       ExportOptionsPNG24.antiAliasing = false;
       ExportOptionsPNG24.transparency = true;
       ExportOptionsPNG24.artBoardClipping = true;
-      ExportOptionsPNG24.horizontalScale = 512;
-      ExportOptionsPNG24.verticalScale = 512;
+      ExportOptionsPNG24.horizontalScale = 200;
+      ExportOptionsPNG24.verticalScale = 200;
       app.activeDocument.exportFile(pngFile, type, opts);
       iconLayer.visible = false;
     }

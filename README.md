@@ -82,7 +82,23 @@ This script automates exports from Illustrator.
 - TBD:
 - Grouped in folders by Category and by filetype, for example Business Communication SVG, Business Communication EPS, Business Communication PNG (all sizes except 300), Business Communication PPT (300 size only)
 
-# Issues to be explored
+# Bugs
+
+If all layers are on show only first
+
+# To be done
+
+URGENT DISCREPANCY BETWEEN AI FILE AND THE ICON STYLE GRID PDF!!
+
+if all layers on turn them off before running
+
+ignore locked guides layer
+
+if locked unlock
+
+# Questions for client
+
+Why are there 2 templates core and expressive?
 
 # Timescale breakdown
 
