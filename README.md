@@ -52,7 +52,7 @@ This script automates exports from Illustrator.
 
 # Graphical representation
 
-[![Course outline][outline]](https://github.com/Artchibald/typescript)
+[![Outline][outline]](https://github.com/Artchibald/WTW-illustrator-script)
 
 # How to use this script?
 
@@ -128,3 +128,5 @@ The script currently does:
    I have created an unlisted youtube video to show you the progress:
    https://www.youtube.com/watch?v=N26Mwt0gQoo
    Because I can't attach files to this chat.
+
+[outline]: images/outline.png

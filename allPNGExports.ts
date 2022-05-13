@@ -2,8 +2,8 @@ try {
   /**********************************
    ** INSTRUCTIONS DIALOG
    ***********************************/
-  alert(
-    "Artboard size must be exactly 256px x 256px. Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. Make sure all layers and sublayers are invisible and unlocked to avoid bugs. Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. Make sure all background colors are on individual layers after the icons layer with correct layer names. Exported assets will be saved where the .ai file is saved. The document will close without saving changes when complete so make sure you have saved your work so you can re-open it."
+  confirm(
+    "Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. \n\n Make sure all background colors are on individual layers after the icons layer with correct layer names.Exported assets will be saved where the.ai file is saved. \n\n The document will close without saving changes when complete so make sure you have saved your work so you can re - open it."
   );
 
   /**********************************
@@ -243,26 +243,6 @@ try {
         iconLayer.visible = false;
       }
     }
-
-    function saveAsSVG(layerName) {
-      // target icons sublayers
-      var myIconsLayer = app.activeDocument.layers["icons"];
-      var myIconsSublayers = myIconsLayer.layers;
-      // loop through icons and export png for each
-      for (let j = 0; j < myIconsSublayers.length; j++) {
-        var iconLayer = myIconsSublayers[j];
-        iconLayer.visible = true;
-        var svgFile = new File(
-          `${app.activeDocument.path}/SVG/${iconLayer.name}${layerName}.svg`
-        );
-        var type = ExportType.SVG;
-        var opts = new ExportOptionsSVG();
-        ExportOptionsSVG.embedRasterImages = true;
-        ExportOptionsSVG.fontSubsetting = SVGFontSubsetting.GLYPHSUSED;
-        app.activeDocument.exportFile(svgFile, type, opts);
-        iconLayer.visible = false;
-      }
-    }
   } catch (e) {
     alert("Something went wrong while trying to export the icons.", e.message);
   }
@@ -278,11 +258,10 @@ try {
     saveAsPNGAt64x64(bgLayer.name);
     saveAsPNGAt300x300(bgLayer.name);
     saveAsPNGAt512x512(bgLayer.name);
-    saveAsSVG(bgLayer.name);
     bgLayer.visible = false;
   }
 
-  // close the document here without saving!
+  // close the document here without saving
   app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 } catch (e) {
   alert(e.message);
