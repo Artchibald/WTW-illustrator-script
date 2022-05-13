@@ -2,9 +2,9 @@ try {
   /**********************************
    ** INSTRUCTIONS DIALOG
    ***********************************/
-  // alert(
-  //   "Artboard size must be exactly 256px x 256px. Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. Make sure all layers are invisible and unlocked to avoid bugs. Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. Make sure all background colors are on individual layers after the icons layer with correct layer names. Exported assets will be saved where the .ai file is saved."
-  // );
+  alert(
+    "Artboard size must be exactly 256px x 256px. Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. Make sure all layers and sublayers are invisible and unlocked to avoid bugs. Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. Make sure all background colors are on individual layers after the icons layer with correct layer names. Exported assets will be saved where the .ai file is saved. The document will close without saving changes when complete so make sure you have saved your work so you can re-open it."
+  );
 
   /**********************************
    ** MAKE ICONS LAYER VISIBLE
@@ -102,6 +102,98 @@ try {
    ** MAIN EXPORT LOOP
    ***********************************/
   try {
+    function saveAsPNGAt24x24IconBg(layerName) {
+      // target icons sublayers
+      var myIconsLayer = app.activeDocument.layers["icons"];
+      var myIconsSublayers = myIconsLayer.layers;
+      // loop through icons and export png for each
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        var iconLayer = myIconsSublayers[j];
+        iconLayer.visible = true;
+        var pngFile = new File(
+          `${app.activeDocument.path}/24x24/${iconLayer.name}${layerName}.png`
+        );
+        var type = ExportType.PNG24;
+        var opts = new ExportOptionsPNG24();
+        ExportOptionsPNG24.antiAliasing = false;
+        ExportOptionsPNG24.transparency = true;
+        ExportOptionsPNG24.artBoardClipping = true;
+        ExportOptionsPNG24.horizontalScale = 9.375; // 24px x 24px
+        ExportOptionsPNG24.verticalScale = 9.375; // 24px x 24px
+        app.activeDocument.exportFile(pngFile, type, opts);
+        iconLayer.visible = false;
+      }
+    }
+
+    function saveAsPNGAt32x32IconBg(layerName) {
+      // target icons sublayers
+      var myIconsLayer = app.activeDocument.layers["icons"];
+      var myIconsSublayers = myIconsLayer.layers;
+      // loop through icons and export png for each
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        var iconLayer = myIconsSublayers[j];
+        iconLayer.visible = true;
+        var pngFile = new File(
+          `${app.activeDocument.path}/32x32/${iconLayer.name}${layerName}.png`
+        );
+        var type = ExportType.PNG24;
+        var opts = new ExportOptionsPNG24();
+        ExportOptionsPNG24.antiAliasing = false;
+        ExportOptionsPNG24.transparency = true;
+        ExportOptionsPNG24.artBoardClipping = true;
+        ExportOptionsPNG24.horizontalScale = 12.5; // 32px x 32px
+        ExportOptionsPNG24.verticalScale = 12.5; // 32px x 32px
+        app.activeDocument.exportFile(pngFile, type, opts);
+        iconLayer.visible = false;
+      }
+    }
+
+    function saveAsPNGAt48x48IconBg(layerName) {
+      // target icons sublayers
+      var myIconsLayer = app.activeDocument.layers["icons"];
+      var myIconsSublayers = myIconsLayer.layers;
+      // loop through icons and export png for each
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        var iconLayer = myIconsSublayers[j];
+        iconLayer.visible = true;
+        var pngFile = new File(
+          `${app.activeDocument.path}/48x48/${iconLayer.name}${layerName}.png`
+        );
+        var type = ExportType.PNG24;
+        var opts = new ExportOptionsPNG24();
+        ExportOptionsPNG24.antiAliasing = false;
+        ExportOptionsPNG24.transparency = true;
+        ExportOptionsPNG24.artBoardClipping = true;
+        ExportOptionsPNG24.horizontalScale = 18.75; // 48px x 48px
+        ExportOptionsPNG24.verticalScale = 18.75; // 48px x 48px
+        app.activeDocument.exportFile(pngFile, type, opts);
+        iconLayer.visible = false;
+      }
+    }
+
+    function saveAsPNGAt64x64IconBg(layerName) {
+      // target icons sublayers
+      var myIconsLayer = app.activeDocument.layers["icons"];
+      var myIconsSublayers = myIconsLayer.layers;
+      // loop through icons and export png for each
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        var iconLayer = myIconsSublayers[j];
+        iconLayer.visible = true;
+        var pngFile = new File(
+          `${app.activeDocument.path}/64x64/${iconLayer.name}${layerName}.png`
+        );
+        var type = ExportType.PNG24;
+        var opts = new ExportOptionsPNG24();
+        ExportOptionsPNG24.antiAliasing = false;
+        ExportOptionsPNG24.transparency = true;
+        ExportOptionsPNG24.artBoardClipping = true;
+        ExportOptionsPNG24.horizontalScale = 25; // 300px x 300px
+        ExportOptionsPNG24.verticalScale = 25; // 300px x 300px
+        app.activeDocument.exportFile(pngFile, type, opts);
+        iconLayer.visible = false;
+      }
+    }
+
     function saveAsPNGAt300x300IconBg(layerName) {
       // target icons sublayers
       var myIconsLayer = app.activeDocument.layers["icons"];
@@ -156,10 +248,17 @@ try {
   for (let i = 1; i < app.activeDocument.layers.length; i++) {
     var bgLayer = app.activeDocument.layers[i];
     bgLayer.visible = true;
+    saveAsPNGAt24x24IconBg(bgLayer.name);
+    saveAsPNGAt32x32IconBg(bgLayer.name);
+    saveAsPNGAt48x48IconBg(bgLayer.name);
+    saveAsPNGAt64x64IconBg(bgLayer.name);
     saveAsPNGAt300x300IconBg(bgLayer.name);
     saveAsPNGAt512x512IconBg(bgLayer.name);
     bgLayer.visible = false;
   }
+
+  // close the document here without saving!
+  app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 } catch (err) {
   alert(err.message);
 }
