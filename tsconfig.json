@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "module": "es6",
-    "strict": false,
+    "module": "none",
     "noLib": true,
     "types": ["types-for-adobe/illustrator/2015.3"]
   },
