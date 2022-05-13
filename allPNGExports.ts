@@ -1,16 +1,22 @@
 try {
-  // uncomment instructions when going live
+  /**********************************
+   ** INSTRUCTIONS DIALOG
+   ***********************************/
   // alert(
   //   "Make sure all layers are invisible and unlocked to avoid bugs. Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. Make sure all background colors are on individual layers after the icons layer with correct layer names. Assets will be saved where the .ai file is saved."
   // );
 
-  // if icons layer is invisible, make it visible to avoid bugs
+  /**********************************
+   ** MAKE ICONS LAYER VISIBLE
+   ***********************************/
   try {
     app.activeDocument.layers["icons"].visible = true;
   } catch (e) {
     alert("can't locate the top level layer called 'icons'");
   }
-  // unlock and delete the guide layer if it exists
+  /**********************************
+   ** REMOVE GUIDES LAYER
+   ***********************************/
   try {
     let guideLayer = app.activeDocument.layers["Guides (DO NOT MOVE)"];
     guideLayer.visible = true;
@@ -20,7 +26,9 @@ try {
     alert("the guide layer doesn't exist, the script should still work though");
   }
 
-  // create a new 512x512 folder next to current illustrator file saved location if it doesn't exist
+  /**********************************
+   ** CREATE FOLDERS
+   ***********************************/
   function create512x512Folder() {
     var sourceDoc = app.activeDocument;
     var name = "512x512";
@@ -29,6 +37,9 @@ try {
   }
   create512x512Folder();
 
+  /**********************************
+   ** MAIN EXPORT LOOP
+   ***********************************/
   function saveAsPNGAt512x512IconBg(layerName) {
     // target icons sublayers
     var myIconsLayer = app.activeDocument.layers["icons"];
@@ -51,7 +62,9 @@ try {
       iconLayer.visible = false;
     }
   }
-  // Look through background colors and execute save them out functions.
+  /**********************************
+   ** LOOP LAYER VISIBILITY OF ICONS AGAINST BACKGROUND COLORS AND EXECUTE SAVE FUNCTIONS
+   ***********************************/
   for (let i = 1; i < app.activeDocument.layers.length; i++) {
     var bgLayer = app.activeDocument.layers[i];
     bgLayer.visible = true;
