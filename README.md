@@ -52,7 +52,7 @@ This script automates exports from Illustrator.
 
 # Graphical representation
 
-[![Outline][outline]](https://github.com/Artchibald/WTW-illustrator-script)
+<img src="images/outline.png" alt="outline" width="400">
 
 # How to use this script?
 
@@ -128,5 +128,21 @@ The script currently does:
    I have created an unlisted youtube video to show you the progress:
    https://www.youtube.com/watch?v=N26Mwt0gQoo
    Because I can't attach files to this chat.
+
+Update day 3
+
+Improved readme
+
+Fixed a few major bugs this morning around showing and hiding layers
+
+Successfully exported all correct pngs: 24, 32, 48, 64, 300, 512
+
+Trying to get SVG and EPS to export but I am still trying to get these 2 to work. Hoping to have them ready before Monday.
+
+Some bits we will need soon from the design team:
+
+- Discuss the exact folder structure of the all assets
+- Discuss the exact file naming convention
+- Can I get an example of the 'Contact sheet' mentioned in the brief please?
 
 [outline]: images/outline.png
