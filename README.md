@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="">
-    <img src="images/WTW.png" alt="Logo" width="180" height="180">
+    <img src="imagesInReadme/WTW.png" alt="Logo" width="180" height="180">
   </a>
 
 <h3 align="center">A JS script that automates icon export processes in Adobe Illustrator</h3>
@@ -54,11 +54,11 @@ This script automates exports from Illustrator.
 
 # Graphical representation
 
-<img src="images/outline.png" alt="outline" width="400">
+<img src="imagesInReadme/outline.png" alt="outline" width="400">
 
 # Illustrator object  model
 
-<img src="images/objectmodel.png" alt="outline" >
+<img src="imagesInReadme/objectmodel.png" alt="outline" >
 
 # How to use this script?
 
@@ -155,6 +155,6 @@ Some bits we will need soon from the design team:
 - Discuss the exact file naming convention
 - Can I get an example of the 'Contact sheet' mentioned in the brief please?
 
-[outline]: images/outline.png
+[outline]: imagesInReadme/outline.png
 
-[objectmodel]: images/objectmodel.png
+[objectmodel]: imagesInReadme/objectmodel.png
