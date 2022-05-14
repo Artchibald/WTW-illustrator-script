@@ -88,6 +88,10 @@ If all layers are on show only first
 
 # To be done
 
+Change functions to arrow functions
+
+change all vars to lets
+
 URGENT DISCREPANCY BETWEEN AI FILE AND THE ICON STYLE GRID PDF!!
 
 if all layers on turn them off before running

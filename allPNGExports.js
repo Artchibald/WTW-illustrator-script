@@ -1,8 +1,11 @@
 try {
     /**********************************
+     ** README https://github.com/Artchibald/WTW-illustrator-script
+     ***********************************/
+    /**********************************
      ** INSTRUCTIONS DIALOG
      ***********************************/
-    confirm("Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. \n\n Make sure all background colors are on individual layers after the icons layer with correct layer names.Exported assets will be saved where the.ai file is saved. \n\n The document will close without saving changes when complete so make sure you have saved your work so you can re - open it.");
+    alert("Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. \n\n Make sure all background colors are on individual layers after the icons layer with correct layer names.Exported assets will be saved where the.ai file is saved. \n\n The document will close without saving changes when complete so make sure you have saved your work so you can re - open it.");
     /**********************************
      ** MAKE ICONS LAYER VISIBLE
      ***********************************/
@@ -28,66 +31,59 @@ try {
      ** CREATE REQUIRED FOLDERS
      ***********************************/
     try {
+        var sourceDoc_1 = app.activeDocument;
+        var name300x300_1 = "300x300";
+        var name512x512_1 = "512x512";
+        var name64x64_1 = "64x64";
+        var name48x48_1 = "48x48";
+        var name32x32_1 = "32x32";
+        var name24x24_1 = "24x24";
+        var nameSVG_1 = "SVG";
+        var nameEPS_1 = "EPS";
         function create24x24Folder() {
-            var sourceDoc = app.activeDocument;
-            var name = "24x24";
-            var destFolder = Folder(sourceDoc.path + "/" + name);
+            var destFolder = Folder(sourceDoc_1.path + "/" + name24x24_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
         create24x24Folder();
         function create32x32Folder() {
-            var sourceDoc = app.activeDocument;
-            var name = "32x32";
-            var destFolder = Folder(sourceDoc.path + "/" + name);
+            var destFolder = Folder(sourceDoc_1.path + "/" + name32x32_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
         create32x32Folder();
         function create48x48Folder() {
-            var sourceDoc = app.activeDocument;
-            var name = "48x48";
-            var destFolder = Folder(sourceDoc.path + "/" + name);
+            var destFolder = Folder(sourceDoc_1.path + "/" + name48x48_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
         create48x48Folder();
         function create64x64Folder() {
-            var sourceDoc = app.activeDocument;
-            var name = "64x64";
-            var destFolder = Folder(sourceDoc.path + "/" + name);
+            var destFolder = Folder(sourceDoc_1.path + "/" + name64x64_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
         create64x64Folder();
         function create300x300Folder() {
-            var sourceDoc = app.activeDocument;
-            var name = "300x300";
-            var destFolder = Folder(sourceDoc.path + "/" + name);
+            var destFolder = Folder(sourceDoc_1.path + "/" + name300x300_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
         create300x300Folder();
         function create512x512Folder() {
-            var sourceDoc = app.activeDocument;
-            var name = "512x512";
-            var destFolder = Folder(sourceDoc.path + "/" + name);
+            var destFolder = Folder(sourceDoc_1.path + "/" + name512x512_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
         create512x512Folder();
         function createSVGFolder() {
-            var sourceDoc = app.activeDocument;
-            var name = "SVG";
-            var destFolder = Folder(sourceDoc.path + "/" + name);
+            var destFolder = Folder(sourceDoc_1.path + "/" + nameSVG_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
         createSVGFolder();
         function createEPSFolder() {
-            var sourceDoc = app.activeDocument;
-            var name = "EPS";
-            var destFolder = Folder(sourceDoc.path + "/" + name);
+            var destFolder = Folder(sourceDoc_1.path + "/" + nameEPS_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
@@ -220,6 +216,46 @@ try {
                 iconLayer.visible = false;
             }
         }
+        function saveAsSVG(layerName) {
+            // target icons sublayers
+            var myIconsLayer = app.activeDocument.layers["icons"];
+            var myIconsSublayers = myIconsLayer.layers;
+            // loop through icons and export png for each
+            for (var j = 0; j < myIconsSublayers.length; j++) {
+                var iconLayer = myIconsSublayers[j];
+                iconLayer.visible = true;
+                alert("IconLayer Name: ", iconLayer.name);
+                alert("LayerName: ", layerName);
+                var svgFile = new File("".concat(app.activeDocument.path, "/SVG/").concat(iconLayer.name).concat(layerName, ".svg"));
+                var type = ExportType.SVG;
+                var opts = new ExportOptionsSVG();
+                app.activeDocument.exportFile(svgFile, type, opts);
+                iconLayer.visible = false;
+            }
+        }
+        // function saveAsEPS(layerName) {
+        //   // target icons sublayers
+        //   var myIconsLayer = app.activeDocument.layers["icons"];
+        //   var myIconsSublayers = myIconsLayer.layers;
+        //   // loop through icons and export svg for each
+        //   for (let j = 0; j < myIconsSublayers.length; j++) {
+        //     var iconLayer = myIconsSublayers[j];
+        //     iconLayer.visible = true;
+        //     var epsFile = new File(
+        //       `${app.activeDocument.path}/EPS/${iconLayer.name}${layerName}.eps`
+        //     );
+        //     // var type = ExportType.PNG24;
+        //     var opts = new EPSSaveOptions();
+        //     EPSSaveOptions.cmykPostScript = false;
+        //     EPSSaveOptions.embedAllFonts = false;
+        //     EPSSaveOptions.artboardRange = "";
+        //     EPSSaveOptions.embedLinkedFiles = true;
+        //     EPSSaveOptions.includeDocumentThumbnails = true;
+        //     EPSSaveOptions.saveMultipleArtboards = true;
+        //     app.activeDocument.saveAs(epsFile, opts);
+        //     iconLayer.visible = false;
+        //   }
+        // }
     }
     catch (e) {
         alert("Something went wrong while trying to export the icons.", e.message);
@@ -227,15 +263,21 @@ try {
     /**********************************
      ** LOOP LAYER VISIBILITY OF ICONS AGAINST BACKGROUND COLORS AND EXECUTE SAVE FUNCTIONS
      ***********************************/
+    alert("App V  ersion : ", app.version);
+    alert("App Scripting Version: ", app.scriptingVersion);
     for (var i = 1; i < app.activeDocument.layers.length; i++) {
         var bgLayer = app.activeDocument.layers[i];
         bgLayer.visible = true;
+        alert("**** bgLayer.name: ", bgLayer.name);
         saveAsPNGAt24x24(bgLayer.name);
         saveAsPNGAt32x32(bgLayer.name);
         saveAsPNGAt48x48(bgLayer.name);
         saveAsPNGAt64x64(bgLayer.name);
         saveAsPNGAt300x300(bgLayer.name);
         saveAsPNGAt512x512(bgLayer.name);
+        // alert("**** LayerName: ", bgLayer.name);
+        saveAsSVG(bgLayer.name);
+        // saveAsEPS(bgLayer.name);
         bgLayer.visible = false;
     }
     // close the document here without saving
