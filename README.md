@@ -158,3 +158,9 @@ Some bits we will need soon from the design team:
 [outline]: imagesInReadme/outline.png
 
 [objectmodel]: imagesInReadme/objectmodel.png
+
+
+## Day 4 Sat fustrated weekend free work
+
+Got SVG and EPS JUST working 4 hours
+Need to figure out MAJOR blocker folder export issue
