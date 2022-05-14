@@ -16,6 +16,7 @@ try {
      ** MAKE ICONS LAYER VISIBLE
      ***********************************/
     try {
+        // alert(app.version);
         app.activeDocument.layers["icons"].visible = true;
     }
     catch (e) {
@@ -230,36 +231,38 @@ try {
             for (var k = 0; k < myIconsSublayers.length; k++) {
                 var iconLayer = myIconsSublayers[k];
                 iconLayer.visible = true;
-                alert("IconLayer Name: ", iconLayer.name);
                 // alert("LayerName: ", layerName);
-                var svgFile = new File("".concat(app.activeDocument.path, "/SVG/").concat(iconLayer.name).concat(layerName, ".svg"));
+                var svgFile = new File("".concat(app.activeDocument.path, "/").concat(iconLayer.name, ".svg"));
                 var type = ExportType.SVG;
-                var opts = new ExportOptionsSVG();
-                app.activeDocument.exportFile(svgFile, type, opts);
+                // let opts = new ExportOptionsSVG(); 
+                // alert(iconLayer);
+                app.activeDocument.exportFile(svgFile, type);
                 iconLayer.visible = false;
             }
         }
-        function saveAsEPS(layerName) {
-            // target icons sublayers
-            var myIconsLayer = app.activeDocument.layers["icons"];
-            var myIconsSublayers = myIconsLayer.layers;
-            // loop through icons and export svg for each
-            for (var j = 0; j < myIconsSublayers.length; j++) {
-                var iconLayer = myIconsSublayers[j];
-                iconLayer.visible = true;
-                var epsFile = new File("".concat(app.activeDocument.path, "/EPS/").concat(iconLayer.name).concat(layerName, ".eps"));
-                // var type = ExportType.PNG24;
-                var opts = new EPSSaveOptions();
-                EPSSaveOptions.cmykPostScript = false;
-                EPSSaveOptions.embedAllFonts = false;
-                EPSSaveOptions.artboardRange = "";
-                EPSSaveOptions.embedLinkedFiles = true;
-                EPSSaveOptions.includeDocumentThumbnails = true;
-                EPSSaveOptions.saveMultipleArtboards = true;
-                app.activeDocument.saveAs(epsFile, opts);
-                iconLayer.visible = false;
-            }
-        }
+        // function saveAsEPS(layerName) {
+        //   // target icons sublayers
+        //   var myIconsLayer = app.activeDocument.layers["icons"];
+        //   var myIconsSublayers = myIconsLayer.layers;
+        //   // loop through icons and export svg for each
+        //   for (let j = 0; j < myIconsSublayers.length; j++) {
+        //     var iconLayer = myIconsSublayers[j];
+        //     iconLayer.visible = true;
+        //     var epsFile = new File(
+        //       `${app.activeDocument.path}/EPS/${iconLayer.name}${layerName}.eps`
+        //     );
+        //     // var type = ExportType.PNG24;
+        //     var opts = new EPSSaveOptions();
+        //     EPSSaveOptions.cmykPostScript = false;
+        //     EPSSaveOptions.embedAllFonts = false;
+        //     EPSSaveOptions.artboardRange = "";
+        //     EPSSaveOptions.embedLinkedFiles = true;
+        //     EPSSaveOptions.includeDocumentThumbnails = true;
+        //     EPSSaveOptions.saveMultipleArtboards = true;
+        //     app.activeDocument.saveAs(epsFile, opts);
+        //     iconLayer.visible = false;
+        //   }
+        // }
     }
     catch (e) {
         alert("Something went wrong while trying to export the icons.", e.message);
@@ -276,11 +279,11 @@ try {
         saveAsPNGAt64x64(bgLayer.name);
         saveAsPNGAt300x300(bgLayer.name);
         saveAsPNGAt512x512(bgLayer.name);
-        // alert("**** LayerName: ", bgLayer.name);
         saveAsSVG(bgLayer.name);
         // saveAsEPS(bgLayer.name);
         bgLayer.visible = false;
     }
+    // alert(app.activeDocument.layers["icons"].name);
     // close the document here without saving
     // app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 }

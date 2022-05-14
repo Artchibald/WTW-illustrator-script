@@ -2,18 +2,18 @@
 <!-- Generator: Adobe Illustrator 26.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
-<g id="Square-fireworks" style="display:none;">
-	<rect x="26" style="display:inline;fill:#E377DC;" width="230" height="230"/>
+<g id="Square-fireworks">
+	<rect x="26" style="fill:#E377DC;" width="230" height="230"/>
 </g>
 <g id="Square_-coral" style="display:none;">
 	<rect x="26" style="display:inline;fill:#FFA3C2;" width="230" height="230"/>
 </g>
-<g id="Square-UV">
-	<rect x="26" style="fill:#C2A8F0;" width="230" height="229.871"/>
+<g id="Square-UV" style="display:none;">
+	<rect x="26" style="display:inline;fill:#C2A8F0;" width="230" height="229.871"/>
 </g>
 <g id="icons">
-	<g id="Collaboration-dkUV" style="display:none;">
-		<path style="display:inline;fill:#48086F;" d="M12.299,26.827c-7.018,0-12.714,5.696-12.714,12.714v88.998l25.428-25.428h101.713
+	<g id="Collaboration-dkUV">
+		<path style="fill:#48086F;" d="M12.299,26.827c-7.018,0-12.714,5.696-12.714,12.714v88.998l25.428-25.428h101.713
 			c7.018,0,12.714-5.696,12.714-12.714V39.541c0-7.018-5.696-12.714-12.714-12.714H12.299z M164.868,39.541v50.856
 			c0,9.803-3.818,18.664-9.908,25.428h48.05l25.428,25.428V52.255c0-7.018-5.696-12.714-12.714-12.714H164.868z M50.441,141.254
 			c-14.044,0-25.428,11.385-25.428,25.428c0,14.044,11.385,25.428,25.428,25.428s25.428-11.385,25.428-25.428
@@ -136,9 +136,9 @@
 			C71.786,208.511,46.64,183.377,42.084,151.379z M165.266,151.379h21.087c-4.556,31.998-29.702,57.132-61.713,61.687v-21.078
 			C144.973,187.816,161.093,171.703,165.266,151.379z"/>
 	</g>
-	<g id="Lightening">
-		<polygon points="156.857,26.827 104.552,26.827 51.131,156.304 100.952,156.304 51.846,255.705 143.904,133.734 93.406,133.734 		
-			"/>
+	<g id="Lightening" style="display:none;">
+		<polygon style="display:inline;" points="156.857,26.827 104.552,26.827 51.131,156.304 100.952,156.304 51.846,255.705 
+			143.904,133.734 93.406,133.734 		"/>
 	</g>
 </g>
 </svg>
