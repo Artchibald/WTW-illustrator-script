@@ -247,23 +247,33 @@ try {
         iconLayer.visible = false;
       }
     }
-
+    // it turns it into a svg
+    // you must duplicate the ai file before you export svg!
     function saveAsSVG(layerName) {
-      // target icons sublayers 
       let myIconsLayer = app.activeDocument.layers["icons"];
       let myIconsSublayers = myIconsLayer.layers;
-
-      // loop through icons and export png for each
       for (let k = 0; k < myIconsSublayers.length; k++) {
         let iconLayer = myIconsSublayers[k];
         iconLayer.visible = true; 
-        // alert("LayerName: ", layerName);
         let svgFile = new File(
-          `${app.activeDocument.path}/${iconLayer.name}.svg`
+          `${app.activeDocument.path}/${iconLayer.name}${layerName}`
         );
         let type = ExportType.SVG;
-        // let opts = new ExportOptionsSVG(); 
-        // alert(iconLayer);
+        app.activeDocument.exportFile(svgFile, type);
+        iconLayer.visible = false;
+      }
+    }
+
+    function saveAsEPS(layerName) {
+      let myIconsLayer = app.activeDocument.layers["icons"];
+      let myIconsSublayers = myIconsLayer.layers;
+      for (let k = 0; k < myIconsSublayers.length; k++) {
+        let iconLayer = myIconsSublayers[k];
+        iconLayer.visible = true; 
+        let svgFile = new File(
+          `${app.activeDocument.path}/${iconLayer.name}${layerName}`
+        );
+        let type = ExportType.SVG;
         app.activeDocument.exportFile(svgFile, type);
         iconLayer.visible = false;
       }
@@ -309,8 +319,8 @@ try {
     saveAsPNGAt64x64(bgLayer.name);
     saveAsPNGAt300x300(bgLayer.name);
     saveAsPNGAt512x512(bgLayer.name);
-      saveAsSVG(bgLayer.name);
-    // saveAsEPS(bgLayer.name);
+   // saveAsSVG(bgLayer.name);
+    saveAsEPS(bgLayer.name);
     bgLayer.visible = false;
   }
   // alert(app.activeDocument.layers["icons"].name);

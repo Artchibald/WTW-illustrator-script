@@ -223,19 +223,28 @@ try {
                 iconLayer.visible = false;
             }
         }
+        // it turns it into a svg
+        // you must duplicate the ai file before you export svg!
         function saveAsSVG(layerName) {
-            // target icons sublayers 
             var myIconsLayer = app.activeDocument.layers["icons"];
             var myIconsSublayers = myIconsLayer.layers;
-            // loop through icons and export png for each
             for (var k = 0; k < myIconsSublayers.length; k++) {
                 var iconLayer = myIconsSublayers[k];
                 iconLayer.visible = true;
-                // alert("LayerName: ", layerName);
-                var svgFile = new File("".concat(app.activeDocument.path, "/").concat(iconLayer.name, ".svg"));
+                var svgFile = new File("".concat(app.activeDocument.path, "/").concat(iconLayer.name).concat(layerName));
                 var type = ExportType.SVG;
-                // let opts = new ExportOptionsSVG(); 
-                // alert(iconLayer);
+                app.activeDocument.exportFile(svgFile, type);
+                iconLayer.visible = false;
+            }
+        }
+        function saveAsEPS(layerName) {
+            var myIconsLayer = app.activeDocument.layers["icons"];
+            var myIconsSublayers = myIconsLayer.layers;
+            for (var k = 0; k < myIconsSublayers.length; k++) {
+                var iconLayer = myIconsSublayers[k];
+                iconLayer.visible = true;
+                var svgFile = new File("".concat(app.activeDocument.path, "/").concat(iconLayer.name).concat(layerName));
+                var type = ExportType.SVG;
                 app.activeDocument.exportFile(svgFile, type);
                 iconLayer.visible = false;
             }
@@ -279,8 +288,8 @@ try {
         saveAsPNGAt64x64(bgLayer.name);
         saveAsPNGAt300x300(bgLayer.name);
         saveAsPNGAt512x512(bgLayer.name);
-        saveAsSVG(bgLayer.name);
-        // saveAsEPS(bgLayer.name);
+        // saveAsSVG(bgLayer.name);
+        saveAsEPS(bgLayer.name);
         bgLayer.visible = false;
     }
     // alert(app.activeDocument.layers["icons"].name);
