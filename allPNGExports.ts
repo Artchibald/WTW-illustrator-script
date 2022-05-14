@@ -256,7 +256,7 @@ try {
         let iconLayer = myIconsSublayers[k];
         iconLayer.visible = true; 
         let svgFile = new File(
-          `${app.activeDocument.path}/${iconLayer.name}${layerName}`
+          `${app.activeDocument.path}/${iconLayer.name}${layerName}.svg`
         );
         let type = ExportType.SVG;
         app.activeDocument.exportFile(svgFile, type);
@@ -270,11 +270,17 @@ try {
       for (let k = 0; k < myIconsSublayers.length; k++) {
         let iconLayer = myIconsSublayers[k];
         iconLayer.visible = true; 
-        let svgFile = new File(
-          `${app.activeDocument.path}/${iconLayer.name}${layerName}`
+        let epsFile = new File(
+          `${app.activeDocument.path}/${iconLayer.name}${layerName}.eps`
         );
-        let type = ExportType.SVG;
-        app.activeDocument.exportFile(svgFile, type);
+        var opts = new EPSSaveOptions();
+        EPSSaveOptions.cmykPostScript = false;
+        EPSSaveOptions.embedAllFonts = false;
+        EPSSaveOptions.artboardRange = "";
+        EPSSaveOptions.embedLinkedFiles = true;
+        EPSSaveOptions.includeDocumentThumbnails = true;
+        EPSSaveOptions.saveMultipleArtboards = true;
+        app.activeDocument.saveAs(epsFile, opts);
         iconLayer.visible = false;
       }
     }
@@ -319,7 +325,7 @@ try {
     saveAsPNGAt64x64(bgLayer.name);
     saveAsPNGAt300x300(bgLayer.name);
     saveAsPNGAt512x512(bgLayer.name);
-   // saveAsSVG(bgLayer.name);
+    saveAsSVG(bgLayer.name);
     saveAsEPS(bgLayer.name);
     bgLayer.visible = false;
   }
