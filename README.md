@@ -139,7 +139,7 @@ The script currently does:
    https://www.youtube.com/watch?v=N26Mwt0gQoo
    Because I can't attach files to this chat.
 
-Update day 3
+## Day 3
 
 Improved readme
 
