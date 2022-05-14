@@ -6,7 +6,7 @@
     <img src="imagesInReadme/WTW.png" alt="Logo" width="180" height="180">
   </a>
 
-<h3 align="center">A JS script that automates icon export processes in Adobe Illustrator</h3>
+<h3 align="center">A Typescript file that converts into ECMA 3 target JS file for use in Adobe Illustrator 2022. JS script that automates icon export processes in Adobe Illustrator</h3>
 
   <p align="center">
     Useful links 
@@ -51,6 +51,25 @@ This script automates exports from Illustrator.
 <a href="https://ai-scripting.docsforadobe.dev/">Adobe Illustrator API documentation</a> > This is where all the commands are referenced for re-use.
 <a href="https://extendscript.docsforadobe.dev">Extend Script</a> 
 
+# Built with
+
+- VS code
+- VS code extension extend script debugger by Adobe: faster load with play button and much better debugging. Extensions > Install  "ExtendScript Debugger". Follow instructions for better debugging, script stop break points and console returns achieved with this.
+- Uses node js dependency types for adobe NPM https://registry.npmjs.org/types-for-adobe
+- Use VS code > Main Menu > Terminal > Run build Task > Choose Build or Watch to convert .TS to .JS
+
+
+```
+
+git pull... repo etc
+node installed?
+typescript installed?
+npm i
+open .ai in Illustrator
+File > Scripts > Other Scripts > Add WTW_main_script.js
+
+
+```
 
 # Graphical representation
 
