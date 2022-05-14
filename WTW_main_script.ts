@@ -247,20 +247,28 @@ try {
         iconLayer.visible = false;
       }
     }
+    // MAJOR BLOCKER BUG!
+    // I want to write to /SVG/ and /EPS/ folder here I can't, only root works
     // it turns it into a svg
-    // you must duplicate the ai file before you export svg!
-    function saveAsSVG(layerName) {
+    // you must duplicate the ai file before you export svg !
+    function saveAsSVG(layerName) { 
       let myIconsLayer = app.activeDocument.layers["icons"];
       let myIconsSublayers = myIconsLayer.layers;
       for (let k = 0; k < myIconsSublayers.length; k++) {
         let iconLayer = myIconsSublayers[k];
         iconLayer.visible = true; 
         let svgFile = new File(
+          // Blocker: If I add /SVG/ after .path/ here it doesn't work! It uses save prompt, I dont want this
           `${app.activeDocument.path}/${iconLayer.name}${layerName}.svg`
-        );
+        ); 
         let type = ExportType.SVG;
+        ExportOptionsSVG.embedRasterImages = true;
+        ExportOptionsSVG.fontSubsetting = SVGFontSubsetting.GLYPHSUSED;
         app.activeDocument.exportFile(svgFile, type);
         iconLayer.visible = false;
+        // DocumentType.ILLUSTRATOR;
+        // //app.activeDocument.save();
+
       }
     }
 
@@ -300,13 +308,15 @@ try {
     saveAsPNGAt48x48(bgLayer.name);
     saveAsPNGAt64x64(bgLayer.name);
     saveAsPNGAt300x300(bgLayer.name);
-    saveAsPNGAt512x512(bgLayer.name);
+    saveAsPNGAt512x512(bgLayer.name);    
     saveAsSVG(bgLayer.name);
     saveAsEPS(bgLayer.name);
     bgLayer.visible = false;
   }
-  // alert(app.activeDocument.layers["icons"].name);
-  // close the document here without saving
+  // revert the doc from a .svg to a .ai, I don't want it to be svg!
+      DocumentType.ILLUSTRATOR;
+      app.activeDocument.save();
+  // close the document here without saving, uncomment for prod
   // app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 } catch (e) {
   alert(e.message);

@@ -8,7 +8,7 @@
           "type": "extendscript-debug",
           "request": "launch",
           "name": "WTW illustrator",
-          "program": "${workspaceFolder}/allPNGExports.js",
+          "program": "${workspaceFolder}/WTW_main_script.js",
           "stopOnEntry": false
       }
   ]

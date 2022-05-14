@@ -49,6 +49,8 @@ This script automates exports from Illustrator.
 # Useful links.
 
 <a href="https://ai-scripting.docsforadobe.dev/">Adobe Illustrator API documentation</a> > This is where all the commands are referenced for re-use.
+<a href="https://extendscript.docsforadobe.dev">Extend Script</a> 
+
 
 # Graphical representation
 
@@ -56,7 +58,7 @@ This script automates exports from Illustrator.
 
 # Illustrator object  model
 
-<img src="images/objectmodel.png" alt="outline" width="400">
+<img src="images/objectmodel.png" alt="outline" >
 
 # How to use this script?
 
