@@ -54,6 +54,10 @@ This script automates exports from Illustrator.
 
 <img src="images/outline.png" alt="outline" width="400">
 
+# Illustrator object  model
+
+<img src="images/objectmodel.png" alt="outline" width="400">
+
 # How to use this script?
 
 1. Open Adobe illustrator
@@ -150,3 +154,5 @@ Some bits we will need soon from the design team:
 - Can I get an example of the 'Contact sheet' mentioned in the brief please?
 
 [outline]: images/outline.png
+
+[objectmodel]: images/objectmodel.png

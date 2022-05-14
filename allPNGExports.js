@@ -255,29 +255,6 @@ try {
                 iconLayer.visible = false;
             }
         }
-        // function saveAsEPS(layerName) {
-        //   // target icons sublayers
-        //   var myIconsLayer = app.activeDocument.layers["icons"];
-        //   var myIconsSublayers = myIconsLayer.layers;
-        //   // loop through icons and export svg for each
-        //   for (let j = 0; j < myIconsSublayers.length; j++) {
-        //     var iconLayer = myIconsSublayers[j];
-        //     iconLayer.visible = true;
-        //     var epsFile = new File(
-        //       `${app.activeDocument.path}/EPS/${iconLayer.name}${layerName}.eps`
-        //     );
-        //     // var type = ExportType.PNG24;
-        //     var opts = new EPSSaveOptions();
-        //     EPSSaveOptions.cmykPostScript = false;
-        //     EPSSaveOptions.embedAllFonts = false;
-        //     EPSSaveOptions.artboardRange = "";
-        //     EPSSaveOptions.embedLinkedFiles = true;
-        //     EPSSaveOptions.includeDocumentThumbnails = true;
-        //     EPSSaveOptions.saveMultipleArtboards = true;
-        //     app.activeDocument.saveAs(epsFile, opts);
-        //     iconLayer.visible = false;
-        //   }
-        // }
     }
     catch (e) {
         alert("Something went wrong while trying to export the icons.", e.message);
@@ -285,6 +262,7 @@ try {
     /**********************************
      ** LOOP LAYER VISIBILITY OF ICONS AGAINST BACKGROUND COLORS AND EXECUTE SAVE FUNCTIONS
      ***********************************/
+    // separate SVG and EPS into their own loops after duplicating main file script research?
     for (var i = 1; i < app.activeDocument.layers.length; i++) {
         var bgLayer = app.activeDocument.layers[i];
         bgLayer.visible = true;
