@@ -42,7 +42,7 @@
 
 # Overview
 
-This script automates exports from Illustrator.
+This script automates exports from a specific Illustrator template contained in this repo.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
