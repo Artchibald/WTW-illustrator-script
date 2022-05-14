@@ -1,14 +1,18 @@
 try {
   /**********************************
    ** README https://github.com/Artchibald/WTW-illustrator-script
+  
+  helpers:
+    alert("App V  ersion : ", app.version);
+  alert("App Scripting Version: ", app.scriptingVersion);
    ***********************************/
 
   /**********************************
    ** INSTRUCTIONS DIALOG
    ***********************************/
-  alert(
-    "Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. \n\n Make sure all background colors are on individual layers after the icons layer with correct layer names.Exported assets will be saved where the.ai file is saved. \n\n The document will close without saving changes when complete so make sure you have saved your work so you can re - open it."
-  );
+  // alert(
+  //   "Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. \n\n Make sure all background colors are on individual layers after the icons layer with correct layer names.Exported assets will be saved where the.ai file is saved. \n\n The document will close without saving changes when complete so make sure you have saved your work so you can re - open it."
+  // );
 
   /**********************************
    ** MAKE ICONS LAYER VISIBLE
@@ -243,61 +247,59 @@ try {
     }
 
     function saveAsSVG(layerName) {
-      // target icons sublayers
+      // target icons sublayers 
       var myIconsLayer = app.activeDocument.layers["icons"];
       var myIconsSublayers = myIconsLayer.layers;
       // loop through icons and export png for each
-      for (let j = 0; j < myIconsSublayers.length; j++) {
-        var iconLayer = myIconsSublayers[j];
-        iconLayer.visible = true;
+      for (let k = 0; k < myIconsSublayers.length; k++) {
+        var iconLayer = myIconsSublayers[k];
+        iconLayer.visible = true; 
         alert("IconLayer Name: ", iconLayer.name);
-        alert("LayerName: ", layerName);
+        // alert("LayerName: ", layerName);
         var svgFile = new File(
           `${app.activeDocument.path}/SVG/${iconLayer.name}${layerName}.svg`
         );
         var type = ExportType.SVG;
-        var opts = new ExportOptionsSVG();
+        var opts = new ExportOptionsSVG(); 
         app.activeDocument.exportFile(svgFile, type, opts);
         iconLayer.visible = false;
       }
     }
 
-    // function saveAsEPS(layerName) {
-    //   // target icons sublayers
-    //   var myIconsLayer = app.activeDocument.layers["icons"];
-    //   var myIconsSublayers = myIconsLayer.layers;
-    //   // loop through icons and export svg for each
-    //   for (let j = 0; j < myIconsSublayers.length; j++) {
-    //     var iconLayer = myIconsSublayers[j];
-    //     iconLayer.visible = true;
-    //     var epsFile = new File(
-    //       `${app.activeDocument.path}/EPS/${iconLayer.name}${layerName}.eps`
-    //     );
-    //     // var type = ExportType.PNG24;
-    //     var opts = new EPSSaveOptions();
-    //     EPSSaveOptions.cmykPostScript = false;
-    //     EPSSaveOptions.embedAllFonts = false;
-    //     EPSSaveOptions.artboardRange = "";
-    //     EPSSaveOptions.embedLinkedFiles = true;
-    //     EPSSaveOptions.includeDocumentThumbnails = true;
-    //     EPSSaveOptions.saveMultipleArtboards = true;
+    function saveAsEPS(layerName) {
+      // target icons sublayers
+      var myIconsLayer = app.activeDocument.layers["icons"];
+      var myIconsSublayers = myIconsLayer.layers;
+      // loop through icons and export svg for each
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        var iconLayer = myIconsSublayers[j];
+        iconLayer.visible = true;
+        var epsFile = new File(
+          `${app.activeDocument.path}/EPS/${iconLayer.name}${layerName}.eps`
+        );
+        // var type = ExportType.PNG24;
+        var opts = new EPSSaveOptions();
+        EPSSaveOptions.cmykPostScript = false;
+        EPSSaveOptions.embedAllFonts = false;
+        EPSSaveOptions.artboardRange = "";
+        EPSSaveOptions.embedLinkedFiles = true;
+        EPSSaveOptions.includeDocumentThumbnails = true;
+        EPSSaveOptions.saveMultipleArtboards = true;
 
-    //     app.activeDocument.saveAs(epsFile, opts);
-    //     iconLayer.visible = false;
-    //   }
-    // }
+        app.activeDocument.saveAs(epsFile, opts);
+        iconLayer.visible = false;
+      }
+    }
   } catch (e) {
     alert("Something went wrong while trying to export the icons.", e.message);
   }
   /**********************************
    ** LOOP LAYER VISIBILITY OF ICONS AGAINST BACKGROUND COLORS AND EXECUTE SAVE FUNCTIONS
    ***********************************/
-  alert("App V  ersion : ", app.version);
-  alert("App Scripting Version: ", app.scriptingVersion);
+
   for (let i = 1; i < app.activeDocument.layers.length; i++) {
     var bgLayer = app.activeDocument.layers[i];
     bgLayer.visible = true;
-    alert("**** bgLayer.name: ", bgLayer.name);
     saveAsPNGAt24x24(bgLayer.name);
     saveAsPNGAt32x32(bgLayer.name);
     saveAsPNGAt48x48(bgLayer.name);
@@ -305,13 +307,13 @@ try {
     saveAsPNGAt300x300(bgLayer.name);
     saveAsPNGAt512x512(bgLayer.name);
     // alert("**** LayerName: ", bgLayer.name);
-    saveAsSVG(bgLayer.name);
+     saveAsSVG(bgLayer.name);
     // saveAsEPS(bgLayer.name);
     bgLayer.visible = false;
   }
 
   // close the document here without saving
-  app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+  // app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 } catch (e) {
   alert(e.message);
 }

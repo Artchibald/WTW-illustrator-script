@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es3", 
+    "target": "es3",  
     "noLib": true,
     "types": ["types-for-adobe/illustrator/2015.3"]
   },

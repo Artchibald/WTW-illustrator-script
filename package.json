@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/Artchibald/WTW-illustrator-script#readme",
   "dependencies": {
-    "types-for-adobe": "github:pravdomil/types-for-adobe"
+    "types-for-adobe": "^7.0.1"
   }
-}
+} 
