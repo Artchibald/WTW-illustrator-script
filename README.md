@@ -54,9 +54,17 @@ This script automates exports from a specific Illustrator template contained in 
 # Built with
 
 - VS code
-- VS code extension extend script debugger by Adobe: faster load with play button and much better debugging. Extensions > Install  "ExtendScript Debugger". Follow instructions for better debugging, script stop break points and console returns achieved with this.
+- VS code extension extend script debugger by Adobe: faster load with play button and much better debugging. Extensions > Install  "ExtendScript Debugger". Follow instructions for better debugging, script stop break points and console returns achieved with this. This is not as good as the Extendscript toolkit that only works on Windows.
 - Uses node js dependency types for adobe NPM https://registry.npmjs.org/types-for-adobe
+- SOON Extendscript toolkit on Windows
+
+# How to use
+
 - Use VS code > Main Menu > Terminal > Run build Task > Choose Build or Watch to convert .TS to .JS
+
+- Set up the Extendscript toolkit debugger VS extension
+
+- You will need the Extendscript toolkit from Adobe. This only works on Windows since OS Catalina, so you'll probably need Windows for better debugging.
 
 
 ```
@@ -109,9 +117,17 @@ File > Scripts > Other Scripts > Add WTW_main_script.js
 
 # Bugs
 
+Be sure you allocate time for testing on MacOS and Windows
+
 If all layers are on show only first
 
 # To be done
+
+GET Extendscript toolkit for Windows!
+
+Time off half day tue 31 MAY, need afternoon off
+
+Tuesday 7 June need day off please
 
 Change functions to arrow functions
 
@@ -183,3 +199,5 @@ Some bits we will need soon from the design team:
 
 Got SVG and EPS JUST working 4 hours
 Need to figure out MAJOR blocker folder export issue
+Did lots of version checks, downgraded output from typescript to ECMA 3
+Tried to get extendscript toolkit but it only works on windows because it si 32 bit and os catalina only supports 64 bit now. 

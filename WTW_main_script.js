@@ -10,6 +10,16 @@ try {
      ** INSTRUCTIONS DIALOG
      ***********************************/
     alert("FULL README: https://github.com/Artchibald/WTW-illustrator-script /n/n Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. \n\n Make sure all background colors are on individual layers after the icons layer with correct layer names.Exported assets will be saved where the.ai file is saved. \n\n The document will close without saving changes when complete so make sure you have saved your work so you can re - open it.");
+    var sourceDoc_1 = app.activeDocument;
+    var nameByDimensions_1 = "sorted-by-dimensions";
+    var name300x300_1 = "300x300";
+    var name512x512_1 = "512x512";
+    var name64x64_1 = "64x64";
+    var name48x48_1 = "48x48";
+    var name32x32_1 = "32x32";
+    var name24x24_1 = "24x24";
+    var nameSVG_1 = "SVG";
+    var nameEPS_1 = "EPS";
     /**********************************
      ** MAKE ICONS LAYER VISIBLE
      ***********************************/
@@ -36,59 +46,56 @@ try {
      ** CREATE REQUIRED FOLDERS
      ***********************************/
     try {
-        var sourceDoc_1 = app.activeDocument;
-        var name300x300_1 = "300x300";
-        var name512x512_1 = "512x512";
-        var name64x64_1 = "64x64";
-        var name48x48_1 = "48x48";
-        var name32x32_1 = "32x32";
-        var name24x24_1 = "24x24";
-        var nameSVG_1 = "SVG";
-        var nameEPS_1 = "EPS";
+        function createByDimensionsFolder() {
+            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1);
+            if (!destFolder.exists)
+                destFolder.create();
+        }
+        createByDimensionsFolder();
         function create24x24Folder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + name24x24_1);
+            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + name24x24_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
         create24x24Folder();
         function create32x32Folder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + name32x32_1);
+            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + name32x32_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
         create32x32Folder();
         function create48x48Folder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + name48x48_1);
+            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + name48x48_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
         create48x48Folder();
         function create64x64Folder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + name64x64_1);
+            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + name64x64_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
         create64x64Folder();
         function create300x300Folder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + name300x300_1);
+            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + name300x300_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
         create300x300Folder();
         function create512x512Folder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + name512x512_1);
+            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + name512x512_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
         create512x512Folder();
         function createSVGFolder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + nameSVG_1);
+            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + nameSVG_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
         createSVGFolder();
         function createEPSFolder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + nameEPS_1);
+            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + nameEPS_1);
             if (!destFolder.exists)
                 destFolder.create();
         }
@@ -109,7 +116,7 @@ try {
             for (var j = 0; j < myIconsSublayers.length; j++) {
                 var iconLayer = myIconsSublayers[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(app.activeDocument.path, "/24x24/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(app.activeDocument.path, "/sorted-by-dimensions/24x24/").concat(iconLayer.name).concat(layerName, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -129,7 +136,7 @@ try {
             for (var j = 0; j < myIconsSublayers.length; j++) {
                 var iconLayer = myIconsSublayers[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(app.activeDocument.path, "/32x32/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(app.activeDocument.path, "/sorted-by-dimensions/32x32/").concat(iconLayer.name).concat(layerName, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -149,7 +156,7 @@ try {
             for (var j = 0; j < myIconsSublayers.length; j++) {
                 var iconLayer = myIconsSublayers[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(app.activeDocument.path, "/48x48/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(app.activeDocument.path, "/sorted-by-dimensions/48x48/").concat(iconLayer.name).concat(layerName, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -169,7 +176,7 @@ try {
             for (var j = 0; j < myIconsSublayers.length; j++) {
                 var iconLayer = myIconsSublayers[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(app.activeDocument.path, "/64x64/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(app.activeDocument.path, "/sorted-by-dimensions/64x64/").concat(iconLayer.name).concat(layerName, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -189,7 +196,7 @@ try {
             for (var j = 0; j < myIconsSublayers.length; j++) {
                 var iconLayer = myIconsSublayers[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(app.activeDocument.path, "/300x300/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(app.activeDocument.path, "/sorted-by-dimensions/300x300/").concat(iconLayer.name).concat(layerName, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -209,7 +216,7 @@ try {
             for (var j = 0; j < myIconsSublayers.length; j++) {
                 var iconLayer = myIconsSublayers[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(app.activeDocument.path, "/512x512/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(app.activeDocument.path, "/sorted-by-dimensions/512x512/").concat(iconLayer.name).concat(layerName, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -235,12 +242,8 @@ try {
                 // Blocker: If I add /SVG/ after .path/ here it doesn't work! It uses save prompt, I dont want this
                 "".concat(app.activeDocument.path, "/").concat(iconLayer.name).concat(layerName, ".svg"));
                 var type = ExportType.SVG;
-                ExportOptionsSVG.embedRasterImages = true;
-                ExportOptionsSVG.fontSubsetting = SVGFontSubsetting.GLYPHSUSED;
                 app.activeDocument.exportFile(svgFile, type);
                 iconLayer.visible = false;
-                // DocumentType.ILLUSTRATOR;
-                // //app.activeDocument.save();
             }
         }
         function saveAsEPS(layerName) {
