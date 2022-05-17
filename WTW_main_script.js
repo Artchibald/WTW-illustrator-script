@@ -271,7 +271,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name24x24_1, "/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name24x24_1, "/").concat(iconLayer.name, "-").concat(layerName.name, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -287,7 +287,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name32x32_1, "/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name32x32_1, "/").concat(iconLayer.name, "-").concat(layerName.name, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -303,7 +303,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name48x48_1, "/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name48x48_1, "/").concat(iconLayer.name, "-").concat(layerName.name, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -319,7 +319,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name64x64_1, "/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name64x64_1, "/").concat(iconLayer.name, "-").concat(layerName.name, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -335,7 +335,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name300x300_1, "/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name300x300_1, "/").concat(iconLayer.name, "-").concat(layerName.name, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -351,7 +351,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name512x512_1, "/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name512x512_1, "/").concat(iconLayer.name, "-").concat(layerName.name, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -367,7 +367,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var svgFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(nameSVG_1, "/").concat(iconLayer.name).concat(layerName));
+                var svgFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(nameSVG_1, "/").concat(iconLayer.name, "-").concat(layerName.name));
                 var aiFile = new File("".concat(sourceDoc_1.path, "/").concat(sourceDoc_1.name));
                 var type = ExportType.SVG;
                 ExportOptionsSVG.optimizeForSVGViewer = true;
@@ -383,7 +383,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var epsFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(nameEPS_1, "/").concat(iconLayer.name).concat(layerName, ".eps"));
+                var epsFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(nameEPS_1, "/").concat(iconLayer.name, "-").concat(layerName.name, ".eps"));
                 var aiFile = new File("".concat(sourceDoc_1.path, "/").concat(sourceDoc_1.name));
                 var opts = new EPSSaveOptions();
                 EPSSaveOptions.cmykPostScript = false;

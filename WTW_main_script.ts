@@ -265,7 +265,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${name24x24}/${iconLayer.name}${layerName}.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name24x24}/${iconLayer.name}-${layerName.name}.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
@@ -284,7 +284,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${name32x32}/${iconLayer.name}${layerName}.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name32x32}/${iconLayer.name}-${layerName.name}.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
@@ -303,7 +303,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${name48x48}/${iconLayer.name}${layerName}.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name48x48}/${iconLayer.name}-${layerName.name}.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
@@ -322,7 +322,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${name64x64}/${iconLayer.name}${layerName}.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name64x64}/${iconLayer.name}-${layerName.name}.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
@@ -341,7 +341,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${name300x300}/${iconLayer.name}${layerName}.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name300x300}/${iconLayer.name}-${layerName.name}.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
@@ -360,7 +360,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${name512x512}/${iconLayer.name}${layerName}.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name512x512}/${iconLayer.name}-${layerName.name}.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
@@ -379,7 +379,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let svgFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${nameSVG}/${iconLayer.name}${layerName}`
+          `${sourceDoc.path}/${nameByDimensions}/${nameSVG}/${iconLayer.name}-${layerName.name}`
         );
         let aiFile = new File(
           `${sourceDoc.path}/${sourceDoc.name}`
@@ -400,7 +400,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let epsFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${nameEPS}/${iconLayer.name}${layerName}.eps`
+          `${sourceDoc.path}/${nameByDimensions}/${nameEPS}/${iconLayer.name}-${layerName.name}.eps`
         );
         let aiFile = new File(
           `${sourceDoc.path}/${sourceDoc.name}`
