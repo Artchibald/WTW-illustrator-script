@@ -585,7 +585,6 @@ try {
   /**********************************
    ** LOOP LAYER VISIBILITY OF ICONS AGAINST BACKGROUND COLORS AND EXECUTE SAVE EXPORT FUNCTIONS
    ***********************************/
-  // separate SVG and EPS into their own loops after duplicating main file script research?
   for (let i = 1; i < sourceDoc.layers.length; i++) {
     let bgLayer = sourceDoc.layers[i];
     bgLayer.visible = true;
