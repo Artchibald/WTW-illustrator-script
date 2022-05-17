@@ -123,7 +123,7 @@ If all layers are on show only first
 
 # To be done
 
-GET Extendscript toolkit for Windows!
+add -24x24 ...etc to all exports
 
 Time off half day tue 31 MAY, need afternoon off
 
@@ -140,6 +140,10 @@ if all layers on turn them off before running
 ignore locked guides layer
 
 if locked unlock
+
+# Done
+
+GET Extendscript toolkit for Windows!
 
 # Questions for client
 
@@ -190,8 +194,6 @@ Some bits we will need soon from the design team:
 - Discuss the exact file naming convention
 - Can I get an example of the 'Contact sheet' mentioned in the brief please?
 
-
-
 ## Day 4 Sat fustrated weekend
 
 Nice showing the progress to Mike this morning.
@@ -204,10 +206,6 @@ Moving onto sorting the icons by color or icon type next
 Then moving on to Contact sheet functionality.
 I think I am ahead of schedule
 Have a nice evening.
-
-[outline]: imagesInReadme/outline.png
-
-[objectmodel]: imagesInReadme/objectmodel.png
 
 ## Day 5
 
@@ -223,3 +221,6 @@ Working on new sorting functions this afternoon, no breakthrough yet
 Exploring the new app I am using called the extensdcript toolkit for debugging
 
 
+[outline]: imagesInReadme/outline.png
+
+[objectmodel]: imagesInReadme/objectmodel.png
