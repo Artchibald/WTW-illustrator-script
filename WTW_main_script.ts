@@ -31,9 +31,9 @@ try {
   /**********************************
    ** INSTRUCTIONS DIALOG
    ***********************************/
-  // alert(
-  //   "FULL README: https://github.com/Artchibald/WTW-illustrator-script /n/n If you restart this script again, you first need to delete the folders that were created in the previous run. Otherwise it asks to overwrite them with Save As Prompt, IE no longer automatic /n/n Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. \n\n Make sure all background colors are on individual layers after the icons layer with correct layer names.Exported assets will be saved where the.ai file is saved. \n\n The document will close without saving changes when complete so make sure you have saved your work so you can re - open it."
-  // );
+  alert(
+    "FULL README: https://github.com/Artchibald/WTW-illustrator-script  \n\n   IMPORTANT: THIS SCRIPT WILL DESTROY YOUR .AI FILE!!!! ONLY USE A COPY OF YOUR ORIGINAL AI FILE!!!  \n\n   Make a coffee, this may take a while.  \n\n  If you restart this script again, you may first want to delete the folders that were created in the previous run to avoid bugs. Otherwise it may ask to overwrite them with Save As Prompt and fail to complete  \n\n Avoid weird characters and use hyphens instead of spaces to avoid bugs  \n\n Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n icons must be INSIDE a layer called exactly 'icons'. \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. \n\n Make sure all background colors are on individual layers after the icons layer with correct layer names, avoid weird characters. Exported assets will be saved where the .ai file is saved. \n\n The document will DELETE LAYERS AND SAVE when complete so make sure you have saved your work elsehwere so you can re - open it and not lose work."
+  );
 
   /**********************************
    ** MAKE ICONS LAYER VISIBLE
@@ -386,8 +386,8 @@ try {
           `${sourceDoc.path}/${sourceDoc.name}`
         );
         let type = ExportType.SVG;
-        ExportOptionsSVG.optimizeForSVGViewer = true;
-        ExportOptionsSVG.saveMultipleArtboards = true;
+        // ExportOptionsSVG.optimizeForSVGViewer = true;
+        // ExportOptionsSVG.saveMultipleArtboards = true;
         sourceDoc.exportFile(svgFile, type);
         iconLayer.visible = false;
         // redeclare what and where to original to avoid SVG export MEGA bug
@@ -407,12 +407,12 @@ try {
           `${sourceDoc.path}/${sourceDoc.name}`
         );
         let opts = new EPSSaveOptions();
-        EPSSaveOptions.cmykPostScript = false;
-        EPSSaveOptions.embedAllFonts = false;
-        EPSSaveOptions.artboardRange = "";
-        EPSSaveOptions.embedLinkedFiles = true;
-        EPSSaveOptions.includeDocumentThumbnails = true;
-        EPSSaveOptions.saveMultipleArtboards = true;
+        // EPSSaveOptions.cmykPostScript = false;
+        // EPSSaveOptions.embedAllFonts = false;
+        // EPSSaveOptions.artboardRange = "";
+        // EPSSaveOptions.embedLinkedFiles = true;
+        // EPSSaveOptions.includeDocumentThumbnails = true;
+        // EPSSaveOptions.saveMultipleArtboards = true;
         sourceDoc.saveAs(epsFile, opts);
         iconLayer.visible = false;
         DocumentType.ILLUSTRATOR;
@@ -547,8 +547,8 @@ try {
           `${sourceDoc.path}/${sourceDoc.name}`
         );
         let type = ExportType.SVG;
-        ExportOptionsSVG.optimizeForSVGViewer = true;
-        ExportOptionsSVG.saveMultipleArtboards = true;
+        // ExportOptionsSVG.optimizeForSVGViewer = true;
+        // ExportOptionsSVG.saveMultipleArtboards = true;
         sourceDoc.exportFile(svgFile, type);
         iconLayer.visible = false;
         // redeclare what and where to original to avoid SVG export MEGA bug
@@ -568,12 +568,12 @@ try {
           `${sourceDoc.path}/${sourceDoc.name}`
         );
         let opts = new EPSSaveOptions();
-        EPSSaveOptions.cmykPostScript = false;
-        EPSSaveOptions.embedAllFonts = false;
-        EPSSaveOptions.artboardRange = "";
-        EPSSaveOptions.embedLinkedFiles = true;
-        EPSSaveOptions.includeDocumentThumbnails = true;
-        EPSSaveOptions.saveMultipleArtboards = true;
+        // EPSSaveOptions.cmykPostScript = false;
+        // EPSSaveOptions.embedAllFonts = false;
+        // EPSSaveOptions.artboardRange = "";
+        // EPSSaveOptions.embedLinkedFiles = true;
+        // EPSSaveOptions.includeDocumentThumbnails = true;
+        // EPSSaveOptions.saveMultipleArtboards = true;
         sourceDoc.saveAs(epsFile, opts);
         iconLayer.visible = false;
         DocumentType.ILLUSTRATOR;
@@ -709,8 +709,8 @@ try {
           `${sourceDoc.path}/${sourceDoc.name}`
         );
         let type = ExportType.SVG;
-        ExportOptionsSVG.optimizeForSVGViewer = true;
-        ExportOptionsSVG.saveMultipleArtboards = true;
+        // ExportOptionsSVG.optimizeForSVGViewer = true;
+        // ExportOptionsSVG.saveMultipleArtboards = true;
         sourceDoc.exportFile(svgFile, type);
         iconLayer.visible = false;
         // redeclare what and where to original to avoid SVG export MEGA bug
@@ -730,12 +730,12 @@ try {
           `${sourceDoc.path}/${sourceDoc.name}`
         );
         let opts = new EPSSaveOptions();
-        EPSSaveOptions.cmykPostScript = false;
-        EPSSaveOptions.embedAllFonts = false;
-        EPSSaveOptions.artboardRange = "";
-        EPSSaveOptions.embedLinkedFiles = true;
-        EPSSaveOptions.includeDocumentThumbnails = true;
-        EPSSaveOptions.saveMultipleArtboards = true;
+        // EPSSaveOptions.cmykPostScript = false;
+        // EPSSaveOptions.embedAllFonts = false;
+        // EPSSaveOptions.artboardRange = "";
+        // EPSSaveOptions.embedLinkedFiles = true;
+        // EPSSaveOptions.includeDocumentThumbnails = true;
+        // EPSSaveOptions.saveMultipleArtboards = true;
         sourceDoc.saveAs(epsFile, opts);
         iconLayer.visible = false;
         DocumentType.ILLUSTRATOR;
@@ -779,6 +779,7 @@ try {
     saveAsSVGByColor(bgLayer.name);
     saveAsEPSByColor(bgLayer.name);
     bgLayer.visible = false;
+    // Next we create a contact sheet here
   }
   // revert the doc from a .svg to a .ai, I don't want it to be svg!
   DocumentType.ILLUSTRATOR;
