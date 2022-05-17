@@ -190,14 +190,21 @@ Some bits we will need soon from the design team:
 - Discuss the exact file naming convention
 - Can I get an example of the 'Contact sheet' mentioned in the brief please?
 
+
+
+## Day 4 Sat fustrated weekend
+
+Nice showing the progress to Mike this morning.
+Got SVG and EPS HALF working
+Need to figure out MAJOR blocker folder export issue
+Did lots of version checks, downgraded output from typescript to ECMA 3
+Tried to get extendscript toolkit but it only works on windows because it is 32 bit and os catalina only supports 64 bit now. 
+Got SVG and EPS fully working and restructured the main js file.
+Moving onto sorting the icons by color or icon type next
+Then moving on to Contact sheet functionality.
+I think I am ahead of schedule
+Have a nice evening.
+
 [outline]: imagesInReadme/outline.png
 
 [objectmodel]: imagesInReadme/objectmodel.png
-
-
-## Day 4 Sat fustrated weekend free work
-
-Got SVG and EPS JUST working 4 hours
-Need to figure out MAJOR blocker folder export issue
-Did lots of version checks, downgraded output from typescript to ECMA 3
-Tried to get extendscript toolkit but it only works on windows because it si 32 bit and os catalina only supports 64 bit now. 
