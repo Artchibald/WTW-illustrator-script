@@ -146,6 +146,31 @@ try {
     }
     createPerIconFolders();
 
+    function createPerColorFolders() {
+      for (let i = 1; i < sourceDoc.layers.length; i++) {
+        let colorLayerName = sourceDoc.layers[i].name;
+        let destFolder = Folder(sourceDoc.path + "/" + nameByColor + "/" + colorLayerName);
+        if (!destFolder.exists) destFolder.create();
+      }
+    }
+    createPerColorFolders();
+
+
+
+    // for (let i = 1; i < sourceDoc.layers.length; i++) {
+    //   let bgLayer = sourceDoc.layers[i];
+    //   bgLayer.visible = true;
+    //   // saveAsPNGAt24x24(bgLayer.name);
+    //   // saveAsPNGAt32x32(bgLayer.name);
+    //   // saveAsPNGAt48x48(bgLayer.name);
+    //   // saveAsPNGAt64x64(bgLayer.name);
+    //   // saveAsPNGAt300x300(bgLayer.name);
+    //   // saveAsPNGAt512x512(bgLayer.name);
+    //   // saveAsSVG(bgLayer.name);
+    //   // saveAsEPS(bgLayer.name);
+    //   bgLayer.visible = false;
+    // }
+
   } catch (e) {
     alert("Something went wrong while creating the folders.", e.message);
   }
