@@ -208,3 +208,18 @@ Have a nice evening.
 [outline]: imagesInReadme/outline.png
 
 [objectmodel]: imagesInReadme/objectmodel.png
+
+## Day 5
+
+New Windows laptop device set up
+VS Code, Node JS, Illustrator, Chrome, Extendscript toolkit installationss.
+
+While those were loading up:
+
+Set up the new folders we need with the script, to sort everything by color and by icon.
+
+Working on new sorting functions this afternoon, no breakthrough yet
+
+Exploring the new app I am using called the extensdcript toolkit for debugging
+
+
