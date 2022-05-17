@@ -134,6 +134,18 @@ try {
       if (!destFolder.exists) destFolder.create();
     }
     createEPSFolder();
+
+    // loop through icon names and create folder for each icon name
+
+    function createPerIconFolders() {
+      for (let l = 0; l < myIconsSublayers.length; l++) {
+        let iconLayerName = myIconsSublayers[l].name;
+        let destFolder = Folder(sourceDoc.path + "/" + nameByIcon + "/" + iconLayerName);
+        if (!destFolder.exists) destFolder.create();
+      }
+    }
+    createPerIconFolders();
+
   } catch (e) {
     alert("Something went wrong while creating the folders.", e.message);
   }
@@ -310,14 +322,14 @@ try {
   for (let i = 1; i < sourceDoc.layers.length; i++) {
     let bgLayer = sourceDoc.layers[i];
     bgLayer.visible = true;
-    saveAsPNGAt24x24(bgLayer.name);
-    saveAsPNGAt32x32(bgLayer.name);
-    saveAsPNGAt48x48(bgLayer.name);
-    saveAsPNGAt64x64(bgLayer.name);
-    saveAsPNGAt300x300(bgLayer.name);
-    saveAsPNGAt512x512(bgLayer.name);
-    saveAsSVG(bgLayer.name);
-    saveAsEPS(bgLayer.name);
+    // saveAsPNGAt24x24(bgLayer.name);
+    // saveAsPNGAt32x32(bgLayer.name);
+    // saveAsPNGAt48x48(bgLayer.name);
+    // saveAsPNGAt64x64(bgLayer.name);
+    // saveAsPNGAt300x300(bgLayer.name);
+    // saveAsPNGAt512x512(bgLayer.name);
+    // saveAsSVG(bgLayer.name);
+    // saveAsEPS(bgLayer.name);
     bgLayer.visible = false;
   }
   // revert the doc from a .svg to a .ai, I don't want it to be svg!

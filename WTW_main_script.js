@@ -50,6 +50,7 @@ try {
         guideLayer.visible = true;
         if (guideLayer.visible === true) {
             guideLayer.locked = false;
+            // This needs work we dont want to delete it, just remove/ignore it from loop somehow
             guideLayer.remove();
         }
     }
@@ -128,6 +129,16 @@ try {
                 destFolder.create();
         }
         createEPSFolder();
+        // loop through icon names and create folder for each icon name
+        function createPerIconFolders() {
+            for (var l = 0; l < myIconsSublayers_1.length; l++) {
+                var iconLayerName = myIconsSublayers_1[l].name;
+                var destFolder = Folder(sourceDoc_1.path + "/" + nameByIcon_1 + "/" + iconLayerName);
+                if (!destFolder.exists)
+                    destFolder.create();
+            }
+        }
+        createPerIconFolders();
     }
     catch (e) {
         alert("Something went wrong while creating the folders.", e.message);
@@ -232,20 +243,12 @@ try {
                 iconLayer.visible = false;
             }
         }
-        // MAJOR BLOCKER BUG!
-        // I want to write to /SVG/ and /EPS/ folder here I can't, only root works
-        // it turns it into a svg
-        // you must duplicate the ai file before you export svg !
         function saveAsSVG(layerName) {
             for (var k = 0; k < myIconsSublayers_1.length; k++) {
                 var iconLayer = myIconsSublayers_1[k];
                 iconLayer.visible = true;
-                var svgFile = new File(
-                // Blocker: If I add /SVG/ after .path/ here it doesn't work! It uses save prompt, I dont want this
-                "".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(nameSVG_1, "/").concat(iconLayer.name).concat(layerName));
-                var aiFile = new File(
-                // Blocker: If I add /SVG/ after .path/ here it doesn't work! It uses save prompt, I dont want this
-                "".concat(sourceDoc_1.path, "/").concat(sourceDoc_1.name));
+                var svgFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(nameSVG_1, "/").concat(iconLayer.name).concat(layerName));
+                var aiFile = new File("".concat(sourceDoc_1.path, "/").concat(sourceDoc_1.name));
                 var type = ExportType.SVG;
                 ExportOptionsSVG.optimizeForSVGViewer = true;
                 ExportOptionsSVG.saveMultipleArtboards = true;
@@ -261,9 +264,7 @@ try {
                 var iconLayer = myIconsSublayers_1[l];
                 iconLayer.visible = true;
                 var epsFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(nameEPS_1, "/").concat(iconLayer.name).concat(layerName, ".eps"));
-                var aiFile = new File(
-                // Blocker: If I add /SVG/ after .path/ here it doesn't work! It uses save prompt, I dont want this
-                "".concat(sourceDoc_1.path, "/").concat(sourceDoc_1.name));
+                var aiFile = new File("".concat(sourceDoc_1.path, "/").concat(sourceDoc_1.name));
                 var opts = new EPSSaveOptions();
                 EPSSaveOptions.cmykPostScript = false;
                 EPSSaveOptions.embedAllFonts = false;
@@ -273,7 +274,6 @@ try {
                 EPSSaveOptions.saveMultipleArtboards = true;
                 sourceDoc_1.saveAs(epsFile, opts);
                 iconLayer.visible = false;
-                // redeclare what and where to original to avoid EPS export MEGA bug
                 DocumentType.ILLUSTRATOR;
                 sourceDoc_1.saveAs(aiFile);
             }
@@ -289,14 +289,14 @@ try {
     for (var i = 1; i < sourceDoc_1.layers.length; i++) {
         var bgLayer = sourceDoc_1.layers[i];
         bgLayer.visible = true;
-        saveAsPNGAt24x24(bgLayer.name);
-        saveAsPNGAt32x32(bgLayer.name);
-        saveAsPNGAt48x48(bgLayer.name);
-        saveAsPNGAt64x64(bgLayer.name);
-        saveAsPNGAt300x300(bgLayer.name);
-        saveAsPNGAt512x512(bgLayer.name);
-        saveAsSVG(bgLayer.name);
-        saveAsEPS(bgLayer.name);
+        // saveAsPNGAt24x24(bgLayer.name);
+        // saveAsPNGAt32x32(bgLayer.name);
+        // saveAsPNGAt48x48(bgLayer.name);
+        // saveAsPNGAt64x64(bgLayer.name);
+        // saveAsPNGAt300x300(bgLayer.name);
+        // saveAsPNGAt512x512(bgLayer.name);
+        // saveAsSVG(bgLayer.name);
+        // saveAsEPS(bgLayer.name);
         bgLayer.visible = false;
     }
     // revert the doc from a .svg to a .ai, I don't want it to be svg!
