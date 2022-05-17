@@ -70,106 +70,188 @@ try {
    ***********************************/
   try {
     function createByDimensionsFolder() {
-      let destFolder = Folder(sourceDoc.path + "/" + nameByDimensions);
+      let destFolder = Folder(`${sourceDoc.path}/${nameByDimensions}`);
       if (!destFolder.exists) destFolder.create();
     }
     createByDimensionsFolder();
-    // For each icon in icons, create the folder
     function createByIconFolder() {
-      let destFolder = Folder(sourceDoc.path + "/" + nameByIcon);
+      let destFolder = Folder(`${sourceDoc.path}/${nameByIcon}`);
       if (!destFolder.exists) destFolder.create();
     }
     createByIconFolder();
-    // For each  color in color layers, create the folder
     function createByColorFolder() {
-      let destFolder = Folder(sourceDoc.path + "/" + nameByColor);
+      let destFolder = Folder(`${sourceDoc.path}/${nameByColor}`);
       if (!destFolder.exists) destFolder.create();
     }
     createByColorFolder();
 
-    function create24x24Folder() {
-      let destFolder = Folder(sourceDoc.path + "/" + nameByDimensions + "/" + name24x24);
-      if (!destFolder.exists) destFolder.create();
-    }
-    create24x24Folder();
-
-    function create32x32Folder() {
-      let destFolder = Folder(sourceDoc.path + "/" + nameByDimensions + "/" + name32x32);
-      if (!destFolder.exists) destFolder.create();
-    }
-    create32x32Folder();
-
-    function create48x48Folder() {
-      let destFolder = Folder(sourceDoc.path + "/" + nameByDimensions + "/" + name48x48);
-      if (!destFolder.exists) destFolder.create();
-    }
-    create48x48Folder();
-
-    function create64x64Folder() {
-      let destFolder = Folder(sourceDoc.path + "/" + nameByDimensions + "/" + name64x64);
-      if (!destFolder.exists) destFolder.create();
-    }
-    create64x64Folder();
-
-    function create300x300Folder() {
-      let destFolder = Folder(sourceDoc.path + "/" + nameByDimensions + "/" + name300x300);
-      if (!destFolder.exists) destFolder.create();
-    }
-    create300x300Folder();
-
-    function create512x512Folder() {
-      let destFolder = Folder(sourceDoc.path + "/" + nameByDimensions + "/" + name512x512);
-      if (!destFolder.exists) destFolder.create();
-    }
-    create512x512Folder();
-
-    function createSVGFolder() {
-      let destFolder = Folder(sourceDoc.path + "/" + nameByDimensions + "/" + nameSVG);
-      if (!destFolder.exists) destFolder.create();
-    }
-    createSVGFolder();
-
-    function createEPSFolder() {
-      let destFolder = Folder(sourceDoc.path + "/" + nameByDimensions + "/" + nameEPS);
-      if (!destFolder.exists) destFolder.create();
-    }
-    createEPSFolder();
-
     // loop through icon names and create folder for each icon name
 
     function createPerIconFolders() {
-      for (let l = 0; l < myIconsSublayers.length; l++) {
-        let iconLayerName = myIconsSublayers[l].name;
-        let destFolder = Folder(sourceDoc.path + "/" + nameByIcon + "/" + iconLayerName);
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayerName = myIconsSublayers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByIcon}/${iconLayerName}`);
         if (!destFolder.exists) destFolder.create();
       }
     }
     createPerIconFolders();
 
+    // loop through colors and create folder for each color
+
     function createPerColorFolders() {
-      for (let i = 1; i < sourceDoc.layers.length; i++) {
-        let colorLayerName = sourceDoc.layers[i].name;
-        let destFolder = Folder(sourceDoc.path + "/" + nameByColor + "/" + colorLayerName);
+      for (let j = 1; j < sourceDoc.layers.length; j++) {
+        let colorLayerName = sourceDoc.layers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByColor}/${colorLayerName}`);
         if (!destFolder.exists) destFolder.create();
       }
     }
     createPerColorFolders();
 
+    function create24x24Folders() {
+      let destFolder = Folder(`${sourceDoc.path}/${nameByDimensions}/${name24x24}`);
+      if (!destFolder.exists) destFolder.create();
+      // loop through all Folders By Icons and add required folder
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayerName = myIconsSublayers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByIcon}/${iconLayerName}/${name24x24}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+      // loop through all Folders By Colors and add required folder
+      for (let j = 1; j < sourceDoc.layers.length; j++) {
+        let colorLayerName = sourceDoc.layers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByColor}/${colorLayerName}/${name24x24}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+    }
+    create24x24Folders();
+
+    function create32x32Folders() {
+      let destFolder = Folder(`${sourceDoc.path}/${nameByDimensions}/${name32x32}`);
+      if (!destFolder.exists) destFolder.create();
+      // loop through all Folders By Icons and add required folder
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayerName = myIconsSublayers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByIcon}/${iconLayerName}/${name32x32}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+      // loop through all Folders By Colors and add required folder
+      for (let j = 1; j < sourceDoc.layers.length; j++) {
+        let colorLayerName = sourceDoc.layers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByColor}/${colorLayerName}/${name32x32}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+    }
+    create32x32Folders();
+
+    function create48x48Folders() {
+      let destFolder = Folder(`${sourceDoc.path}/${nameByDimensions}/${name48x48}`);
+      if (!destFolder.exists) destFolder.create();
+      // loop through all Folders By Icons and add required folder
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayerName = myIconsSublayers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByIcon}/${iconLayerName}/${name48x48}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+      // loop through all Folders By Colors and add required folder
+      for (let j = 1; j < sourceDoc.layers.length; j++) {
+        let colorLayerName = sourceDoc.layers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByColor}/${colorLayerName}/${name48x48}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+    }
+    create48x48Folders();
+
+    function create64x64Folders() {
+      let destFolder = Folder(`${sourceDoc.path}/${nameByDimensions}/${name64x64}`);
+      if (!destFolder.exists) destFolder.create();
+      // loop through all Folders By Icons and add required folder
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayerName = myIconsSublayers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByIcon}/${iconLayerName}/${name64x64}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+      // loop through all Folders By Colors and add required folder
+      for (let j = 1; j < sourceDoc.layers.length; j++) {
+        let colorLayerName = sourceDoc.layers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByColor}/${colorLayerName}/${name64x64}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+    }
+    create64x64Folders();
+
+    function create300x300Folders() {
+      let destFolder = Folder(`${sourceDoc.path}/${nameByDimensions}/${name300x300}`);
+      if (!destFolder.exists) destFolder.create();
+      // loop through all Folders By Icons and add required folder
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayerName = myIconsSublayers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByIcon}/${iconLayerName}/${name300x300}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+      // loop through all Folders By Colors and add required folder
+      for (let j = 1; j < sourceDoc.layers.length; j++) {
+        let colorLayerName = sourceDoc.layers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByColor}/${colorLayerName}/${name300x300}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+    }
+    create300x300Folders();
+
+    function create512x512Folders() {
+      let destFolder = Folder(`${sourceDoc.path}/${nameByDimensions}/${name512x512}`);
+      if (!destFolder.exists) destFolder.create();
+      // loop through all Folders By Icons and add required folder
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayerName = myIconsSublayers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByIcon}/${iconLayerName}/${name512x512}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+      // loop through all Folders By Colors and add required folder
+      for (let j = 1; j < sourceDoc.layers.length; j++) {
+        let colorLayerName = sourceDoc.layers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByColor}/${colorLayerName}/${name512x512}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+    }
+    create512x512Folders();
+
+    function createSVGFolders() {
+      let destFolder = Folder(`${sourceDoc.path}/${nameByDimensions}/${nameSVG}`);
+      if (!destFolder.exists) destFolder.create();
+      // loop through all Folders By Icons and add required folder
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayerName = myIconsSublayers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByIcon}/${iconLayerName}/${nameSVG}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+      // loop through all Folders By Colors and add required folder
+      for (let j = 1; j < sourceDoc.layers.length; j++) {
+        let colorLayerName = sourceDoc.layers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByColor}/${colorLayerName}/${nameSVG}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+    }
+    createSVGFolders();
+
+    function createEPSFolders() {
+      let destFolder = Folder(`${sourceDoc.path}/${nameByDimensions}/${nameEPS}`);
+      if (!destFolder.exists) destFolder.create();
+      // loop through all Folders By Icons and add required folder
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayerName = myIconsSublayers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByIcon}/${iconLayerName}/${nameEPS}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+      // loop through all Folders By Colors and add required folder
+      for (let j = 1; j < sourceDoc.layers.length; j++) {
+        let colorLayerName = sourceDoc.layers[j].name;
+        let destFolder = Folder(`${sourceDoc.path}/${nameByColor}/${colorLayerName}/${nameEPS}`);
+        if (!destFolder.exists) destFolder.create();
+      }
+    }
+    createEPSFolders();
 
 
-    // for (let i = 1; i < sourceDoc.layers.length; i++) {
-    //   let bgLayer = sourceDoc.layers[i];
-    //   bgLayer.visible = true;
-    //   // saveAsPNGAt24x24(bgLayer.name);
-    //   // saveAsPNGAt32x32(bgLayer.name);
-    //   // saveAsPNGAt48x48(bgLayer.name);
-    //   // saveAsPNGAt64x64(bgLayer.name);
-    //   // saveAsPNGAt300x300(bgLayer.name);
-    //   // saveAsPNGAt512x512(bgLayer.name);
-    //   // saveAsSVG(bgLayer.name);
-    //   // saveAsEPS(bgLayer.name);
-    //   bgLayer.visible = false;
-    // }
 
   } catch (e) {
     alert("Something went wrong while creating the folders.", e.message);
@@ -183,7 +265,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/24x24/${iconLayer.name}${layerName}.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name24x24}/${iconLayer.name}${layerName}.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
@@ -202,7 +284,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/32x32/${iconLayer.name}${layerName}.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name32x32}/${iconLayer.name}${layerName}.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
@@ -221,7 +303,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/48x48/${iconLayer.name}${layerName}.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name48x48}/${iconLayer.name}${layerName}.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
@@ -240,7 +322,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/64x64/${iconLayer.name}${layerName}.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name64x64}/${iconLayer.name}${layerName}.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
@@ -259,7 +341,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/300x300/${iconLayer.name}${layerName}.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name300x300}/${iconLayer.name}${layerName}.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
@@ -278,7 +360,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/512x512/${iconLayer.name}${layerName}.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name512x512}/${iconLayer.name}${layerName}.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
@@ -293,8 +375,8 @@ try {
     }
 
     function saveAsSVG(layerName) {
-      for (let k = 0; k < myIconsSublayers.length; k++) {
-        let iconLayer = myIconsSublayers[k];
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let svgFile = new File(
           `${sourceDoc.path}/${nameByDimensions}/${nameSVG}/${iconLayer.name}${layerName}`
@@ -314,8 +396,8 @@ try {
     }
 
     function saveAsEPS(layerName) {
-      for (let l = 0; l < myIconsSublayers.length; l++) {
-        let iconLayer = myIconsSublayers[l];
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let epsFile = new File(
           `${sourceDoc.path}/${nameByDimensions}/${nameEPS}/${iconLayer.name}${layerName}.eps`
@@ -347,14 +429,14 @@ try {
   for (let i = 1; i < sourceDoc.layers.length; i++) {
     let bgLayer = sourceDoc.layers[i];
     bgLayer.visible = true;
-    // saveAsPNGAt24x24(bgLayer.name);
-    // saveAsPNGAt32x32(bgLayer.name);
-    // saveAsPNGAt48x48(bgLayer.name);
-    // saveAsPNGAt64x64(bgLayer.name);
-    // saveAsPNGAt300x300(bgLayer.name);
-    // saveAsPNGAt512x512(bgLayer.name);
-    // saveAsSVG(bgLayer.name);
-    // saveAsEPS(bgLayer.name);
+    saveAsPNGAt24x24(bgLayer.name);
+    saveAsPNGAt32x32(bgLayer.name);
+    saveAsPNGAt48x48(bgLayer.name);
+    saveAsPNGAt64x64(bgLayer.name);
+    saveAsPNGAt300x300(bgLayer.name);
+    saveAsPNGAt512x512(bgLayer.name);
+    saveAsSVG(bgLayer.name);
+    saveAsEPS(bgLayer.name);
     bgLayer.visible = false;
   }
   // revert the doc from a .svg to a .ai, I don't want it to be svg!

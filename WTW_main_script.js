@@ -62,105 +62,203 @@ try {
      ***********************************/
     try {
         function createByDimensionsFolder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1);
+            var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1));
             if (!destFolder.exists)
                 destFolder.create();
         }
         createByDimensionsFolder();
-        // For each icon in icons, create the folder
         function createByIconFolder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + nameByIcon_1);
+            var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1));
             if (!destFolder.exists)
                 destFolder.create();
         }
         createByIconFolder();
-        // For each  color in color layers, create the folder
         function createByColorFolder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + nameByColor_1);
+            var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1));
             if (!destFolder.exists)
                 destFolder.create();
         }
         createByColorFolder();
-        function create24x24Folder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + name24x24_1);
-            if (!destFolder.exists)
-                destFolder.create();
-        }
-        create24x24Folder();
-        function create32x32Folder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + name32x32_1);
-            if (!destFolder.exists)
-                destFolder.create();
-        }
-        create32x32Folder();
-        function create48x48Folder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + name48x48_1);
-            if (!destFolder.exists)
-                destFolder.create();
-        }
-        create48x48Folder();
-        function create64x64Folder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + name64x64_1);
-            if (!destFolder.exists)
-                destFolder.create();
-        }
-        create64x64Folder();
-        function create300x300Folder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + name300x300_1);
-            if (!destFolder.exists)
-                destFolder.create();
-        }
-        create300x300Folder();
-        function create512x512Folder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + name512x512_1);
-            if (!destFolder.exists)
-                destFolder.create();
-        }
-        create512x512Folder();
-        function createSVGFolder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + nameSVG_1);
-            if (!destFolder.exists)
-                destFolder.create();
-        }
-        createSVGFolder();
-        function createEPSFolder() {
-            var destFolder = Folder(sourceDoc_1.path + "/" + nameByDimensions_1 + "/" + nameEPS_1);
-            if (!destFolder.exists)
-                destFolder.create();
-        }
-        createEPSFolder();
         // loop through icon names and create folder for each icon name
         function createPerIconFolders() {
-            for (var l = 0; l < myIconsSublayers_1.length; l++) {
-                var iconLayerName = myIconsSublayers_1[l].name;
-                var destFolder = Folder(sourceDoc_1.path + "/" + nameByIcon_1 + "/" + iconLayerName);
+            for (var j = 0; j < myIconsSublayers_1.length; j++) {
+                var iconLayerName = myIconsSublayers_1[j].name;
+                var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName));
                 if (!destFolder.exists)
                     destFolder.create();
             }
         }
         createPerIconFolders();
+        // loop through colors and create folder for each color
         function createPerColorFolders() {
-            for (var i = 1; i < sourceDoc_1.layers.length; i++) {
-                var colorLayerName = sourceDoc_1.layers[i].name;
-                var destFolder = Folder(sourceDoc_1.path + "/" + nameByColor_1 + "/" + colorLayerName);
+            for (var j = 1; j < sourceDoc_1.layers.length; j++) {
+                var colorLayerName = sourceDoc_1.layers[j].name;
+                var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName));
                 if (!destFolder.exists)
                     destFolder.create();
             }
         }
         createPerColorFolders();
-        // for (let i = 1; i < sourceDoc.layers.length; i++) {
-        //   let bgLayer = sourceDoc.layers[i];
-        //   bgLayer.visible = true;
-        //   // saveAsPNGAt24x24(bgLayer.name);
-        //   // saveAsPNGAt32x32(bgLayer.name);
-        //   // saveAsPNGAt48x48(bgLayer.name);
-        //   // saveAsPNGAt64x64(bgLayer.name);
-        //   // saveAsPNGAt300x300(bgLayer.name);
-        //   // saveAsPNGAt512x512(bgLayer.name);
-        //   // saveAsSVG(bgLayer.name);
-        //   // saveAsEPS(bgLayer.name);
-        //   bgLayer.visible = false;
-        // }
+        function create24x24Folders() {
+            var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name24x24_1));
+            if (!destFolder.exists)
+                destFolder.create();
+            // loop through all Folders By Icons and add required folder
+            for (var j = 0; j < myIconsSublayers_1.length; j++) {
+                var iconLayerName = myIconsSublayers_1[j].name;
+                var destFolder_1 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(name24x24_1));
+                if (!destFolder_1.exists)
+                    destFolder_1.create();
+            }
+            // loop through all Folders By Colors and add required folder
+            for (var j = 1; j < sourceDoc_1.layers.length; j++) {
+                var colorLayerName = sourceDoc_1.layers[j].name;
+                var destFolder_2 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(name24x24_1));
+                if (!destFolder_2.exists)
+                    destFolder_2.create();
+            }
+        }
+        create24x24Folders();
+        function create32x32Folders() {
+            var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name32x32_1));
+            if (!destFolder.exists)
+                destFolder.create();
+            // loop through all Folders By Icons and add required folder
+            for (var j = 0; j < myIconsSublayers_1.length; j++) {
+                var iconLayerName = myIconsSublayers_1[j].name;
+                var destFolder_3 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(name32x32_1));
+                if (!destFolder_3.exists)
+                    destFolder_3.create();
+            }
+            // loop through all Folders By Colors and add required folder
+            for (var j = 1; j < sourceDoc_1.layers.length; j++) {
+                var colorLayerName = sourceDoc_1.layers[j].name;
+                var destFolder_4 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(name32x32_1));
+                if (!destFolder_4.exists)
+                    destFolder_4.create();
+            }
+        }
+        create32x32Folders();
+        function create48x48Folders() {
+            var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name48x48_1));
+            if (!destFolder.exists)
+                destFolder.create();
+            // loop through all Folders By Icons and add required folder
+            for (var j = 0; j < myIconsSublayers_1.length; j++) {
+                var iconLayerName = myIconsSublayers_1[j].name;
+                var destFolder_5 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(name48x48_1));
+                if (!destFolder_5.exists)
+                    destFolder_5.create();
+            }
+            // loop through all Folders By Colors and add required folder
+            for (var j = 1; j < sourceDoc_1.layers.length; j++) {
+                var colorLayerName = sourceDoc_1.layers[j].name;
+                var destFolder_6 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(name48x48_1));
+                if (!destFolder_6.exists)
+                    destFolder_6.create();
+            }
+        }
+        create48x48Folders();
+        function create64x64Folders() {
+            var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name64x64_1));
+            if (!destFolder.exists)
+                destFolder.create();
+            // loop through all Folders By Icons and add required folder
+            for (var j = 0; j < myIconsSublayers_1.length; j++) {
+                var iconLayerName = myIconsSublayers_1[j].name;
+                var destFolder_7 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(name64x64_1));
+                if (!destFolder_7.exists)
+                    destFolder_7.create();
+            }
+            // loop through all Folders By Colors and add required folder
+            for (var j = 1; j < sourceDoc_1.layers.length; j++) {
+                var colorLayerName = sourceDoc_1.layers[j].name;
+                var destFolder_8 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(name64x64_1));
+                if (!destFolder_8.exists)
+                    destFolder_8.create();
+            }
+        }
+        create64x64Folders();
+        function create300x300Folders() {
+            var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name300x300_1));
+            if (!destFolder.exists)
+                destFolder.create();
+            // loop through all Folders By Icons and add required folder
+            for (var j = 0; j < myIconsSublayers_1.length; j++) {
+                var iconLayerName = myIconsSublayers_1[j].name;
+                var destFolder_9 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(name300x300_1));
+                if (!destFolder_9.exists)
+                    destFolder_9.create();
+            }
+            // loop through all Folders By Colors and add required folder
+            for (var j = 1; j < sourceDoc_1.layers.length; j++) {
+                var colorLayerName = sourceDoc_1.layers[j].name;
+                var destFolder_10 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(name300x300_1));
+                if (!destFolder_10.exists)
+                    destFolder_10.create();
+            }
+        }
+        create300x300Folders();
+        function create512x512Folders() {
+            var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name512x512_1));
+            if (!destFolder.exists)
+                destFolder.create();
+            // loop through all Folders By Icons and add required folder
+            for (var j = 0; j < myIconsSublayers_1.length; j++) {
+                var iconLayerName = myIconsSublayers_1[j].name;
+                var destFolder_11 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(name512x512_1));
+                if (!destFolder_11.exists)
+                    destFolder_11.create();
+            }
+            // loop through all Folders By Colors and add required folder
+            for (var j = 1; j < sourceDoc_1.layers.length; j++) {
+                var colorLayerName = sourceDoc_1.layers[j].name;
+                var destFolder_12 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(name512x512_1));
+                if (!destFolder_12.exists)
+                    destFolder_12.create();
+            }
+        }
+        create512x512Folders();
+        function createSVGFolders() {
+            var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(nameSVG_1));
+            if (!destFolder.exists)
+                destFolder.create();
+            // loop through all Folders By Icons and add required folder
+            for (var j = 0; j < myIconsSublayers_1.length; j++) {
+                var iconLayerName = myIconsSublayers_1[j].name;
+                var destFolder_13 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(nameSVG_1));
+                if (!destFolder_13.exists)
+                    destFolder_13.create();
+            }
+            // loop through all Folders By Colors and add required folder
+            for (var j = 1; j < sourceDoc_1.layers.length; j++) {
+                var colorLayerName = sourceDoc_1.layers[j].name;
+                var destFolder_14 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(nameSVG_1));
+                if (!destFolder_14.exists)
+                    destFolder_14.create();
+            }
+        }
+        createSVGFolders();
+        function createEPSFolders() {
+            var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(nameEPS_1));
+            if (!destFolder.exists)
+                destFolder.create();
+            // loop through all Folders By Icons and add required folder
+            for (var j = 0; j < myIconsSublayers_1.length; j++) {
+                var iconLayerName = myIconsSublayers_1[j].name;
+                var destFolder_15 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(nameEPS_1));
+                if (!destFolder_15.exists)
+                    destFolder_15.create();
+            }
+            // loop through all Folders By Colors and add required folder
+            for (var j = 1; j < sourceDoc_1.layers.length; j++) {
+                var colorLayerName = sourceDoc_1.layers[j].name;
+                var destFolder_16 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(nameEPS_1));
+                if (!destFolder_16.exists)
+                    destFolder_16.create();
+            }
+        }
+        createEPSFolders();
     }
     catch (e) {
         alert("Something went wrong while creating the folders.", e.message);
@@ -173,7 +271,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/24x24/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name24x24_1, "/").concat(iconLayer.name).concat(layerName, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -189,7 +287,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/32x32/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name32x32_1, "/").concat(iconLayer.name).concat(layerName, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -205,7 +303,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/48x48/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name48x48_1, "/").concat(iconLayer.name).concat(layerName, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -221,7 +319,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/64x64/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name64x64_1, "/").concat(iconLayer.name).concat(layerName, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -237,7 +335,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/300x300/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name300x300_1, "/").concat(iconLayer.name).concat(layerName, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -253,7 +351,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/512x512/").concat(iconLayer.name).concat(layerName, ".png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name512x512_1, "/").concat(iconLayer.name).concat(layerName, ".png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 ExportOptionsPNG24.antiAliasing = false;
@@ -266,8 +364,8 @@ try {
             }
         }
         function saveAsSVG(layerName) {
-            for (var k = 0; k < myIconsSublayers_1.length; k++) {
-                var iconLayer = myIconsSublayers_1[k];
+            for (var j = 0; j < myIconsSublayers_1.length; j++) {
+                var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
                 var svgFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(nameSVG_1, "/").concat(iconLayer.name).concat(layerName));
                 var aiFile = new File("".concat(sourceDoc_1.path, "/").concat(sourceDoc_1.name));
@@ -282,8 +380,8 @@ try {
             }
         }
         function saveAsEPS(layerName) {
-            for (var l = 0; l < myIconsSublayers_1.length; l++) {
-                var iconLayer = myIconsSublayers_1[l];
+            for (var j = 0; j < myIconsSublayers_1.length; j++) {
+                var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
                 var epsFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(nameEPS_1, "/").concat(iconLayer.name).concat(layerName, ".eps"));
                 var aiFile = new File("".concat(sourceDoc_1.path, "/").concat(sourceDoc_1.name));
@@ -311,14 +409,14 @@ try {
     for (var i = 1; i < sourceDoc_1.layers.length; i++) {
         var bgLayer = sourceDoc_1.layers[i];
         bgLayer.visible = true;
-        // saveAsPNGAt24x24(bgLayer.name);
-        // saveAsPNGAt32x32(bgLayer.name);
-        // saveAsPNGAt48x48(bgLayer.name);
-        // saveAsPNGAt64x64(bgLayer.name);
-        // saveAsPNGAt300x300(bgLayer.name);
-        // saveAsPNGAt512x512(bgLayer.name);
-        // saveAsSVG(bgLayer.name);
-        // saveAsEPS(bgLayer.name);
+        saveAsPNGAt24x24(bgLayer.name);
+        saveAsPNGAt32x32(bgLayer.name);
+        saveAsPNGAt48x48(bgLayer.name);
+        saveAsPNGAt64x64(bgLayer.name);
+        saveAsPNGAt300x300(bgLayer.name);
+        saveAsPNGAt512x512(bgLayer.name);
+        saveAsSVG(bgLayer.name);
+        saveAsEPS(bgLayer.name);
         bgLayer.visible = false;
     }
     // revert the doc from a .svg to a .ai, I don't want it to be svg!
