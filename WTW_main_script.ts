@@ -55,6 +55,7 @@ try {
     guideLayer.visible = true;
     if (guideLayer.visible === true) {
       guideLayer.locked = false;
+      // This needs work we dont want to delete it, just remove/ignore it from loop somehow
       guideLayer.remove();
     }
   } catch (e) {
@@ -253,20 +254,15 @@ try {
         iconLayer.visible = false;
       }
     }
-    // MAJOR BLOCKER BUG!
-    // I want to write to /SVG/ and /EPS/ folder here I can't, only root works
-    // it turns it into a svg
-    // you must duplicate the ai file before you export svg !
+
     function saveAsSVG(layerName) {
       for (let k = 0; k < myIconsSublayers.length; k++) {
         let iconLayer = myIconsSublayers[k];
         iconLayer.visible = true;
         let svgFile = new File(
-          // Blocker: If I add /SVG/ after .path/ here it doesn't work! It uses save prompt, I dont want this
           `${sourceDoc.path}/${nameByDimensions}/${nameSVG}/${iconLayer.name}${layerName}`
         );
         let aiFile = new File(
-          // Blocker: If I add /SVG/ after .path/ here it doesn't work! It uses save prompt, I dont want this
           `${sourceDoc.path}/${sourceDoc.name}`
         );
         let type = ExportType.SVG;
@@ -288,7 +284,6 @@ try {
           `${sourceDoc.path}/${nameByDimensions}/${nameEPS}/${iconLayer.name}${layerName}.eps`
         );
         let aiFile = new File(
-          // Blocker: If I add /SVG/ after .path/ here it doesn't work! It uses save prompt, I dont want this
           `${sourceDoc.path}/${sourceDoc.name}`
         );
         let opts = new EPSSaveOptions();
@@ -300,7 +295,6 @@ try {
         EPSSaveOptions.saveMultipleArtboards = true;
         sourceDoc.saveAs(epsFile, opts);
         iconLayer.visible = false;
-        // redeclare what and where to original to avoid EPS export MEGA bug
         DocumentType.ILLUSTRATOR;
         sourceDoc.saveAs(aiFile);
       }
