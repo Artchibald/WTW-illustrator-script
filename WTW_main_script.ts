@@ -586,12 +586,10 @@ try {
  ***********************************/
     function saveAsPNGAt24x24ByColor(layerName) {
       for (let j = 0; j < myIconsSublayers.length; j++) {
-
-        let bgColorsLayer = sourceDoc.layers;
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByColor}/${bgColorsLayer.getByName}/${name24x24}/${iconLayer.name}${layerName}.png`
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${name24x24}/${iconLayer.name}${layerName}.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
@@ -604,6 +602,146 @@ try {
         iconLayer.visible = false;
       }
     }
+
+    function saveAsPNGAt32x32ByColor(layerName) {
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayer = myIconsSublayers[j];
+        iconLayer.visible = true;
+        let pngFile = new File(
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${name32x32}/${iconLayer.name}${layerName}.png`
+        );
+        let type = ExportType.PNG24;
+        let opts = new ExportOptionsPNG24();
+        ExportOptionsPNG24.antiAliasing = false;
+        ExportOptionsPNG24.transparency = true;
+        ExportOptionsPNG24.artBoardClipping = true;
+        ExportOptionsPNG24.horizontalScale = 12.5; // 32px x 32px
+        ExportOptionsPNG24.verticalScale = 12.5; // 32px x 32px
+        sourceDoc.exportFile(pngFile, type, opts);
+        iconLayer.visible = false;
+      }
+    }
+
+    function saveAsPNGAt48x48ByColor(layerName) {
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayer = myIconsSublayers[j];
+        iconLayer.visible = true;
+        let pngFile = new File(
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${name48x48}/${iconLayer.name}${layerName}.png`
+        );
+        let type = ExportType.PNG24;
+        let opts = new ExportOptionsPNG24();
+        ExportOptionsPNG24.antiAliasing = false;
+        ExportOptionsPNG24.transparency = true;
+        ExportOptionsPNG24.artBoardClipping = true;
+        ExportOptionsPNG24.horizontalScale = 18.75; // 48px x 48px
+        ExportOptionsPNG24.verticalScale = 18.75; // 48px x 48px
+        sourceDoc.exportFile(pngFile, type, opts);
+        iconLayer.visible = false;
+      }
+    }
+
+    function saveAsPNGAt64x64ByColor(layerName) {
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayer = myIconsSublayers[j];
+        iconLayer.visible = true;
+        let pngFile = new File(
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${name64x64}/${iconLayer.name}${layerName}.png`
+        );
+        let type = ExportType.PNG24;
+        let opts = new ExportOptionsPNG24();
+        ExportOptionsPNG24.antiAliasing = false;
+        ExportOptionsPNG24.transparency = true;
+        ExportOptionsPNG24.artBoardClipping = true;
+        ExportOptionsPNG24.horizontalScale = 25; // 300px x 300px
+        ExportOptionsPNG24.verticalScale = 25; // 300px x 300px
+        sourceDoc.exportFile(pngFile, type, opts);
+        iconLayer.visible = false;
+      }
+    }
+
+    function saveAsPNGAt300x300ByColor(layerName) {
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayer = myIconsSublayers[j];
+        iconLayer.visible = true;
+        let pngFile = new File(
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${name300x300}/${iconLayer.name}${layerName}.png`
+        );
+        let type = ExportType.PNG24;
+        let opts = new ExportOptionsPNG24();
+        ExportOptionsPNG24.antiAliasing = false;
+        ExportOptionsPNG24.transparency = true;
+        ExportOptionsPNG24.artBoardClipping = true;
+        ExportOptionsPNG24.horizontalScale = 117.2; // 300px x 300px
+        ExportOptionsPNG24.verticalScale = 117.2; // 300px x 300px
+        sourceDoc.exportFile(pngFile, type, opts);
+        iconLayer.visible = false;
+      }
+    }
+
+    function saveAsPNGAt512x512ByColor(layerName) {
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayer = myIconsSublayers[j];
+        iconLayer.visible = true;
+        let pngFile = new File(
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${name512x512}/${iconLayer.name}${layerName}.png`
+        );
+        let type = ExportType.PNG24;
+        let opts = new ExportOptionsPNG24();
+        ExportOptionsPNG24.antiAliasing = false;
+        ExportOptionsPNG24.transparency = true;
+        ExportOptionsPNG24.artBoardClipping = true;
+        ExportOptionsPNG24.horizontalScale = 200;
+        ExportOptionsPNG24.verticalScale = 200;
+        sourceDoc.exportFile(pngFile, type, opts);
+        iconLayer.visible = false;
+      }
+    }
+
+    function saveAsSVGByColor(layerName) {
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayer = myIconsSublayers[j];
+        iconLayer.visible = true;
+        let svgFile = new File(
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${nameSVG}/${iconLayer.name}${layerName}`
+        );
+        let aiFile = new File(
+          `${sourceDoc.path}/${sourceDoc.name}`
+        );
+        let type = ExportType.SVG;
+        ExportOptionsSVG.optimizeForSVGViewer = true;
+        ExportOptionsSVG.saveMultipleArtboards = true;
+        sourceDoc.exportFile(svgFile, type);
+        iconLayer.visible = false;
+        // redeclare what and where to original to avoid SVG export MEGA bug
+        DocumentType.ILLUSTRATOR;
+        sourceDoc.saveAs(aiFile);
+      }
+    }
+
+    function saveAsEPSByColor(layerName) {
+      for (let j = 0; j < myIconsSublayers.length; j++) {
+        let iconLayer = myIconsSublayers[j];
+        iconLayer.visible = true;
+        let epsFile = new File(
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${nameEPS}/${iconLayer.name}${layerName}.png`
+        );
+        let aiFile = new File(
+          `${sourceDoc.path}/${sourceDoc.name}`
+        );
+        let opts = new EPSSaveOptions();
+        EPSSaveOptions.cmykPostScript = false;
+        EPSSaveOptions.embedAllFonts = false;
+        EPSSaveOptions.artboardRange = "";
+        EPSSaveOptions.embedLinkedFiles = true;
+        EPSSaveOptions.includeDocumentThumbnails = true;
+        EPSSaveOptions.saveMultipleArtboards = true;
+        sourceDoc.saveAs(epsFile, opts);
+        iconLayer.visible = false;
+        DocumentType.ILLUSTRATOR;
+        sourceDoc.saveAs(aiFile);
+      }
+    }
   } catch (e) {
     alert("Something went wrong while trying to export the icons.", e.message);
   }
@@ -614,32 +752,32 @@ try {
     let bgLayer = sourceDoc.layers[i];
     bgLayer.visible = true;
     // Save them to sorted-by-dimensions
-    // saveAsPNGAt24x24ByDimensions(bgLayer.name);
-    // saveAsPNGAt32x32ByDimensions(bgLayer.name);
-    // saveAsPNGAt48x48ByDimensions(bgLayer.name);
-    // saveAsPNGAt64x64ByDimensions(bgLayer.name);
-    // saveAsPNGAt300x300ByDimensions(bgLayer.name);
-    // saveAsPNGAt512x512ByDimensions(bgLayer.name);
-    // saveAsSVGByDimensions(bgLayer.name);
-    // saveAsEPSByDimensions(bgLayer.name);
+    saveAsPNGAt24x24ByDimensions(bgLayer.name);
+    saveAsPNGAt32x32ByDimensions(bgLayer.name);
+    saveAsPNGAt48x48ByDimensions(bgLayer.name);
+    saveAsPNGAt64x64ByDimensions(bgLayer.name);
+    saveAsPNGAt300x300ByDimensions(bgLayer.name);
+    saveAsPNGAt512x512ByDimensions(bgLayer.name);
+    saveAsSVGByDimensions(bgLayer.name);
+    saveAsEPSByDimensions(bgLayer.name);
     // Save them to sorted-by-icon
-    // saveAsPNGAt24x24ByIcon(bgLayer.name);
-    // saveAsPNGAt32x32ByIcon(bgLayer.name);
-    // saveAsPNGAt48x48ByIcon(bgLayer.name);
-    // saveAsPNGAt64x64ByIcon(bgLayer.name);
-    // saveAsPNGAt300x300ByIcon(bgLayer.name);
-    // saveAsPNGAt512x512ByIcon(bgLayer.name);
-    // saveAsSVGByIcon(bgLayer.name);
-    // saveAsEPSByIcon(bgLayer.name);
+    saveAsPNGAt24x24ByIcon(bgLayer.name);
+    saveAsPNGAt32x32ByIcon(bgLayer.name);
+    saveAsPNGAt48x48ByIcon(bgLayer.name);
+    saveAsPNGAt64x64ByIcon(bgLayer.name);
+    saveAsPNGAt300x300ByIcon(bgLayer.name);
+    saveAsPNGAt512x512ByIcon(bgLayer.name);
+    saveAsSVGByIcon(bgLayer.name);
+    saveAsEPSByIcon(bgLayer.name);
     // Save them to sorted-by-color
     saveAsPNGAt24x24ByColor(bgLayer.name);
-    // saveAsPNGAt32x32ByColor(bgLayer.name);
-    // saveAsPNGAt48x48ByColor(bgLayer.name);
-    // saveAsPNGAt64x64ByColor(bgLayer.name);
-    // saveAsPNGAt300x300ByColor(bgLayer.name);
-    // saveAsPNGAt512x512ByColor(bgLayer.name);
-    // saveAsSVGByColor(bgLayer.name);
-    // saveAsEPSByColor(bgLayer.name);
+    saveAsPNGAt32x32ByColor(bgLayer.name);
+    saveAsPNGAt48x48ByColor(bgLayer.name);
+    saveAsPNGAt64x64ByColor(bgLayer.name);
+    saveAsPNGAt300x300ByColor(bgLayer.name);
+    saveAsPNGAt512x512ByColor(bgLayer.name);
+    saveAsSVGByColor(bgLayer.name);
+    saveAsEPSByColor(bgLayer.name);
     bgLayer.visible = false;
   }
   // revert the doc from a .svg to a .ai, I don't want it to be svg!
