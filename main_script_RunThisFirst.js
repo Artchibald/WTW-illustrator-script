@@ -23,12 +23,12 @@ try {
     var nameSVG_1 = "SVG";
     var nameEPS_1 = "EPS";
     // target icons for main loop
-    var myIconsLayer = sourceDoc_1.layers["icons"];
-    var myIconsSublayers_1 = myIconsLayer.layers;
+    var myIconsLayer_1 = sourceDoc_1.layers["icons"];
+    var myIconsSublayers_1 = myIconsLayer_1.layers;
     // target icons for main loop
-    var myColorsLayer = sourceDoc_1.layers["colors"];
-    var myColorsSublayers_1 = myColorsLayer.layers;
-    var guideLayer = sourceDoc_1.layers["Guides (DO NOT MOVE)"];
+    var myColorsLayer_1 = sourceDoc_1.layers["colors"];
+    var myColorsSublayers_1 = myColorsLayer_1.layers;
+    var guideLayer_1 = sourceDoc_1.layers["Guides (DO NOT MOVE)"];
     /**********************************
      ** INSTRUCTIONS DIALOG
      ***********************************/
@@ -46,8 +46,8 @@ try {
      ** REMOVE GUIDES LAYER
      ***********************************/
     try {
-        guideLayer.visible = false;
-        myColorsLayer.visible = true;
+        guideLayer_1.visible = false;
+        myColorsLayer_1.visible = true;
         // guide layer for removal
         // let guideLayer = sourceDoc.layers["Guides (DO NOT MOVE)"];
         // guideLayer.visible = true;
@@ -689,23 +689,23 @@ try {
         saveAsSVGByDimensions(bgLayer.name);
         saveAsEPSByDimensions(bgLayer.name);
         // Save them to sorted-by-icon
-        saveAsPNGAt24x24ByIcon(bgLayer.name);
-        saveAsPNGAt32x32ByIcon(bgLayer.name);
-        saveAsPNGAt48x48ByIcon(bgLayer.name);
-        saveAsPNGAt64x64ByIcon(bgLayer.name);
-        saveAsPNGAt300x300ByIcon(bgLayer.name);
-        saveAsPNGAt512x512ByIcon(bgLayer.name);
-        saveAsSVGByIcon(bgLayer.name);
-        saveAsEPSByIcon(bgLayer.name);
+        // saveAsPNGAt24x24ByIcon(bgLayer.name);
+        // saveAsPNGAt32x32ByIcon(bgLayer.name);
+        // saveAsPNGAt48x48ByIcon(bgLayer.name);
+        // saveAsPNGAt64x64ByIcon(bgLayer.name);
+        // saveAsPNGAt300x300ByIcon(bgLayer.name);
+        // saveAsPNGAt512x512ByIcon(bgLayer.name);
+        // saveAsSVGByIcon(bgLayer.name);
+        // saveAsEPSByIcon(bgLayer.name);
         // Save them to sorted-by-color
-        saveAsPNGAt24x24ByColor(bgLayer.name);
-        saveAsPNGAt32x32ByColor(bgLayer.name);
-        saveAsPNGAt48x48ByColor(bgLayer.name);
-        saveAsPNGAt64x64ByColor(bgLayer.name);
-        saveAsPNGAt300x300ByColor(bgLayer.name);
-        saveAsPNGAt512x512ByColor(bgLayer.name);
-        saveAsSVGByColor(bgLayer.name);
-        saveAsEPSByColor(bgLayer.name);
+        // saveAsPNGAt24x24ByColor(bgLayer.name);
+        // saveAsPNGAt32x32ByColor(bgLayer.name);
+        // saveAsPNGAt48x48ByColor(bgLayer.name);
+        // saveAsPNGAt64x64ByColor(bgLayer.name);
+        // saveAsPNGAt300x300ByColor(bgLayer.name);
+        // saveAsPNGAt512x512ByColor(bgLayer.name);
+        // saveAsSVGByColor(bgLayer.name);
+        // saveAsEPSByColor(bgLayer.name);
         bgLayer.visible = false;
         // Next we create a contact sheet here
     }
