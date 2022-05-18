@@ -123,6 +123,8 @@ If all layers are on show only first
 
 # To be done
 
+Simplify
+
 add -24x24 ...etc to all exports
 
 Time off half day tue 31 MAY, need afternoon off

@@ -23,12 +23,12 @@ try {
     var nameSVG_1 = "SVG";
     var nameEPS_1 = "EPS";
     // target icons for main loop
-    var myIconsLayer = sourceDoc_1.layers["icons"];
-    var myIconsSublayers_1 = myIconsLayer.layers;
+    var myIconsLayer_1 = sourceDoc_1.layers["icons"];
+    var myIconsSublayers_1 = myIconsLayer_1.layers;
     /**********************************
      ** INSTRUCTIONS DIALOG
      ***********************************/
-    alert("FULL README: https://github.com/Artchibald/WTW-illustrator-script  \n\n   IMPORTANT: THIS SCRIPT WILL DESTROY YOUR .AI FILE!!!! ONLY USE A COPY OF YOUR ORIGINAL AI FILE!!!  \n\n   Make a coffee, this may take a while.  \n\n  If you restart this script again, you may first want to delete the folders that were created in the previous run to avoid bugs. Otherwise it may ask to overwrite them with Save As Prompt and fail to complete  \n\n Avoid weird characters and use hyphens instead of spaces to avoid bugs  \n\n Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n icons must be INSIDE a layer called exactly 'icons'. \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. \n\n Make sure all background colors are on individual layers after the icons layer with correct layer names, avoid weird characters. Exported assets will be saved where the .ai file is saved. \n\n Again, this script WILL DELETE LAYERS AND SAVE when complete so make sure you have saved your work elsewhere so you can re - open your file and not lose work.");
+    alert("FULL README: https://github.com/Artchibald/WTW-illustrator-script  \n\n   IMPORTANT: THIS SCRIPT WILL DESTROY YOUR .AI FILE!!!! ONLY USE A COPY OF YOUR ORIGINAL AI FILE!!!  \n\n   Make a coffee, this may take a while.  \n\n  If you restart this script again, you may first want to delete the folders that were created in the previous run to avoid bugs. Otherwise it may ask to overwrite them with Save As Prompt and fail to complete  \n\n AIn the layer names, avoid weird characters and use hyphens instead of spaces to avoid bugs  \n\n Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n icons must be INSIDE a layer called exactly 'icons'. \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. \n\n Make sure all background colors are on individual layers after the icons layer with correct layer names, avoid weird characters. Exported assets will be saved where the .ai file is saved. \n\n Again, this script WILL DELETE LAYERS AND SAVE when complete so make sure you have saved your work elsewhere so you can re - open your file and not lose work.");
     /**********************************
      ** MAKE ICONS LAYER VISIBLE
      ***********************************/
@@ -675,38 +675,41 @@ try {
         var bgLayer = sourceDoc_1.layers[i];
         bgLayer.visible = true;
         // Save them to sorted-by-dimensions
-        saveAsPNGAt24x24ByDimensions(bgLayer.name);
-        saveAsPNGAt32x32ByDimensions(bgLayer.name);
-        saveAsPNGAt48x48ByDimensions(bgLayer.name);
-        saveAsPNGAt64x64ByDimensions(bgLayer.name);
-        saveAsPNGAt300x300ByDimensions(bgLayer.name);
-        saveAsPNGAt512x512ByDimensions(bgLayer.name);
-        saveAsSVGByDimensions(bgLayer.name);
-        saveAsEPSByDimensions(bgLayer.name);
+        // saveAsPNGAt24x24ByDimensions(bgLayer.name);
+        // saveAsPNGAt32x32ByDimensions(bgLayer.name);
+        // saveAsPNGAt48x48ByDimensions(bgLayer.name);
+        // saveAsPNGAt64x64ByDimensions(bgLayer.name);
+        // saveAsPNGAt300x300ByDimensions(bgLayer.name);
+        // saveAsPNGAt512x512ByDimensions(bgLayer.name);
+        // saveAsSVGByDimensions(bgLayer.name);
+        // saveAsEPSByDimensions(bgLayer.name);
         // Save them to sorted-by-icon
-        saveAsPNGAt24x24ByIcon(bgLayer.name);
-        saveAsPNGAt32x32ByIcon(bgLayer.name);
-        saveAsPNGAt48x48ByIcon(bgLayer.name);
-        saveAsPNGAt64x64ByIcon(bgLayer.name);
-        saveAsPNGAt300x300ByIcon(bgLayer.name);
-        saveAsPNGAt512x512ByIcon(bgLayer.name);
-        saveAsSVGByIcon(bgLayer.name);
-        saveAsEPSByIcon(bgLayer.name);
+        // saveAsPNGAt24x24ByIcon(bgLayer.name);
+        // saveAsPNGAt32x32ByIcon(bgLayer.name);
+        // saveAsPNGAt48x48ByIcon(bgLayer.name);
+        // saveAsPNGAt64x64ByIcon(bgLayer.name);
+        // saveAsPNGAt300x300ByIcon(bgLayer.name);
+        // saveAsPNGAt512x512ByIcon(bgLayer.name);
+        // saveAsSVGByIcon(bgLayer.name);
+        // saveAsEPSByIcon(bgLayer.name);
         // Save them to sorted-by-color
-        saveAsPNGAt24x24ByColor(bgLayer.name);
-        saveAsPNGAt32x32ByColor(bgLayer.name);
-        saveAsPNGAt48x48ByColor(bgLayer.name);
-        saveAsPNGAt64x64ByColor(bgLayer.name);
-        saveAsPNGAt300x300ByColor(bgLayer.name);
-        saveAsPNGAt512x512ByColor(bgLayer.name);
-        saveAsSVGByColor(bgLayer.name);
-        saveAsEPSByColor(bgLayer.name);
+        // saveAsPNGAt24x24ByColor(bgLayer.name);
+        // saveAsPNGAt32x32ByColor(bgLayer.name);
+        // saveAsPNGAt48x48ByColor(bgLayer.name);
+        // saveAsPNGAt64x64ByColor(bgLayer.name);
+        // saveAsPNGAt300x300ByColor(bgLayer.name);
+        // saveAsPNGAt512x512ByColor(bgLayer.name);
+        // saveAsSVGByColor(bgLayer.name);
+        // saveAsEPSByColor(bgLayer.name);
         bgLayer.visible = false;
         // Next we create a contact sheet here
     }
     // revert the doc from a .svg to a .ai, I don't want it to be svg!
     DocumentType.ILLUSTRATOR;
     sourceDoc_1.save();
+    /**********************************
+   ** CREATE CONTACT SHEET
+   ***********************************/
     // close the document here without saving, uncomment for prod
     // app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 }
