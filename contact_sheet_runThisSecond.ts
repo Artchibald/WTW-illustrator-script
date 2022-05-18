@@ -1,4 +1,4 @@
-// from prev script
+
 let sourceDoc = app.activeDocument;
 
 //folder names
@@ -17,47 +17,22 @@ let nameEPS = "EPS";
 let myIconsLayer = sourceDoc.layers["icons"];
 let myIconsSublayers = myIconsLayer.layers;
 
-var originalInteractionLevel = userInteractionLevel;
-userInteractionLevel = UserInteractionLevel.DISPLAYALERTS;
 
-/**
- *  @author  Iconfinder.com - http://iconfinder.com
- * @date    2016-09-13
- *
- *  Installation: 
- *
- *  1. Copy this file to Illustrator > Presets > Scripting
- *  2. Restart Adobe Illustrator
- *  3. Go to File > Scripts > Contact Sheet
- *  4. Follow the prompts
- *
- *  Usage:
- *
- *  This script will create a contact sheet of vector objects from a folder structure 
- *  that you specify. As of 13-09-2016 the script will only work with folder structures 
- *  nested 1 level deep (Parent > Subfolders). This was done intentionally to allow 
- *  for creating contacts sheets of categorized icons where the user wants to 
- *  be able to specify the order of the categories.
- *
- *  Inputs:
- *
- *      Page Width:     The width of the contact sheet in pixels
- *      Page Height:    The height of the contact sheet in pixels
- *      Column Width:   The width of the columns in pixels
- *      Row Height:     The height of the rows in pixels
- *      Scale:          The percentage (100 = 100%) to scale the objects being placed
- *
- *  The resulting contact sheet will have margins that are calculated thus: subtracting
- *  Left & Right Margins = (Page Width - Column Width * Column Count) / 2
- *  Top & Bottom Margins = (Page Height - Row Height * Row Count) / 2
- *
- *  Copyright:
- *
- *      (c) copyright: Iconfinder.com - http://iconfinder.com
- *      copyright full text can be found in the accompanying file license.txt
- */
 
-var LANG = {
+/**********************************
+  ** COPY BELOW ONLY
+  ***********************************/
+
+alert("The contact sheet generating will start now!")
+
+alert(
+  "FULL README: https://github.com/Artchibald/WTW-illustrator-script  \n\n   IMPORTANT: THIS SCRIPT COULD DESTROY YOUR .AI FILE!!!! ONLY USE A COPY OF YOUR ORIGINAL AI FILE!!!  \n\n  Again, this script MAY DELETE LAYERS AND SAVE when complete so make sure you have saved your work elsewhere so you can re-open your file and not lose work."
+);
+let userInteractionLevel;
+let originalInteractionLevel = userInteractionLevel;
+userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;
+
+let LANG = {
   CHOOSE_FOLDER: "Please choose your Folder of files to place...",
   NO_SELECTION: "No selection",
   LABEL_SETTINGS: "Contact Sheet Settings",
@@ -74,13 +49,13 @@ var LANG = {
   LAYER_NOT_CREATED: "Could not create layer. "
 }
 
-var CONFIG = {
+let CONFIG = {
 
   /**
    * Number of rows
    */
 
-  ROWS: 20,
+  ROWS: 80,
 
   /**
    * Number of columns
@@ -104,13 +79,13 @@ var CONFIG = {
    * Row height. This is set programmatically.
    */
 
-  ROW_WIDTH: 128,
+  ROW_WIDTH: 256,
 
   /**
    * Column Height. This is set programmatically.
    */
 
-  COL_WIDTH: 128,
+  COL_WIDTH: 256,
 
   /**
    * @deprecated
@@ -136,7 +111,7 @@ var CONFIG = {
    * 20 rows 128 px tall, with 64 px page margins
    */
 
-  PG_HEIGHT: 2688,
+  PG_HEIGHT: 10480,
 
   /**
    * Not yet fully-implemented. Will support multiple units
@@ -172,7 +147,7 @@ var CONFIG = {
    * Start folder for selection
    */
 
-  START_FOLDER: Folder.desktop,
+  START_FOLDER: sourceDoc.path,
 
   /**
    * The contact sheet file name
@@ -190,7 +165,7 @@ var CONFIG = {
    * Log file location
    */
 
-  LOG_FILE_PATH: Folder.desktop + "/ai-contactsheet-log.txt",
+  LOG_FILE_PATH: sourceDoc.path + "/ai-contactsheet-log.txt",
 
   /**
    * Verbose logging output?
@@ -229,10 +204,11 @@ var CONFIG = {
  *
  * @return Settings object
  */
+
 function doDisplayDialog() {
 
-  var dialog = new Window("dialog", LANG.LABEL_SETTINGS, [550, 350, 900, 700]);
-  var response = false;
+  let dialog = new Window("dialog", LANG.LABEL_SETTINGS, [550, 350, 900, 700] as Bounds);
+  let response = false;
 
   try {
     dialog.pageWidthLabel = dialog.add("statictext", [32, 30, 132, 60], LANG.LABEL_PG_WIDTH);
@@ -318,9 +294,9 @@ function doDisplayDialog() {
  * @return <string> The new file name sans extension
  */
 function stripFileExtension(filename) {
-  var bits = filename.split(".");
-  var bit = bits[bits.length - 1];
-  var found = false;
+  let bits = filename.split(".");
+  let bit = bits[bits.length - 1];
+  let found = false;
   if (bits.length > 1 && bit) {
     for (ext in CONFIG.STRIP) {
       if (ext.toLowerCase() == bit.toLowerCase()) {
@@ -351,7 +327,7 @@ function doCreateContactSheet() {
     allFiles = srcFolder.getFiles();
     theFolders = [];
 
-    for (var x = 0; x < allFiles.length; x++) {
+    for (let x = 0; x < allFiles.length; x++) {
       if (allFiles[x] instanceof Folder) {
         theFolders.push(allFiles[x]);
       }
@@ -361,10 +337,10 @@ function doCreateContactSheet() {
     if (theFolders.length == 0) {
       svgFileList = srcFolder.getFiles(/\.svg$/i);
     } else {
-      for (var x = 0; x < theFolders.length; x++) {
+      for (let x = 0; x < theFolders.length; x++) {
         // Gets just the SVG files...  
         fileList = theFolders[x].getFiles(/\.svg$/i);
-        for (var n = 0; n < fileList.length; n++) {
+        for (let n = 0; n < fileList.length; n++) {
           svgFileList.push(fileList[n]);
         }
       }
@@ -393,18 +369,18 @@ function doCreateContactSheet() {
         Math.round(Math.sqrt(Math.ceil(svgFileList.length / (CONFIG.ROWS * CONFIG.COLS))))
       );
 
-      for (var i = 0; i < svgFileList.length; i++) {
+      for (let i = 0; i < svgFileList.length; i++) {
 
-        var board;
-        var bounds;
-        var x1 = y1 = x2 = y2 = 0;
+        let board;
+        let bounds;
+        let x1 = y1 = x2 = y2 = 0;
 
-        var myRowHeight = CONFIG.ROW_HEIGHT + CONFIG.GUTTER;
-        var myColumnWidth = CONFIG.COL_WIDTH + CONFIG.GUTTER
-        var myFrameWidth = CONFIG.FRM_WIDTH
-        var myFrameHeight = CONFIG.FRM_HEIGHT
+        let myRowHeight = CONFIG.ROW_HEIGHT + CONFIG.GUTTER;
+        let myColumnWidth = CONFIG.COL_WIDTH + CONFIG.GUTTER
+        let myFrameWidth = CONFIG.FRM_WIDTH
+        let myFrameHeight = CONFIG.FRM_HEIGHT
 
-        for (var pageCounter = CONFIG.PG_COUNT - 1; pageCounter >= 0; pageCounter--) {
+        for (let pageCounter = CONFIG.PG_COUNT - 1; pageCounter >= 0; pageCounter--) {
 
           doc.artboards.setActiveArtboardIndex(pageCounter);
           board = doc.artboards[pageCounter];
@@ -413,7 +389,7 @@ function doCreateContactSheet() {
 
           // loop through rows
 
-          var rowCount = Math.ceil((svgFileList.length / CONFIG.COLS));
+          let rowCount = Math.ceil((svgFileList.length / CONFIG.COLS));
 
           rowCount = CONFIG.ROWS > rowCount ? rowCount : CONFIG.ROWS;
 
@@ -426,24 +402,24 @@ function doCreateContactSheet() {
             rowCount++;
           }
 
-          for (var rowCounter = 1; rowCounter <= rowCount; rowCounter++) {
+          for (let rowCounter = 1; rowCounter <= rowCount; rowCounter++) {
 
             myY1 = bounds[1] + CONFIG.VOFF + (myRowHeight * (rowCounter - 1));
             myY2 = myY1 + CONFIG.FRM_HEIGHT;
 
             // loop through columns
 
-            var colCount = CONFIG.COLS;
+            let colCount = CONFIG.COLS;
 
             if (rowCounter > 1) {
 
-              var remaining = Math.ceil(svgFileList.length - i);
+              let remaining = Math.ceil(svgFileList.length - i);
               if (remaining < colCount) {
                 colCount = remaining;
               }
             }
 
-            for (var columnCounter = 1; columnCounter <= colCount; columnCounter++) {
+            for (let columnCounter = 1; columnCounter <= colCount; columnCounter++) {
               try {
 
                 // A hack to allow merging multiple contact sheets 
@@ -454,7 +430,7 @@ function doCreateContactSheet() {
                   continue;
                 }
 
-                var f = new File(svgFileList[i]);
+                let f = new File(svgFileList[i]);
 
                 if (f.exists) {
 
@@ -471,14 +447,14 @@ function doCreateContactSheet() {
                   }
                   svgFile = doc.groupItems.createFromFile(f);
 
-                  var liveWidth = (CONFIG.COLS * (CONFIG.FRM_WIDTH + CONFIG.GUTTER)) - CONFIG.GUTTER;
-                  var hoff = Math.ceil((CONFIG.PG_WIDTH - liveWidth) / 2);
+                  let liveWidth = (CONFIG.COLS * (CONFIG.FRM_WIDTH + CONFIG.GUTTER)) - CONFIG.GUTTER;
+                  let hoff = Math.ceil((CONFIG.PG_WIDTH - liveWidth) / 2);
 
                   myX1 = bounds[0] + hoff + (myColumnWidth * (columnCounter - 1));
                   myX2 = myX1 + CONFIG.FRM_HEIGHT;
 
-                  var shiftX = Math.ceil((CONFIG.FRM_WIDTH - svgFile.width) / 2);
-                  var shiftY = Math.ceil((CONFIG.FRM_WIDTH - svgFile.height) / 2);
+                  let shiftX = Math.ceil((CONFIG.FRM_WIDTH - svgFile.width) / 2);
+                  let shiftY = Math.ceil((CONFIG.FRM_WIDTH - svgFile.height) / 2);
 
                   x1 = myX1 + shiftX;
                   y1 = (myY1 + shiftY) * -1;
@@ -526,13 +502,13 @@ function doCreateContactSheet() {
  */
 function arrangeItems(sel) {
 
-  var board;
-  var bounds;
-  var itemBounds;
-  var cols;
-  var cellSize;
-  var x1 = y1 = 0;
-  var boardWidth, boardHeight;
+  let board;
+  let bounds;
+  let itemBounds;
+  let cols;
+  let cellSize;
+  let x1 = y1 = 0;
+  let boardWidth, boardHeight;
 
   board = doc.artboards[doc.artboards.getActiveArtboardIndex()];
   bounds = board.artboardRect;
@@ -545,7 +521,7 @@ function arrangeItems(sel) {
   x1 = bounds[0] + cellSize;
   y1 = bounds[1] - cellSize;
 
-  for (var i = 0, slen = sel.length; i < slen; i++) {
+  for (let i = 0, slen = sel.length; i < slen; i++) {
 
     theItem = sel[i];
 
@@ -589,8 +565,8 @@ function arrangeItems(sel) {
  */
 function saveFileAsAi(dest) {
   if (app.documents.length > 0) {
-    var options = new IllustratorSaveOptions();
-    var theDoc = new File(dest);
+    let options = new IllustratorSaveOptions();
+    let theDoc = new File(dest);
     options.compatibility = CONFIG.AIFORMAT;
     options.flattenOutput = OutputFlattening.PRESERVEAPPEARANCE;
     options.pdfCompatible = true;
@@ -628,7 +604,7 @@ function alignToNearestPixel(sel) {
  */
 function logger(txt) {
   if (CONFIG.LOGGING == 0) return;
-  var file = new File(CONFIG.LOG_FILE_PATH);
+  let file = new File(CONFIG.LOG_FILE_PATH);
   file.open("e", "TEXT", "????");
   file.seek(0, 2);
   $.os.search(/windows/i) != -1 ? file.lineFeed = 'windows' : file.lineFeed = 'macintosh';
@@ -663,4 +639,21 @@ function moveToPixel(n) {
 
 doCreateContactSheet();
 
+
+// Crop to selection with gutters!
+var offset = 10 * 2.83465;
+sourceDoc.selection = null;
+var idx = sourceDoc.artboards.getActiveArtboardIndex();
+sourceDoc.selectObjectsOnActiveArtboard();
+sourceDoc.fitArtboardToSelectedArt(idx); // does not work for visible bounds of editable fonts
+var rect = sourceDoc.artboards[idx].artboardRect;
+sourceDoc.artboards[idx].artboardRect = [rect[0] - offset, rect[1] + offset, rect[2] + offset, rect[3] - offset];
+sourceDoc.selection = null;
+// unselect everything
 userInteractionLevel = originalInteractionLevel;
+app.activeDocument.save();
+
+
+
+  // close the document here without saving, uncomment for prod
+  // app.activeDocument.close(SaveOptions.DONOTSAVECHANGES); 

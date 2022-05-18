@@ -1,4 +1,3 @@
-// from prev script
 var sourceDoc = app.activeDocument;
 //folder names
 var nameByDimensions = "sorted-by-dimensions";
@@ -15,44 +14,14 @@ var nameEPS = "EPS";
 // target icons for main loop
 var myIconsLayer = sourceDoc.layers["icons"];
 var myIconsSublayers = myIconsLayer.layers;
+/**********************************
+  ** COPY BELOW ONLY
+  ***********************************/
+alert("The contact sheet generating will start now!");
+alert("FULL README: https://github.com/Artchibald/WTW-illustrator-script  \n\n   IMPORTANT: THIS SCRIPT COULD DESTROY YOUR .AI FILE!!!! ONLY USE A COPY OF YOUR ORIGINAL AI FILE!!!  \n\n  Again, this script MAY DELETE LAYERS AND SAVE when complete so make sure you have saved your work elsewhere so you can re-open your file and not lose work.");
+var userInteractionLevel;
 var originalInteractionLevel = userInteractionLevel;
-userInteractionLevel = UserInteractionLevel.DISPLAYALERTS;
-/**
- *  @author  Iconfinder.com - http://iconfinder.com
- * @date    2016-09-13
- *
- *  Installation:
- *
- *  1. Copy this file to Illustrator > Presets > Scripting
- *  2. Restart Adobe Illustrator
- *  3. Go to File > Scripts > Contact Sheet
- *  4. Follow the prompts
- *
- *  Usage:
- *
- *  This script will create a contact sheet of vector objects from a folder structure
- *  that you specify. As of 13-09-2016 the script will only work with folder structures
- *  nested 1 level deep (Parent > Subfolders). This was done intentionally to allow
- *  for creating contacts sheets of categorized icons where the user wants to
- *  be able to specify the order of the categories.
- *
- *  Inputs:
- *
- *      Page Width:     The width of the contact sheet in pixels
- *      Page Height:    The height of the contact sheet in pixels
- *      Column Width:   The width of the columns in pixels
- *      Row Height:     The height of the rows in pixels
- *      Scale:          The percentage (100 = 100%) to scale the objects being placed
- *
- *  The resulting contact sheet will have margins that are calculated thus: subtracting
- *  Left & Right Margins = (Page Width - Column Width * Column Count) / 2
- *  Top & Bottom Margins = (Page Height - Row Height * Row Count) / 2
- *
- *  Copyright:
- *
- *      (c) copyright: Iconfinder.com - http://iconfinder.com
- *      copyright full text can be found in the accompanying file license.txt
- */
+userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;
 var LANG = {
     CHOOSE_FOLDER: "Please choose your Folder of files to place...",
     NO_SELECTION: "No selection",
@@ -73,7 +42,7 @@ var CONFIG = {
     /**
      * Number of rows
      */
-    ROWS: 20,
+    ROWS: 80,
     /**
      * Number of columns
      */
@@ -89,11 +58,11 @@ var CONFIG = {
     /**
      * Row height. This is set programmatically.
      */
-    ROW_WIDTH: 128,
+    ROW_WIDTH: 256,
     /**
      * Column Height. This is set programmatically.
      */
-    COL_WIDTH: 128,
+    COL_WIDTH: 256,
     /**
      * @deprecated
      */
@@ -113,7 +82,7 @@ var CONFIG = {
      *
      * 20 rows 128 px tall, with 64 px page margins
      */
-    PG_HEIGHT: 2688,
+    PG_HEIGHT: 10480,
     /**
      * Not yet fully-implemented. Will support multiple units
      */
@@ -137,7 +106,7 @@ var CONFIG = {
     /**
      * Start folder for selection
      */
-    START_FOLDER: Folder.desktop,
+    START_FOLDER: sourceDoc.path,
     /**
      * The contact sheet file name
      */
@@ -149,7 +118,7 @@ var CONFIG = {
     /**
      * Log file location
      */
-    LOG_FILE_PATH: Folder.desktop + "/ai-contactsheet-log.txt",
+    LOG_FILE_PATH: sourceDoc.path + "/ai-contactsheet-log.txt",
     /**
      * Verbose logging output?
      */
@@ -309,8 +278,8 @@ function doCreateContactSheet() {
             app.coordinateSystem = CoordinateSystem.ARTBOARDCOORDINATESYSTEM;
             doc = app.documents.add(DocumentColorSpace.RGB, CONFIG.PG_WIDTH, CONFIG.PG_HEIGHT, CONFIG.PG_COUNT = Math.ceil(svgFileList.length / (CONFIG.ROWS * CONFIG.COLS)), DocumentArtboardLayout.GridByCol, CONFIG.GUTTER, Math.round(Math.sqrt(Math.ceil(svgFileList.length / (CONFIG.ROWS * CONFIG.COLS)))));
             for (var i = 0; i < svgFileList.length; i++) {
-                var board;
-                var bounds;
+                var board = void 0;
+                var bounds = void 0;
                 var x1 = y1 = x2 = y2 = 0;
                 var myRowHeight = CONFIG.ROW_HEIGHT + CONFIG.GUTTER;
                 var myColumnWidth = CONFIG.COL_WIDTH + CONFIG.GUTTER;
@@ -538,4 +507,17 @@ function moveToPixel(n) {
 }
 ;
 doCreateContactSheet();
+// Crop to selection with gutters!
+var offset = 10 * 2.83465;
+sourceDoc.selection = null;
+var idx = sourceDoc.artboards.getActiveArtboardIndex();
+sourceDoc.selectObjectsOnActiveArtboard();
+sourceDoc.fitArtboardToSelectedArt(idx); // does not work for visible bounds of editable fonts
+var rect = sourceDoc.artboards[idx].artboardRect;
+sourceDoc.artboards[idx].artboardRect = [rect[0] - offset, rect[1] + offset, rect[2] + offset, rect[3] - offset];
+sourceDoc.selection = null;
+// unselect everything
 userInteractionLevel = originalInteractionLevel;
+app.activeDocument.save();
+// close the document here without saving, uncomment for prod
+// app.activeDocument.close(SaveOptions.DONOTSAVECHANGES); 

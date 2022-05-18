@@ -46,6 +46,10 @@ This script automates exports from a specific Illustrator template contained in 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+# Job Number for correspondance emails subject line for tracking
+
+WTW_51660_Brand Icons_May22 
+
 # Useful links.
 
 <a href="https://ai-scripting.docsforadobe.dev/">Adobe Illustrator API documentation</a> > This is where all the commands are referenced for re-use.
@@ -125,7 +129,9 @@ If all layers are on show only first
 
 Simplify
 
-add -24x24 ...etc to all exports
+Move colors into its own layer to avoid deleting the guides
+
+
 
 Time off half day tue 31 MAY, need afternoon off
 
@@ -144,6 +150,8 @@ ignore locked guides layer
 if locked unlock
 
 # Done
+
+add -24x24 ...etc to all exports
 
 GET Extendscript toolkit for Windows!
 
