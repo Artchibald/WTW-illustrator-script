@@ -127,6 +127,10 @@ If all layers are on show only first
 
 # To be done
 
+
+add -24x24 ...etc to all exports AGAIN
+
+
 Simplify
 
 Move colors into its own layer to avoid deleting the guides
@@ -150,8 +154,6 @@ ignore locked guides layer
 if locked unlock
 
 # Done
-
-add -24x24 ...etc to all exports
 
 GET Extendscript toolkit for Windows!
 
@@ -234,3 +236,11 @@ Exploring the new app I am using called the extensdcript toolkit for debugging
 [outline]: imagesInReadme/outline.png
 
 [objectmodel]: imagesInReadme/objectmodel.png
+
+
+## Day 6
+
+Removed a big bug around guide layer
+got a script working for the contact sheet
+Removed lots of bugs all day
+Brief completion as a prototype ready 

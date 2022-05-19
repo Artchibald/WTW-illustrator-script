@@ -42,118 +42,29 @@ var CONFIG = {
     PG_COUNT: 0,
     NUM_COLS: 0,
     NUM_ROWS: 0,
-    /**
-     * Number of rows
-     */
     ROWS: 80,
-    /**
-     * Number of columns
-     */
     COLS: 10,
-    /**
-     * Top & bottom page margins
-     */
     VOFF: 64,
-    /**
-     * Left & Right page margins
-     */
     HOFF: 64,
-    /**
-     * Row height. This is set programmatically.
-     */
     ROW_WIDTH: 256,
-    /**
-     * Column Height. This is set programmatically.
-     */
     COL_WIDTH: 256,
-    /**
-     * @deprecated
-     */
     FRM_WIDTH: 128,
-    /**
-     * @deprecated
-     */
     FRM_HEIGHT: 128,
-    /**
-     * Artboard width
-     *
-     * 10 columns 128 px wide, with 64 px page margins
-     */
     PG_WIDTH: 1408,
-    /**
-     * Artboard height
-     *
-     * 20 rows 128 px tall, with 64 px page margins
-     */
     PG_HEIGHT: 10480,
-    /**
-     * Not yet fully-implemented. Will support multiple units
-     */
     PG_UNITS: "px",
-    /**
-     * @deprecated
-     */
     GUTTER: 0,
-    /**
-     * Enter scale in percentage 1-100
-     */
     SCALE: 30,
-    /**
-     * Illustrator version compatibility
-     */
     AIFORMAT: Compatibility.ILLUSTRATOR10,
-    /**
-     * If the icon is larger than the cell size, shrink it to the cell size
-     */
     SHRINK_TO_FIT: true,
-    /**
-     * Start folder for selection
-     */
     START_FOLDER: sourceDoc.path,
-    /**
-     * The contact sheet file name
-     */
     FILENAME: "contact-sheet",
-    /**
-     * Enable logging?
-     */
     LOGGING: true,
-    /**
-     * Log file location
-     */
     LOG_FILE_PATH: sourceDoc.path + "/ai-contactsheet-log.txt",
-    /**
-     * Verbose logging output?
-     */
     DEBUG: true,
-    /**
-     * @deprecated
-     */
     SKIP_COLS: 0,
-    /**
-     * Not fully-implemented
-     */
     STRIP: ["svg", "ai", "eps", "txt", "pdf"]
 };
-/**
- * Displays the settings dialog
- *
- * Inputs:
- *    - skip columns
- *    - page width
- *    - page height
- *    - cell width
- *    - cell height
- *    - scale
- *    - logging enabled
- *
- *    - number of cols        = divide page width by cell width
- *    - number of rows        = divide page height by cell height
- *    - side margins          = (page width - (col count * col width))/2
- *    - top/bottom margins    = (page height - (row count * row width))/2
- *
- * @return Settings object
- */
 function doDisplayDialog() {
     var dialog = new Window("dialog", LANG.LABEL_SETTINGS, [550, 350, 900, 700]);
     var response = false;
@@ -277,7 +188,6 @@ function doCreateContactSheet() {
             if (CONFIG.FILENAME.replace(" ", "") == "") {
                 CONFIG.FILENAME = srcFolder.name.replace(" ", "-") + "-all";
             }
-            // CONFIG.FILENAME = stripFileExtension(CONFIG.FILENAME);
             app.coordinateSystem = CoordinateSystem.ARTBOARDCOORDINATESYSTEM;
             doc = app.documents.add(DocumentColorSpace.RGB, CONFIG.PG_WIDTH, CONFIG.PG_HEIGHT, CONFIG.PG_COUNT = Math.ceil(svgFileList.length / (CONFIG.ROWS * CONFIG.COLS)), DocumentArtboardLayout.GridByCol, CONFIG.GUTTER, Math.round(Math.sqrt(Math.ceil(svgFileList.length / (CONFIG.ROWS * CONFIG.COLS)))));
             for (var i = 0; i < svgFileList.length; i++) {
@@ -358,8 +268,6 @@ function doCreateContactSheet() {
                                         if (typeof (svgFile.resize) == "function") {
                                             svgFile.resize(CONFIG.SCALE, CONFIG.SCALE);
                                         }
-                                        // Only save the composite file if at least one 
-                                        // icon exists and is successfully imported.
                                         saveCompositeFile = true;
                                     }
                                     catch (ex) {
