@@ -1,7 +1,7 @@
 let sourceDoc = app.activeDocument;
 
 //folder names
-let nameByDimensions = "sorted-by-dimensions";
+let nameByDimensions = "sorted-by-type";
 let nameByIcon = "sorted-by-icon";
 let nameByColor = "sorted-by-color";
 let name300x300 = "300x300";
@@ -20,6 +20,7 @@ let myIconsSublayers = myIconsLayer.layers;
 let myColorsLayer = sourceDoc.layers["colors"];
 let myColorsSublayers = myColorsLayer.layers;
 let guideLayer = sourceDoc.layers["Guides (DO NOT MOVE)"];
+
 
 
 let userInteractionLevel;
@@ -71,10 +72,10 @@ let CONFIG = {
   SKIP_COLS: 0,
   STRIP: ["svg", "ai", "eps", "txt", "pdf"]
 }
-
+let dialog = new Window("dialog", LANG.LABEL_SETTINGS, [550, 350, 900, 700] as Bounds) as any;
+let response = false;
 function doDisplayDialog() {
-  let dialog = new Window("dialog", LANG.LABEL_SETTINGS, [550, 350, 900, 700] as Bounds) as any;
-  let response = false;
+
   try {
     dialog.pageWidthLabel = dialog.add("statictext", [32, 30, 132, 60], LANG.LABEL_PG_WIDTH);
     dialog.pageWidth = dialog.add("edittext", [150, 30, 200, 60], CONFIG.PG_WIDTH);
@@ -102,7 +103,7 @@ function doDisplayDialog() {
       response = false;
       return false;
     };
-    dialog.openBtn.onClick = function () {
+    dialog.openBtn.onClick = function confirmDetails() {
       CONFIG.PG_WIDTH = parseInt(dialog.pageWidth.text);
       CONFIG.PG_HEIGHT = parseInt(dialog.pageHeight.text);
       CONFIG.LOGGING = dialog.logging.value;
@@ -194,14 +195,21 @@ function doCreateContactSheet() {
       }
     }
 
+
     if (svgFileList.length > 0) {
       if (!doDisplayDialog()) {
         return;
       }
+
+
+
       if (CONFIG.FILENAME.replace(" ", "") == "") {
         CONFIG.FILENAME = srcFolder.name.replace(" ", "-") + "-all";
       }
+
+
       app.coordinateSystem = CoordinateSystem.ARTBOARDCOORDINATESYSTEM;
+
       doc = app.documents.add(
         DocumentColorSpace.RGB,
         CONFIG.PG_WIDTH,
@@ -452,3 +460,9 @@ sourceDoc.selection = null;
 // unselect everything
 userInteractionLevel = originalInteractionLevel;
 app.activeDocument.save();
+
+// close the document here without saving, uncomment for prod
+// app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+
+//photoshop
+//app.system(terminalCommand)

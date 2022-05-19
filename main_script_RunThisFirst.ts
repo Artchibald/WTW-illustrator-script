@@ -2,8 +2,8 @@ try {
   /**********************************
    ** README https://github.com/Artchibald/WTW-illustrator-script
   
-  helpers:
-    alert("App V  ersion : ", app.version);
+  version helpers:
+  alert("App Version : ", app.version);
   alert("App Scripting Version: ", app.scriptingVersion);
    ***********************************/
 
@@ -13,7 +13,7 @@ try {
   let sourceDoc = app.activeDocument;
 
   //folder names
-  let nameByDimensions = "sorted-by-dimensions";
+  let nameByDimensions = "sorted-by-type";
   let nameByIcon = "sorted-by-icon";
   let nameByColor = "sorted-by-color";
   let name300x300 = "300x300";
@@ -37,7 +37,7 @@ try {
    ** INSTRUCTIONS DIALOG
    ***********************************/
   alert(
-    "FULL README: https://github.com/Artchibald/WTW-illustrator-script  \n\n   IMPORTANT: THIS SCRIPT WILL DESTROY YOUR .AI FILE!!!! ONLY USE A COPY OF YOUR ORIGINAL AI FILE!!!  \n\n   Make a coffee, this may take a while.  \n\n  If you restart this script again, you may first want to delete the folders that were created in the previous run to avoid bugs. Otherwise it may ask to overwrite them with Save As Prompt and fail to complete  \n\n AIn the layer names, avoid weird characters and use hyphens instead of spaces to avoid bugs  \n\n Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n icons must be INSIDE a layer called exactly 'icons'. \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. \n\n Make sure all background colors are on individual layers after the icons layer with correct layer names, avoid weird characters. Exported assets will be saved where the .ai file is saved. \n\n Again, this script WILL DELETE LAYERS AND SAVE when complete so make sure you have saved your work elsewhere so you can re - open your file and not lose work."
+    "FULL README: https://github.com/Artchibald/WTW-illustrator-script   \n\n   Make a coffee, this may take a while.  \n\n If you run the script again, you should probably delete the previous assets created. \n\n  Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. <path>s (sub sub sub layers) should remain visible though in layers panel. \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. Make sure all colors are on sublayers inside the layer called 'colors' with correct naming. \n\n Exported assets will be saved where the .ai file is saved. \n\n"
   );
 
   /**********************************
@@ -52,7 +52,7 @@ try {
     );
   }
   /**********************************
-   ** REMOVE GUIDES LAYER
+   ** HIDE / SHOW SOME LAYERS NEEDED
    ***********************************/
   try {
     guideLayer.visible = false;
@@ -796,6 +796,7 @@ try {
  ***********************************/
 
 
+
   let userInteractionLevel;
   let originalInteractionLevel = userInteractionLevel;
   userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;
@@ -845,10 +846,10 @@ try {
     SKIP_COLS: 0,
     STRIP: ["svg", "ai", "eps", "txt", "pdf"]
   }
-
+  let dialog = new Window("dialog", LANG.LABEL_SETTINGS, [550, 350, 900, 700] as Bounds) as any;
+  let response = false;
   function doDisplayDialog() {
-    let dialog = new Window("dialog", LANG.LABEL_SETTINGS, [550, 350, 900, 700] as Bounds) as any;
-    let response = false;
+
     try {
       dialog.pageWidthLabel = dialog.add("statictext", [32, 30, 132, 60], LANG.LABEL_PG_WIDTH);
       dialog.pageWidth = dialog.add("edittext", [150, 30, 200, 60], CONFIG.PG_WIDTH);
@@ -876,7 +877,7 @@ try {
         response = false;
         return false;
       };
-      dialog.openBtn.onClick = function () {
+      dialog.openBtn.onClick = function confirmDetails() {
         CONFIG.PG_WIDTH = parseInt(dialog.pageWidth.text);
         CONFIG.PG_HEIGHT = parseInt(dialog.pageHeight.text);
         CONFIG.LOGGING = dialog.logging.value;
@@ -968,14 +969,21 @@ try {
         }
       }
 
+
       if (svgFileList.length > 0) {
         if (!doDisplayDialog()) {
           return;
         }
+
+
+
         if (CONFIG.FILENAME.replace(" ", "") == "") {
           CONFIG.FILENAME = srcFolder.name.replace(" ", "-") + "-all";
         }
+
+
         app.coordinateSystem = CoordinateSystem.ARTBOARDCOORDINATESYSTEM;
+
         doc = app.documents.add(
           DocumentColorSpace.RGB,
           CONFIG.PG_WIDTH,
@@ -1229,6 +1237,13 @@ try {
 
   // close the document here without saving, uncomment for prod
   // app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+
+  //photoshop
+  //app.system(terminalCommand)
+
+  //photoshop
+  //app.system(terminalCommand)
+
 } catch (e) {
   alert(e.message);
 }

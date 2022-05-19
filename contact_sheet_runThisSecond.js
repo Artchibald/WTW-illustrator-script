@@ -1,6 +1,6 @@
 var sourceDoc = app.activeDocument;
 //folder names
-var nameByDimensions = "sorted-by-dimensions";
+var nameByDimensions = "sorted-by-type";
 var nameByIcon = "sorted-by-icon";
 var nameByColor = "sorted-by-color";
 var name300x300 = "300x300";
@@ -65,9 +65,9 @@ var CONFIG = {
     SKIP_COLS: 0,
     STRIP: ["svg", "ai", "eps", "txt", "pdf"]
 };
+var dialog = new Window("dialog", LANG.LABEL_SETTINGS, [550, 350, 900, 700]);
+var response = false;
 function doDisplayDialog() {
-    var dialog = new Window("dialog", LANG.LABEL_SETTINGS, [550, 350, 900, 700]);
-    var response = false;
     try {
         dialog.pageWidthLabel = dialog.add("statictext", [32, 30, 132, 60], LANG.LABEL_PG_WIDTH);
         dialog.pageWidth = dialog.add("edittext", [150, 30, 200, 60], CONFIG.PG_WIDTH);
@@ -95,7 +95,7 @@ function doDisplayDialog() {
             response = false;
             return false;
         };
-        dialog.openBtn.onClick = function () {
+        dialog.openBtn.onClick = function confirmDetails() {
             CONFIG.PG_WIDTH = parseInt(dialog.pageWidth.text);
             CONFIG.PG_HEIGHT = parseInt(dialog.pageHeight.text);
             CONFIG.LOGGING = dialog.logging.value;
@@ -440,3 +440,7 @@ sourceDoc.selection = null;
 // unselect everything
 userInteractionLevel = originalInteractionLevel;
 app.activeDocument.save();
+// close the document here without saving, uncomment for prod
+// app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+//photoshop
+//app.system(terminalCommand)

@@ -127,15 +127,11 @@ If all layers are on show only first
 
 # To be done
 
-
 add -24x24 ...etc to all exports AGAIN
-
 
 Simplify
 
 Move colors into its own layer to avoid deleting the guides
-
-
 
 Time off half day tue 31 MAY, need afternoon off
 
