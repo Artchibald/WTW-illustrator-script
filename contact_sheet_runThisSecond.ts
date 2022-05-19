@@ -80,6 +80,7 @@ function doDisplayDialog() {
     dialog.pageWidthLabel = dialog.add("statictext", [32, 30, 132, 60], LANG.LABEL_PG_WIDTH);
     dialog.pageWidth = dialog.add("edittext", [150, 30, 200, 60], CONFIG.PG_WIDTH);
     dialog.pageWidth.active = true;
+    dialog.pageHeightLabel = dialog.add("statictext", [32, 70, 132, 100], LANG.LABEL_PG_HEIGHT);
     dialog.pageHeight = dialog.add("edittext", [150, 70, 200, 100], CONFIG.PG_HEIGHT);
     dialog.pageHeight.active = true;
     dialog.colsLabel = dialog.add("statictext", [32, 110, 132, 140], LANG.LABEL_COL_COUNT);

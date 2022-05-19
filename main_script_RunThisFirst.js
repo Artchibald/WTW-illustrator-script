@@ -769,6 +769,7 @@ try {
             dialog_1.pageWidthLabel = dialog_1.add("statictext", [32, 30, 132, 60], LANG_1.LABEL_PG_WIDTH);
             dialog_1.pageWidth = dialog_1.add("edittext", [150, 30, 200, 60], CONFIG_1.PG_WIDTH);
             dialog_1.pageWidth.active = true;
+            dialog_1.pageHeightLabel = dialog_1.add("statictext", [32, 70, 132, 100], LANG_1.LABEL_PG_HEIGHT);
             dialog_1.pageHeight = dialog_1.add("edittext", [150, 70, 200, 100], CONFIG_1.PG_HEIGHT);
             dialog_1.pageHeight.active = true;
             dialog_1.colsLabel = dialog_1.add("statictext", [32, 110, 132, 140], LANG_1.LABEL_COL_COUNT);
@@ -1137,6 +1138,10 @@ try {
     // unselect everything
     userInteractionLevel_1 = originalInteractionLevel_1;
     app.activeDocument.save();
+    // close the document here without saving, uncomment for prod
+    // app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
+    //photoshop
+    //app.system(terminalCommand)
     // close the document here without saving, uncomment for prod
     // app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
     //photoshop

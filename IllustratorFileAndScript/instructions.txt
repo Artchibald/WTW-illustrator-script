@@ -1,8 +1,0 @@
-FULL README: https://github.com/Artchibald/WTW-illustrator-script   
-Make a coffee, this may take a while.  
-If you run the script again, you should probably delete the previous assets created. 
-Artboard size must be exactly 256px x 256px. 
-Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. 
-Make sure all layers and sublayers are invisible and unlocked to avoid bugs. < path > s(sub sub sub layers) should remain visible though in layers panel. 
-Make sure all icons are on sublayers inside the layer called 'icons' with correct naming.Make sure all colors are on sublayers inside the layer called 'colors' with correct naming. 
-Exported assets will be saved where the.ai file is saved.

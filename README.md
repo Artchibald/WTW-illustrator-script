@@ -119,17 +119,33 @@ File > Scripts > Other Scripts > Add WTW_main_script.js
 - TBD:
 - Grouped in folders by Category and by filetype, for example Business Communication SVG, Business Communication EPS, Business Communication PNG (all sizes except 300), Business Communication PPT (300 size only)
 
-# Bugs
+# To be done
 
 Be sure you allocate time for testing on MacOS and Windows
 
 If all layers are on show only first
 
-# To be done
+URGENT FROM CLIENT, NAMES in contact sheet
+
+Organize the readme better
+
+Simplify
+
+Change functions to arrow functions
+
+change all vars to lets
+
+if all layers on turn them off before running
+
+if locked unlock
+
+# Done
+
+ignore locked guides layer
 
 add -24x24 ...etc to all exports AGAIN
 
-Simplify
+GET Extendscript toolkit for Windows!
 
 Move colors into its own layer to avoid deleting the guides
 
@@ -137,21 +153,8 @@ Time off half day tue 31 MAY, need afternoon off
 
 Tuesday 7 June need day off please
 
-Change functions to arrow functions
-
-change all vars to lets
 
 URGENT DISCREPANCY BETWEEN AI FILE AND THE ICON STYLE GRID PDF!!
-
-if all layers on turn them off before running
-
-ignore locked guides layer
-
-if locked unlock
-
-# Done
-
-GET Extendscript toolkit for Windows!
 
 # Questions for client
 
@@ -240,3 +243,10 @@ Removed a big bug around guide layer
 got a script working for the contact sheet
 Removed lots of bugs all day
 Brief completion as a prototype ready 
+
+## Day 7
+
+Basically removing as many bugs as possible all day long.
+Review with Micheal
+Review with the design team
+Started on adding the filenames to the contact sheet as per last client request, no breakthrough yet.
