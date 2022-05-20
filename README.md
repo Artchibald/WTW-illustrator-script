@@ -52,8 +52,8 @@ WTW_51660_Brand Icons_May22
 
 # Useful links.
 
-<a href="https://ai-scripting.docsforadobe.dev/">Adobe Illustrator API documentation</a> > This is where all the commands are referenced for re-use.
-<a href="https://extendscript.docsforadobe.dev">Extend Script</a> 
+- <a href="https://ai-scripting.docsforadobe.dev/">Adobe Illustrator API documentation</a> > This is where all the commands are referenced for re-use.
+- <a href="https://extendscript.docsforadobe.dev">Extend Script</a> 
 
 # Built with
 
@@ -63,6 +63,18 @@ WTW_51660_Brand Icons_May22
 - SOON Extendscript toolkit on Windows
 
 # How to use
+
+## Script instructions:
+
+- Make a coffee, this may take a while.  
+- If you run the script again, you should probably delete the previous assets created. 
+-  Artboard size must be exactly 256px x 256px. 
+- Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. 
+- Make sure there are no spaces in the layer names, use hyphens(-) instead.  
+- Make sure all layers and sublayers are invisible and unlocked to avoid bugs. <path>s (sub sub sub layers) should remain visible though in layers panel(this is standard). 
+- Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. Make sure all colors are on sublayers inside the layer called 'colors' with correct naming. 
+- Exported assets will be saved where the .ai file is saved. 
+    
 
 - Use VS code > Main Menu > Terminal > Run build Task > Choose Build or Watch to convert .TS to .JS
 
@@ -152,7 +164,6 @@ Move colors into its own layer to avoid deleting the guides
 Time off half day tue 31 MAY, need afternoon off
 
 Tuesday 7 June need day off please
-
 
 URGENT DISCREPANCY BETWEEN AI FILE AND THE ICON STYLE GRID PDF!!
 

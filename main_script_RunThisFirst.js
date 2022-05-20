@@ -32,7 +32,7 @@ try {
     /**********************************
      ** INSTRUCTIONS DIALOG
      ***********************************/
-    alert("FULL README: https://github.com/Artchibald/WTW-illustrator-script   \n\n   Make a coffee, this may take a while.  \n\n If you run the script again, you should probably delete the previous assets created. \n\n  Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. <path>s (sub sub sub layers) should remain visible though in layers panel. \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. Make sure all colors are on sublayers inside the layer called 'colors' with correct naming. \n\n Exported assets will be saved where the .ai file is saved. \n\n");
+    alert("FULL README: https://github.com/Artchibald/WTW-illustrator-script   \n\n   Make a coffee, this may take a while.  \n\n If you run the script again, you should probably delete the previous assets created. \n\n  Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n Make sure there are no spaces in the layer names, use hyphens(-) instead.  \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. <path>s (sub sub sub layers) should remain visible though in layers panel(this is standard). \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. Make sure all colors are on sublayers inside the layer called 'colors' with correct naming. \n\n Exported assets will be saved where the .ai file is saved. \n\n");
     /**********************************
      ** MAKE ICONS LAYER VISIBLE
      ***********************************/
@@ -715,9 +715,8 @@ try {
     /**********************************
    ** CREATE CONTACT SHEET
    ***********************************/
-    var userInteractionLevel_1;
-    var originalInteractionLevel_1 = userInteractionLevel_1;
-    userInteractionLevel_1 = UserInteractionLevel.DONTDISPLAYALERTS;
+    var originalInteractionLevel_1 = userInteractionLevel;
+    userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;
     var LANG_1 = {
         CHOOSE_FOLDER: "Please choose your Folder of files to place...",
         NO_SELECTION: "No selection",
@@ -735,71 +734,165 @@ try {
         LAYER_NOT_CREATED: "Could not create layer. "
     };
     var CONFIG_1 = {
-        ROW_HEIGHT: 0,
-        PG_COUNT: 0,
-        NUM_COLS: 0,
-        NUM_ROWS: 0,
-        ROWS: 80,
+        /**
+         * Whether or not to add the file name as text
+         * under the imported icons.
+         */
+        ADD_LABELS: true,
+        /**
+         * Number of rows
+         */
+        ROWS: 20,
+        /**
+         * Number of columns
+         */
         COLS: 10,
+        /**
+         * Top & bottom page margins
+         */
         VOFF: 64,
+        /**
+         * Left & Right page margins
+         */
         HOFF: 64,
-        ROW_WIDTH: 256,
-        COL_WIDTH: 256,
+        /**
+         * Row height. This is set programmatically.
+         */
+        ROW_WIDTH: 128,
+        /**
+         * Column Height. This is set programmatically.
+         */
+        COL_WIDTH: 128,
+        /**
+         * @deprecated
+         */
         FRM_WIDTH: 128,
+        /**
+         * @deprecated
+         */
         FRM_HEIGHT: 128,
+        /**
+         * Artboard width
+         *
+         * 10 columns 128 px wide, with 64 px page margins
+         */
         PG_WIDTH: 1408,
-        PG_HEIGHT: 10480,
+        /**
+         * Artboard height
+         *
+         * 20 rows 128 px tall, with 64 px page margins
+         */
+        PG_HEIGHT: 2688,
+        /**
+         * Not yet fully-implemented. Will support multiple units
+         */
         PG_UNITS: "px",
+        /**
+         * @deprecated
+         */
         GUTTER: 0,
+        /**
+         * Enter scale in percentage 1-100
+         */
         SCALE: 30,
+        /**
+         * Illustrator version compatibility
+         */
         AIFORMAT: Compatibility.ILLUSTRATOR10,
+        /**
+         * If the icon is larger than the cell size, shrink it to the cell size
+         */
         SHRINK_TO_FIT: true,
-        START_FOLDER: sourceDoc_1.path,
+        /**
+         * Start folder for selection
+         */
+        START_FOLDER: Folder.desktop,
+        /**
+         * The contact sheet file name
+         */
         FILENAME: "contact-sheet",
+        /**
+         * Enable logging?
+         */
         LOGGING: true,
-        LOG_FILE_PATH: sourceDoc_1.path + "/ai-contactsheet-log.txt",
+        /**
+         * Log file location
+         */
+        LOG_FILE_PATH: Folder.desktop + "/ai-contactsheet-log.txt",
+        /**
+         * Verbose logging output?
+         */
         DEBUG: true,
+        /**
+         * @deprecated
+         */
         SKIP_COLS: 0,
+        /**
+         * Not fully-implemented
+         */
         STRIP: ["svg", "ai", "eps", "txt", "pdf"]
     };
-    var dialog_1 = new Window("dialog", LANG_1.LABEL_SETTINGS, [550, 350, 900, 700]);
-    var response_1 = false;
+    /**
+     * Displays the settings dialog
+     *
+     * Inputs:
+     *    - skip columns
+     *    - page width
+     *    - page height
+     *    - cell width
+     *    - cell height
+     *    - scale
+     *    - logging enabled
+     *
+     *    - number of cols        = divide page width by cell width
+     *    - number of rows        = divide page height by cell height
+     *    - side margins          = (page width - (col count * col width))/2
+     *    - top/bottom margins    = (page height - (row count * row width))/2
+     *
+     * @return Settings object
+     */
     function doDisplayDialog() {
+        var dialog = new Window("dialog", LANG_1.LABEL_SETTINGS, [550, 350, 900, 700]);
+        var response = false;
         try {
-            dialog_1.pageWidthLabel = dialog_1.add("statictext", [32, 30, 132, 60], LANG_1.LABEL_PG_WIDTH);
-            dialog_1.pageWidth = dialog_1.add("edittext", [150, 30, 200, 60], CONFIG_1.PG_WIDTH);
-            dialog_1.pageWidth.active = true;
-            dialog_1.pageHeightLabel = dialog_1.add("statictext", [32, 70, 132, 100], LANG_1.LABEL_PG_HEIGHT);
-            dialog_1.pageHeight = dialog_1.add("edittext", [150, 70, 200, 100], CONFIG_1.PG_HEIGHT);
-            dialog_1.pageHeight.active = true;
-            dialog_1.colsLabel = dialog_1.add("statictext", [32, 110, 132, 140], LANG_1.LABEL_COL_COUNT);
-            dialog_1.cols = dialog_1.add("edittext", [150, 110, 200, 140], CONFIG_1.COLS);
-            dialog_1.cols.active = true;
-            dialog_1.rowsLabel = dialog_1.add("statictext", [32, 150, 132, 180], LANG_1.LABEL_ROW_COUNT);
-            dialog_1.rows = dialog_1.add("edittext", [150, 150, 200, 180], CONFIG_1.ROWS);
-            dialog_1.rows.active = true;
-            dialog_1.scaleLabel = dialog_1.add("statictext", [32, 190, 132, 220], LANG_1.LABEL_SCALE);
-            dialog_1.scale = dialog_1.add("edittext", [150, 190, 200, 220], CONFIG_1.SCALE);
-            dialog_1.scale.active = true;
-            dialog_1.filenameLabel = dialog_1.add("statictext", [32, 230, 132, 260], LANG_1.LABEL_FILE_NAME);
-            dialog_1.filename = dialog_1.add("edittext", [150, 230, 320, 260], CONFIG_1.FILENAME);
-            dialog_1.filename.active = true;
-            dialog_1.logging = dialog_1.add('checkbox', [32, 270, 132, 340], LANG_1.LABEL_LOGGING);
-            dialog_1.logging.value = CONFIG_1.LOGGING;
-            dialog_1.cancelBtn = dialog_1.add("button", [80, 300, 170, 330], LANG_1.BUTTON_CANCEL, { name: "cancel" });
-            dialog_1.openBtn = dialog_1.add("button", [180, 300, 270, 330], LANG_1.BUTTON_OK, { name: "ok" });
-            dialog_1.cancelBtn.onClick = function () {
-                dialog_1.close();
-                response_1 = false;
+            dialog.pageWidthLabel = dialog.add("statictext", [32, 30, 132, 60], LANG_1.LABEL_PG_WIDTH);
+            dialog.pageWidth = dialog.add("edittext", [150, 30, 200, 60], CONFIG_1.PG_WIDTH);
+            dialog.pageWidth.active = true;
+            dialog.pageHeightLabel = dialog.add("statictext", [32, 70, 132, 100], LANG_1.LABEL_PG_HEIGHT);
+            dialog.pageHeight = dialog.add("edittext", [150, 70, 200, 100], CONFIG_1.PG_HEIGHT);
+            dialog.pageHeight.active = true;
+            dialog.colsLabel = dialog.add("statictext", [32, 110, 132, 140], LANG_1.LABEL_COL_COUNT);
+            dialog.cols = dialog.add("edittext", [150, 110, 200, 140], CONFIG_1.COLS);
+            dialog.cols.active = true;
+            dialog.rowsLabel = dialog.add("statictext", [32, 150, 132, 180], LANG_1.LABEL_ROW_COUNT);
+            dialog.rows = dialog.add("edittext", [150, 150, 200, 180], CONFIG_1.ROWS);
+            dialog.rows.active = true;
+            dialog.scaleLabel = dialog.add("statictext", [32, 190, 132, 220], LANG_1.LABEL_SCALE);
+            dialog.scale = dialog.add("edittext", [150, 190, 200, 220], CONFIG_1.SCALE);
+            dialog.scale.active = true;
+            dialog.filenameLabel = dialog.add("statictext", [32, 230, 132, 260], LANG_1.LABEL_FILE_NAME);
+            dialog.filename = dialog.add("edittext", [150, 230, 320, 260], CONFIG_1.FILENAME);
+            dialog.filename.active = true;
+            dialog.logging = dialog.add('checkbox', [32, 270, 132, 340], LANG_1.LABEL_LOGGING);
+            dialog.logging.value = CONFIG_1.LOGGING;
+            dialog.cancelBtn = dialog.add("button", [80, 300, 170, 330], LANG_1.BUTTON_CANCEL, {
+                name: "cancel"
+            });
+            dialog.openBtn = dialog.add("button", [180, 300, 270, 330], LANG_1.BUTTON_OK, {
+                name: "ok"
+            });
+            dialog.cancelBtn.onClick = function () {
+                dialog.close();
+                response = false;
                 return false;
             };
-            dialog_1.openBtn.onClick = function confirmDetails() {
-                CONFIG_1.PG_WIDTH = parseInt(dialog_1.pageWidth.text);
-                CONFIG_1.PG_HEIGHT = parseInt(dialog_1.pageHeight.text);
-                CONFIG_1.LOGGING = dialog_1.logging.value;
-                CONFIG_1.SCALE = parseInt(dialog_1.scale.text);
-                CONFIG_1.COLS = parseInt(dialog_1.cols.text);
-                CONFIG_1.ROWS = parseInt(dialog_1.rows.text);
+            dialog.openBtn.onClick = function () {
+                CONFIG_1.PG_WIDTH = parseInt(dialog.pageWidth.text);
+                CONFIG_1.PG_HEIGHT = parseInt(dialog.pageHeight.text);
+                CONFIG_1.LOGGING = dialog.logging.value;
+                CONFIG_1.SCALE = parseInt(dialog.scale.text);
+                CONFIG_1.COLS = parseInt(dialog.cols.text);
+                CONFIG_1.ROWS = parseInt(dialog.rows.text);
                 CONFIG_1.COL_WIDTH = parseInt((CONFIG_1.PG_WIDTH - (CONFIG_1.HOFF * 2)) / CONFIG_1.COLS);
                 CONFIG_1.ROW_HEIGHT = parseInt((CONFIG_1.PG_HEIGHT - (CONFIG_1.VOFF * 2)) / CONFIG_1.ROWS);
                 CONFIG_1.FRM_WIDTH = CONFIG_1.COL_WIDTH;
@@ -817,17 +910,17 @@ try {
                     logger("CONFIG.VOFF: " + CONFIG_1.VOFF);
                     logger("CONFIG.HOFF: " + CONFIG_1.HOFF);
                 }
-                dialog_1.close();
-                response_1 = true;
+                dialog.close();
+                response = true;
                 return true;
             };
-            dialog_1.show();
+            dialog.show();
         }
         catch (ex) {
             logger(ex);
             alert(ex);
         }
-        return response_1;
+        return response;
     }
     /**
      * Utility function to strip the file extension from a user-supplied file name
@@ -838,7 +931,6 @@ try {
         var bits = filename.split(".");
         var bit = bits[bits.length - 1];
         var found = false;
-        var ext;
         if (bits.length > 1 && bit) {
             for (ext in CONFIG_1.STRIP) {
                 if (ext.toLowerCase() == bit.toLowerCase()) {
@@ -886,20 +978,13 @@ try {
                 if (CONFIG_1.FILENAME.replace(" ", "") == "") {
                     CONFIG_1.FILENAME = srcFolder.name.replace(" ", "-") + "-all";
                 }
+                // CONFIG.FILENAME = stripFileExtension(CONFIG.FILENAME);
                 app.coordinateSystem = CoordinateSystem.ARTBOARDCOORDINATESYSTEM;
                 doc = app.documents.add(DocumentColorSpace.RGB, CONFIG_1.PG_WIDTH, CONFIG_1.PG_HEIGHT, CONFIG_1.PG_COUNT = Math.ceil(svgFileList.length / (CONFIG_1.ROWS * CONFIG_1.COLS)), DocumentArtboardLayout.GridByCol, CONFIG_1.GUTTER, Math.round(Math.sqrt(Math.ceil(svgFileList.length / (CONFIG_1.ROWS * CONFIG_1.COLS)))));
                 for (var i = 0; i < svgFileList.length; i++) {
-                    var myX2 = void 0;
-                    var myY1 = void 0;
-                    var myY2 = void 0;
-                    var myX1 = void 0;
-                    var y1 = void 0;
-                    var x2 = void 0;
-                    var y2 = void 0;
                     var board = void 0;
                     var bounds = void 0;
                     var x1 = y1 = x2 = y2 = 0;
-                    var boardWidth = void 0;
                     var myRowHeight = CONFIG_1.ROW_HEIGHT + CONFIG_1.GUTTER;
                     var myColumnWidth = CONFIG_1.COL_WIDTH + CONFIG_1.GUTTER;
                     var myFrameWidth = CONFIG_1.FRM_WIDTH;
@@ -966,18 +1051,26 @@ try {
                                             if (typeof (svgFile.resize) == "function") {
                                                 svgFile.resize(CONFIG_1.SCALE, CONFIG_1.SCALE);
                                             }
+                                            if (CONFIG_1.ADD_LABELS) {
+                                                addLabel(theLayer, [x1 - (svgFile.width - 165), y1 - (svgFile.height + 100)], f.name);
+                                            }
+                                            // Only save the composite file if at least one 
+                                            // icon exists and is successfully imported.
                                             saveCompositeFile = true;
+                                            redraw();
                                         }
                                         catch (ex) {
                                             try {
                                                 svgFile.position = [0, 0];
                                                 logger(ex);
                                             }
-                                            catch (ex) { /*Exit Gracefully*/ }
+                                            catch (ex) {
+                                                /*Exit Gracefully*/
+                                            }
                                         }
                                     }
                                     else {
-                                        logger(svgFileList[i] + LANG_1);
+                                        logger(svgFileList[i] + LANG_1.DOES_NOT_EXIT);
                                     }
                                 }
                                 catch (ex) {
@@ -990,7 +1083,7 @@ try {
                     }
                     ;
                     if (saveCompositeFile)
-                        saveFileAsAi(sourceDoc_1.path + "/" + CONFIG_1.FILENAME);
+                        saveFileAsAi(srcFolder.path + "/" + CONFIG_1.FILENAME);
                 }
             }
             ;
@@ -1004,8 +1097,6 @@ try {
      * @return void
      */
     function arrangeItems(sel) {
-        var y1;
-        var rows;
         var board;
         var bounds;
         var itemBounds;
@@ -1013,8 +1104,7 @@ try {
         var cellSize;
         var x1 = y1 = 0;
         var boardWidth, boardHeight;
-        var theItem;
-        board = sourceDoc_1.artboards[sourceDoc_1.artboards.getActiveArtboardIndex()];
+        board = doc.artboards[doc.artboards.getActiveArtboardIndex()];
         bounds = board.artboardRect;
         boardWidth = Math.round(bounds[2] - bounds[0]);
         cols = CONFIG_1.NUM_COLS;
@@ -1049,6 +1139,33 @@ try {
     }
     ;
     /**
+     * Places a text label
+     * @param {string} text
+     * @param {string} pos - The X/Y position of the label
+     * @param {string} size - The text content of the label
+     * @returns void
+     */
+    function addLabel(layer, pos, theText) {
+        try {
+            var theLabel = layer.textFrames.add();
+            theLabel.contents = theText;
+            var charAttributes = theLabel.textRange.characterAttributes;
+            var parAttributes = theLabel.paragraphs[0].paragraphAttributes;
+            charAttributes.size = 5;
+            parAttributes.justification = Justification.CENTER;
+            try {
+                theLabel.position = pos;
+            }
+            catch (e) {
+                alert('labelPosition : ' + e);
+            }
+            return theLabel;
+        }
+        catch (e) {
+            alert('addLabel : ' + e);
+        }
+    }
+    /**
      * Saves the file in AI format.
      * @param <string> The file destination path
      * @return void
@@ -1057,9 +1174,9 @@ try {
         if (app.documents.length > 0) {
             var options = new IllustratorSaveOptions();
             var theDoc = new File(dest);
-            // options.compatibility = CONFIG.AIFORMAT;
-            // options.flattenOutput = OutputFlattening.PRESERVEAPPEARANCE;
-            // options.pdfCompatible = true;
+            options.compatibility = CONFIG_1.AIFORMAT;
+            options.flattenOutput = OutputFlattening.PRESERVEAPPEARANCE;
+            options.pdfCompatible = true;
             app.activeDocument.saveAs(theDoc, options);
         }
     }
@@ -1068,17 +1185,17 @@ try {
      * @param <selection> sel The selection object
      * @return void
      */
-    function alignToNearestPixel2(sel) {
+    function alignToNearestPixel(sel) {
         try {
             if (typeof sel != "object") {
                 logger(LANG_1.NO_SELECTION);
             }
             else {
-                var i = void 0;
                 for (i = 0; i < sel.length; i++) {
                     sel[i].left = Math.round(sel[i].left);
                     sel[i].top = Math.round(sel[i].top);
                 }
+                redraw();
             }
         }
         catch (ex) {
@@ -1127,16 +1244,16 @@ try {
     ;
     doCreateContactSheet();
     // Crop to selection with gutters!
-    var offset = 10 * 2.83465;
+    var offset_1 = 10 * 2.83465;
     sourceDoc_1.selection = null;
-    var idx = sourceDoc_1.artboards.getActiveArtboardIndex();
+    var idx_1 = sourceDoc_1.artboards.getActiveArtboardIndex();
     sourceDoc_1.selectObjectsOnActiveArtboard();
-    sourceDoc_1.fitArtboardToSelectedArt(idx); // does not work for visible bounds of editable fonts
-    var rect = sourceDoc_1.artboards[idx].artboardRect;
-    sourceDoc_1.artboards[idx].artboardRect = [rect[0] - offset, rect[1] + offset, rect[2] + offset, rect[3] - offset];
+    sourceDoc_1.fitArtboardToSelectedArt(idx_1); // does not work for visible bounds of editable fonts
+    var rect_1 = sourceDoc_1.artboards[idx_1].artboardRect;
+    sourceDoc_1.artboards[idx_1].artboardRect = [rect_1[0] - offset_1, rect_1[1] + offset_1, rect_1[2] + offset_1, rect_1[3] - offset_1];
     sourceDoc_1.selection = null;
     // unselect everything
-    userInteractionLevel_1 = originalInteractionLevel_1;
+    userInteractionLevel = originalInteractionLevel_1;
     app.activeDocument.save();
     // close the document here without saving, uncomment for prod
     // app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
