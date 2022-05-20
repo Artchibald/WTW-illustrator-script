@@ -758,7 +758,7 @@ try {
   for (let i = 0; i < myColorsSublayers.length; i++) {
     let bgLayer = myColorsSublayers[i];
     bgLayer.visible = true;
-    // Save them to sorted-by-dimensions
+    // Save them to sorted-by-types
     saveAsPNGAt24x24ByDimensions(bgLayer.name);
     saveAsPNGAt32x32ByDimensions(bgLayer.name);
     saveAsPNGAt48x48ByDimensions(bgLayer.name);
@@ -768,23 +768,23 @@ try {
     saveAsSVGByDimensions(bgLayer.name);
     saveAsEPSByDimensions(bgLayer.name);
     // Save them to sorted-by-icon
-    saveAsPNGAt24x24ByIcon(bgLayer.name);
-    saveAsPNGAt32x32ByIcon(bgLayer.name);
-    saveAsPNGAt48x48ByIcon(bgLayer.name);
-    saveAsPNGAt64x64ByIcon(bgLayer.name);
-    saveAsPNGAt300x300ByIcon(bgLayer.name);
-    saveAsPNGAt512x512ByIcon(bgLayer.name);
-    saveAsSVGByIcon(bgLayer.name);
-    saveAsEPSByIcon(bgLayer.name);
+    // saveAsPNGAt24x24ByIcon(bgLayer.name);
+    // saveAsPNGAt32x32ByIcon(bgLayer.name);
+    // saveAsPNGAt48x48ByIcon(bgLayer.name);
+    // saveAsPNGAt64x64ByIcon(bgLayer.name);
+    // saveAsPNGAt300x300ByIcon(bgLayer.name);
+    // saveAsPNGAt512x512ByIcon(bgLayer.name);
+    // saveAsSVGByIcon(bgLayer.name);
+    // saveAsEPSByIcon(bgLayer.name);
     // Save them to sorted-by-color
-    saveAsPNGAt24x24ByColor(bgLayer.name);
-    saveAsPNGAt32x32ByColor(bgLayer.name);
-    saveAsPNGAt48x48ByColor(bgLayer.name);
-    saveAsPNGAt64x64ByColor(bgLayer.name);
-    saveAsPNGAt300x300ByColor(bgLayer.name);
-    saveAsPNGAt512x512ByColor(bgLayer.name);
-    saveAsSVGByColor(bgLayer.name);
-    saveAsEPSByColor(bgLayer.name);
+    // saveAsPNGAt24x24ByColor(bgLayer.name);
+    // saveAsPNGAt32x32ByColor(bgLayer.name);
+    // saveAsPNGAt48x48ByColor(bgLayer.name);
+    // saveAsPNGAt64x64ByColor(bgLayer.name);
+    // saveAsPNGAt300x300ByColor(bgLayer.name);
+    // saveAsPNGAt512x512ByColor(bgLayer.name);
+    // saveAsSVGByColor(bgLayer.name);
+    // saveAsEPSByColor(bgLayer.name);
     bgLayer.visible = false;
     // Next we create a contact sheet here
   }
@@ -919,7 +919,7 @@ try {
      * Start folder for selection
      */
 
-    START_FOLDER: Folder.desktop,
+    START_FOLDER: sourceDoc.path,
 
     /**
      * The contact sheet file name
@@ -937,7 +937,7 @@ try {
      * Log file location
      */
 
-    LOG_FILE_PATH: Folder.desktop + "/ai-contactsheet-log.txt",
+    LOG_FILE_PATH: sourceDoc.path + "/ai-contactsheet-log.txt",
 
     /**
      * Verbose logging output?
@@ -1267,7 +1267,7 @@ try {
             }
           };
           if (saveCompositeFile)
-            saveFileAsAi(srcFolder.path + "/" + CONFIG.FILENAME);
+            saveFileAsAi(sourceDoc.path + "/" + CONFIG.FILENAME);
         }
       };
     };
@@ -1352,7 +1352,7 @@ try {
       let charAttributes = theLabel.textRange.characterAttributes;
       let parAttributes = theLabel.paragraphs[0].paragraphAttributes;
 
-      charAttributes.size = 5;
+      charAttributes.size = 7;
       parAttributes.justification = Justification.CENTER;
 
 
@@ -1483,3 +1483,4 @@ try {
 } catch (e) {
   alert(e.message);
 }
+app.activeDocument.save();

@@ -62,7 +62,7 @@ WTW_51660_Brand Icons_May22
 - Uses node js dependency types for adobe NPM https://registry.npmjs.org/types-for-adobe
 - SOON Extendscript toolkit on Windows
 
-# How to use
+
 
 ## Script instructions:
 
@@ -74,13 +74,14 @@ WTW_51660_Brand Icons_May22
 - Make sure all layers and sublayers are invisible and unlocked to avoid bugs. <path>s (sub sub sub layers) should remain visible though in layers panel(this is standard). 
 - Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. Make sure all colors are on sublayers inside the layer called 'colors' with correct naming. 
 - Exported assets will be saved where the .ai file is saved. 
-    
+
+  # How to use  
 
 - Use VS code > Main Menu > Terminal > Run build Task > Choose Build or Watch to convert .TS to .JS
 
 - Set up the Extendscript toolkit debugger VS extension
 
-- You will need the Extendscript toolkit from Adobe. This only works on Windows since OS Catalina, so you'll probably need Windows for better debugging.
+- You may need the Extendscript toolkit from Adobe. This only works on Windows since OS Catalina, so you'll probably need Windows for better debugging.
 
 
 ```
@@ -89,6 +90,7 @@ git pull... repo etc
 node installed?
 typescript installed?
 npm i
+Main nav in VS Code: Terminal > Run Build Task > Watch. This watches and compiles TS files.
 open .ai in Illustrator
 File > Scripts > Other Scripts > Add WTW_main_script.js
 
@@ -133,11 +135,13 @@ File > Scripts > Other Scripts > Add WTW_main_script.js
 
 # To be done
 
+Remove typescript bugs from contact sheet script.
+
 Be sure you allocate time for testing on MacOS and Windows
 
 If all layers are on show only first
 
-URGENT FROM CLIENT, NAMES in contact sheet
+
 
 Organize the readme better
 
@@ -152,6 +156,8 @@ if all layers on turn them off before running
 if locked unlock
 
 # Done
+
+URGENT FROM CLIENT, NAMES in contact sheet
 
 ignore locked guides layer
 
@@ -261,3 +267,14 @@ Basically removing as many bugs as possible all day long.
 Review with Micheal
 Review with the design team
 Started on adding the filenames to the contact sheet as per last client request, no breakthrough yet.
+
+## Day 8
+
+
+Working on print filenames to the contact sheet.
+Got it working.
+Spent quite a bit of time trying to get the text position right.
+New bugs appeared I ironed out.
+.svg still present in the filenames in the contact sheet, trying to remove.
+Liaising with Diane.
+Sent new script to Diane.
