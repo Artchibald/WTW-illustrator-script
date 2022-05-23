@@ -689,23 +689,23 @@ try {
         saveAsSVGByDimensions(bgLayer.name);
         saveAsEPSByDimensions(bgLayer.name);
         // Save them to sorted-by-icon
-        saveAsPNGAt24x24ByIcon(bgLayer.name);
-        saveAsPNGAt32x32ByIcon(bgLayer.name);
-        saveAsPNGAt48x48ByIcon(bgLayer.name);
-        saveAsPNGAt64x64ByIcon(bgLayer.name);
-        saveAsPNGAt300x300ByIcon(bgLayer.name);
-        saveAsPNGAt512x512ByIcon(bgLayer.name);
-        saveAsSVGByIcon(bgLayer.name);
-        saveAsEPSByIcon(bgLayer.name);
+        // saveAsPNGAt24x24ByIcon(bgLayer.name);
+        // saveAsPNGAt32x32ByIcon(bgLayer.name);
+        // saveAsPNGAt48x48ByIcon(bgLayer.name);
+        // saveAsPNGAt64x64ByIcon(bgLayer.name);
+        // saveAsPNGAt300x300ByIcon(bgLayer.name);
+        // saveAsPNGAt512x512ByIcon(bgLayer.name);
+        // saveAsSVGByIcon(bgLayer.name);
+        // saveAsEPSByIcon(bgLayer.name);
         // Save them to sorted-by-color
-        saveAsPNGAt24x24ByColor(bgLayer.name);
-        saveAsPNGAt32x32ByColor(bgLayer.name);
-        saveAsPNGAt48x48ByColor(bgLayer.name);
-        saveAsPNGAt64x64ByColor(bgLayer.name);
-        saveAsPNGAt300x300ByColor(bgLayer.name);
-        saveAsPNGAt512x512ByColor(bgLayer.name);
-        saveAsSVGByColor(bgLayer.name);
-        saveAsEPSByColor(bgLayer.name);
+        // saveAsPNGAt24x24ByColor(bgLayer.name);
+        // saveAsPNGAt32x32ByColor(bgLayer.name);
+        // saveAsPNGAt48x48ByColor(bgLayer.name);
+        // saveAsPNGAt64x64ByColor(bgLayer.name);
+        // saveAsPNGAt300x300ByColor(bgLayer.name);
+        // saveAsPNGAt512x512ByColor(bgLayer.name);
+        // saveAsSVGByColor(bgLayer.name);
+        // saveAsEPSByColor(bgLayer.name);
         bgLayer.visible = false;
         // Next we create a contact sheet here
     }
@@ -1068,11 +1068,11 @@ try {
                                                 svgFile.resize(CONFIG_1.SCALE, CONFIG_1.SCALE);
                                             }
                                             if (CONFIG_1.ADD_LABELS) {
-                                                f.name.toString().replace(/\%20/g, " "); //change %20 to spaces
-                                                f.name.toString().replace(/\.[^\.]*$/, ""); //remove extension
-                                                theLayer.name = theLayer.name.toString().replace(/\%20/g, " "); //change %20 to spaces
-                                                theLayer.name = theLayer.name.toString().replace(/\.[^\.]*$/, ""); //remove extension
-                                                addLabel(theLayer, [x1 - (svgFile.width - 165), y1 - (svgFile.height + 100)], f.name.toString().replace(/\.[^\.]*$/, "").replace(/\%20/g, " "));
+                                                // f.name.toString().replace(/\%20/g, " "); //change %20 to spaces
+                                                // f.name.toString().replace(/\.[^\.]*$/, ""); //remove extension
+                                                // theLayer.name = theLayer.name.toString().replace(/\%20/g, " "); //change %20 to spaces
+                                                // theLayer.name = theLayer.name.toString().replace(/\.[^\.]*$/, ""); //remove extension
+                                                addLabel(theLayer, [x1 - (svgFile.width - 165), y1 - (svgFile.height + 100)], f.name.toString().replace(/\.[^\.]*$/, "").toString().replace(/\--SVG/g, "").replace(/\%20/g, " "));
                                             }
                                             // Only save the composite file if at least one 
                                             // icon exists and is successfully imported.

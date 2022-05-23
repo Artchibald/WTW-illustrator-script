@@ -42,7 +42,7 @@
 
 # Overview
 
-This script automates exports from a specific Illustrator template contained in this repo.
+This script automates exports from a specific Illustrator template contained in this repo. The script is split into 2 parts. The first part exports and saves the icons to various sorting folders. The second part generates a contact sheet based on the results. The second part goes into all svgs folder and uses it to create the contact sheet.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
