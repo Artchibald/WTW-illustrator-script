@@ -715,6 +715,8 @@ try {
     /**********************************
    ** CREATE CONTACT SHEET
    ***********************************/
+    var userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;
+    ;
     var originalInteractionLevel = userInteractionLevel;
     userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;
     var LANG_1 = {

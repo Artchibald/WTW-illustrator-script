@@ -794,7 +794,7 @@ try {
   /**********************************
  ** CREATE CONTACT SHEET
  ***********************************/
-
+  let userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;;
 
   let originalInteractionLevel = userInteractionLevel;
   userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;
@@ -979,7 +979,7 @@ try {
    */
   function doDisplayDialog() {
 
-    let dialog = new Window("dialog", LANG.LABEL_SETTINGS, [550, 350, 900, 700]);
+    let dialog = new Window("dialog", LANG.LABEL_SETTINGS, [550, 350, 900, 700]) as any;
     let response = false;
 
     try {
