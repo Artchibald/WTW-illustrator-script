@@ -288,11 +288,19 @@ Implemented three new features in the contact sheet.
 - Remove extension .svg
 - Fixed space in layer names bug
 
+The contact sheet should be more legible now as a result.
+
 These were done using what is called regex.
 
 Sent to Diane as an updated version with the 3 new features.
 
 There were some typescript errors which are fully rectified too.
+
+Also been refactoring and tweaking the readme and files at https://github.com/Artchibald/WTW-illustrator-script
+
+This may be useful notes if you need someone else to work on this in the distant future. It should help them get up to speed faster.
+
+I don't know if WTW uses Github.com but I can grant admin rights to anyone who requires it.
 
 I think I will be needing your next project to start on tomorrow if at all possible. 
 
