@@ -705,7 +705,7 @@ try {
     DocumentType.ILLUSTRATOR;
     sourceDoc_1.save();
     /**********************************
-   ** CREATE CONTACT SHEET
+   ** CREATE CONTACT SHEET (2nd part of the script and separate, but relies on the above to work)
    ***********************************/
     var userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;
     ;
@@ -892,8 +892,8 @@ try {
                 CONFIG_1.SCALE = parseInt(dialog.scale.text);
                 CONFIG_1.COLS = parseInt(dialog.cols.text);
                 CONFIG_1.ROWS = parseInt(dialog.rows.text);
-                CONFIG_1.COL_WIDTH = parseInt((CONFIG_1.PG_WIDTH - (CONFIG_1.HOFF * 2)) / CONFIG_1.COLS);
-                CONFIG_1.ROW_HEIGHT = parseInt((CONFIG_1.PG_HEIGHT - (CONFIG_1.VOFF * 2)) / CONFIG_1.ROWS);
+                CONFIG_1.COL_WIDTH = Math.floor((CONFIG_1.PG_WIDTH - (CONFIG_1.HOFF * 2)) / CONFIG_1.COLS);
+                CONFIG_1.ROW_HEIGHT = Math.floor((CONFIG_1.PG_HEIGHT - (CONFIG_1.VOFF * 2)) / CONFIG_1.ROWS);
                 CONFIG_1.FRM_WIDTH = CONFIG_1.COL_WIDTH;
                 CONFIG_1.FRM_HEIGHT = CONFIG_1.ROW_HEIGHT;
                 if (CONFIG_1.DEBUG) {
