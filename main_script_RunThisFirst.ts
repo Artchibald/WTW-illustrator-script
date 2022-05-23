@@ -795,6 +795,7 @@ try {
  ** CREATE CONTACT SHEET
  ***********************************/
 
+
   let originalInteractionLevel = userInteractionLevel;
   userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;
 
@@ -1212,8 +1213,9 @@ try {
                       } else {
                         theLayer = doc.layers.add();
                       }
-
                       theLayer.name = f.name;
+
+
                     } catch (ex) {
                       logger(LANG.LAYER_NOT_CREATED + ex);
                     }
@@ -1239,7 +1241,12 @@ try {
                       }
 
                       if (CONFIG.ADD_LABELS) {
-                        addLabel(theLayer, [x1 - (svgFile.width - 165), y1 - (svgFile.height + 100)], f.name)
+                        f.name.toString().replace(/\%20/g, " "); //change %20 to spaces
+                        f.name.toString().replace(/\.[^\.]*$/, ""); //remove extension
+                        theLayer.name = theLayer.name.toString().replace(/\%20/g, " "); //change %20 to spaces
+                        theLayer.name = theLayer.name.toString().replace(/\.[^\.]*$/, ""); //remove extension
+                        addLabel(theLayer, [x1 - (svgFile.width - 165), y1 - (svgFile.height + 100)], f.name.toString().replace(/\.[^\.]*$/, "").replace(/\%20/g, " "))
+
                       }
 
                       // Only save the composite file if at least one 
@@ -1354,12 +1361,12 @@ try {
 
       charAttributes.size = 7;
       parAttributes.justification = Justification.CENTER;
-
-
-
+      theText = theText.toString().replace(/\%20/g, " "); //change %20 to spaces
+      theText = theText.toString().replace(/\.[^\.]*$/, ""); //remove extension
 
       try {
         theLabel.position = pos;
+
 
       } catch (e) {
         alert('labelPosition : ' + e)

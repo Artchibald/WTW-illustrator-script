@@ -23,12 +23,12 @@ try {
     var nameSVG_1 = "SVG";
     var nameEPS_1 = "EPS";
     // target icons for main loop
-    var myIconsLayer_1 = sourceDoc_1.layers["icons"];
-    var myIconsSublayers_1 = myIconsLayer_1.layers;
+    var myIconsLayer = sourceDoc_1.layers["icons"];
+    var myIconsSublayers_1 = myIconsLayer.layers;
     // target colors for main loop
-    var myColorsLayer_1 = sourceDoc_1.layers["colors"];
-    var myColorsSublayers_1 = myColorsLayer_1.layers;
-    var guideLayer_1 = sourceDoc_1.layers["Guides (DO NOT MOVE)"];
+    var myColorsLayer = sourceDoc_1.layers["colors"];
+    var myColorsSublayers_1 = myColorsLayer.layers;
+    var guideLayer = sourceDoc_1.layers["Guides (DO NOT MOVE)"];
     /**********************************
      ** INSTRUCTIONS DIALOG
      ***********************************/
@@ -46,8 +46,8 @@ try {
      ** HIDE / SHOW SOME LAYERS NEEDED
      ***********************************/
     try {
-        guideLayer_1.visible = false;
-        myColorsLayer_1.visible = true;
+        guideLayer.visible = false;
+        myColorsLayer.visible = true;
         // guide layer for removal
         // let guideLayer = sourceDoc.layers["Guides (DO NOT MOVE)"];
         // guideLayer.visible = true;
@@ -715,7 +715,7 @@ try {
     /**********************************
    ** CREATE CONTACT SHEET
    ***********************************/
-    var originalInteractionLevel_1 = userInteractionLevel;
+    var originalInteractionLevel = userInteractionLevel;
     userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;
     var LANG_1 = {
         CHOOSE_FOLDER: "Please choose your Folder of files to place...",
@@ -1052,7 +1052,11 @@ try {
                                                 svgFile.resize(CONFIG_1.SCALE, CONFIG_1.SCALE);
                                             }
                                             if (CONFIG_1.ADD_LABELS) {
-                                                addLabel(theLayer, [x1 - (svgFile.width - 165), y1 - (svgFile.height + 100)], f.name);
+                                                f.name.toString().replace(/\%20/g, " "); //change %20 to spaces
+                                                f.name.toString().replace(/\.[^\.]*$/, ""); //remove extension
+                                                theLayer.name = theLayer.name.toString().replace(/\%20/g, " "); //change %20 to spaces
+                                                theLayer.name = theLayer.name.toString().replace(/\.[^\.]*$/, ""); //remove extension
+                                                addLabel(theLayer, [x1 - (svgFile.width - 165), y1 - (svgFile.height + 100)], f.name.toString().replace(/\.[^\.]*$/, "").replace(/\%20/g, " "));
                                             }
                                             // Only save the composite file if at least one 
                                             // icon exists and is successfully imported.
@@ -1153,6 +1157,8 @@ try {
             var parAttributes = theLabel.paragraphs[0].paragraphAttributes;
             charAttributes.size = 7;
             parAttributes.justification = Justification.CENTER;
+            theText = theText.toString().replace(/\%20/g, " "); //change %20 to spaces
+            theText = theText.toString().replace(/\.[^\.]*$/, ""); //remove extension
             try {
                 theLabel.position = pos;
             }
@@ -1244,16 +1250,16 @@ try {
     ;
     doCreateContactSheet();
     // Crop to selection with gutters!
-    var offset_1 = 10 * 2.83465;
+    var offset = 10 * 2.83465;
     sourceDoc_1.selection = null;
-    var idx_1 = sourceDoc_1.artboards.getActiveArtboardIndex();
+    var idx = sourceDoc_1.artboards.getActiveArtboardIndex();
     sourceDoc_1.selectObjectsOnActiveArtboard();
-    sourceDoc_1.fitArtboardToSelectedArt(idx_1); // does not work for visible bounds of editable fonts
-    var rect_1 = sourceDoc_1.artboards[idx_1].artboardRect;
-    sourceDoc_1.artboards[idx_1].artboardRect = [rect_1[0] - offset_1, rect_1[1] + offset_1, rect_1[2] + offset_1, rect_1[3] - offset_1];
+    sourceDoc_1.fitArtboardToSelectedArt(idx); // does not work for visible bounds of editable fonts
+    var rect = sourceDoc_1.artboards[idx].artboardRect;
+    sourceDoc_1.artboards[idx].artboardRect = [rect[0] - offset, rect[1] + offset, rect[2] + offset, rect[3] - offset];
     sourceDoc_1.selection = null;
     // unselect everything
-    userInteractionLevel = originalInteractionLevel_1;
+    userInteractionLevel = originalInteractionLevel;
     app.activeDocument.save();
     // close the document here without saving, uncomment for prod
     // app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
