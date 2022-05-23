@@ -278,3 +278,23 @@ New bugs appeared I ironed out.
 .svg still present in the filenames in the contact sheet, trying to remove.
 Liaising with Diane.
 Sent new script to Diane.
+
+
+## Day 9
+
+Implemented three new features in the contact sheet.
+
+- remove string --SVG
+- Remove extension .svg
+- Fixed space in layer names bug
+
+These were done using what is called regex.
+
+Sent to Diane as an updated version with the 3 new features.
+
+There were some typescript errors which are fully rectified too.
+
+I think I will be needing your next project to start on tomorrow if at all possible. 
+
+Looking forward to hearing about it on our call at 11am.
+
