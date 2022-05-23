@@ -689,23 +689,23 @@ try {
         saveAsSVGByDimensions(bgLayer.name);
         saveAsEPSByDimensions(bgLayer.name);
         // Save them to sorted-by-icon
-        // saveAsPNGAt24x24ByIcon(bgLayer.name);
-        // saveAsPNGAt32x32ByIcon(bgLayer.name);
-        // saveAsPNGAt48x48ByIcon(bgLayer.name);
-        // saveAsPNGAt64x64ByIcon(bgLayer.name);
-        // saveAsPNGAt300x300ByIcon(bgLayer.name);
-        // saveAsPNGAt512x512ByIcon(bgLayer.name);
-        // saveAsSVGByIcon(bgLayer.name);
-        // saveAsEPSByIcon(bgLayer.name);
+        saveAsPNGAt24x24ByIcon(bgLayer.name);
+        saveAsPNGAt32x32ByIcon(bgLayer.name);
+        saveAsPNGAt48x48ByIcon(bgLayer.name);
+        saveAsPNGAt64x64ByIcon(bgLayer.name);
+        saveAsPNGAt300x300ByIcon(bgLayer.name);
+        saveAsPNGAt512x512ByIcon(bgLayer.name);
+        saveAsSVGByIcon(bgLayer.name);
+        saveAsEPSByIcon(bgLayer.name);
         // Save them to sorted-by-color
-        // saveAsPNGAt24x24ByColor(bgLayer.name);
-        // saveAsPNGAt32x32ByColor(bgLayer.name);
-        // saveAsPNGAt48x48ByColor(bgLayer.name);
-        // saveAsPNGAt64x64ByColor(bgLayer.name);
-        // saveAsPNGAt300x300ByColor(bgLayer.name);
-        // saveAsPNGAt512x512ByColor(bgLayer.name);
-        // saveAsSVGByColor(bgLayer.name);
-        // saveAsEPSByColor(bgLayer.name);
+        saveAsPNGAt24x24ByColor(bgLayer.name);
+        saveAsPNGAt32x32ByColor(bgLayer.name);
+        saveAsPNGAt48x48ByColor(bgLayer.name);
+        saveAsPNGAt64x64ByColor(bgLayer.name);
+        saveAsPNGAt300x300ByColor(bgLayer.name);
+        saveAsPNGAt512x512ByColor(bgLayer.name);
+        saveAsSVGByColor(bgLayer.name);
+        saveAsEPSByColor(bgLayer.name);
         bgLayer.visible = false;
         // Next we create a contact sheet here
     }
@@ -733,9 +733,12 @@ try {
         BUTTON_CANCEL: "Cancel",
         BUTTON_OK: "Ok",
         DOES_NOT_EXIST: " does not exist",
-        LAYER_NOT_CREATED: "Could not create layer. "
+        LAYER_NOT_CREATED: "Could not create layer. ",
+        DOES_NOT_EXIT: "Does not exist"
     };
     var CONFIG_1 = {
+        NUM_ROWS: "",
+        NUM_COLS: "",
         /**
          * Whether or not to add the file name as text
          * under the imported icons.
@@ -761,6 +764,7 @@ try {
          * Row height. This is set programmatically.
          */
         ROW_WIDTH: 128,
+        ROW_HEIGHT: 128,
         /**
          * Column Height. This is set programmatically.
          */
@@ -785,6 +789,7 @@ try {
          * 20 rows 128 px tall, with 64 px page margins
          */
         PG_HEIGHT: 2688,
+        PG_COUNT: 1,
         /**
          * Not yet fully-implemented. Will support multiple units
          */
@@ -933,6 +938,7 @@ try {
         var bits = filename.split(".");
         var bit = bits[bits.length - 1];
         var found = false;
+        var ext;
         if (bits.length > 1 && bit) {
             for (ext in CONFIG_1.STRIP) {
                 if (ext.toLowerCase() == bit.toLowerCase()) {
@@ -984,6 +990,9 @@ try {
                 app.coordinateSystem = CoordinateSystem.ARTBOARDCOORDINATESYSTEM;
                 doc = app.documents.add(DocumentColorSpace.RGB, CONFIG_1.PG_WIDTH, CONFIG_1.PG_HEIGHT, CONFIG_1.PG_COUNT = Math.ceil(svgFileList.length / (CONFIG_1.ROWS * CONFIG_1.COLS)), DocumentArtboardLayout.GridByCol, CONFIG_1.GUTTER, Math.round(Math.sqrt(Math.ceil(svgFileList.length / (CONFIG_1.ROWS * CONFIG_1.COLS)))));
                 for (var i = 0; i < svgFileList.length; i++) {
+                    var y1 = void 0;
+                    var y2 = void 0;
+                    var x2 = void 0;
                     var board = void 0;
                     var bounds = void 0;
                     var x1 = y1 = x2 = y2 = 0;
@@ -992,6 +1001,7 @@ try {
                     var myFrameWidth = CONFIG_1.FRM_WIDTH;
                     var myFrameHeight = CONFIG_1.FRM_HEIGHT;
                     for (var pageCounter = CONFIG_1.PG_COUNT - 1; pageCounter >= 0; pageCounter--) {
+                        var boardWidth = void 0;
                         doc.artboards.setActiveArtboardIndex(pageCounter);
                         board = doc.artboards[pageCounter];
                         bounds = board.artboardRect;
@@ -1006,6 +1016,8 @@ try {
                         if (CONFIG_1.SKIP_COLS > 0) {
                             rowCount++;
                         }
+                        var myY1 = void 0;
+                        var myY2 = void 0;
                         for (var rowCounter = 1; rowCounter <= rowCount; rowCounter++) {
                             myY1 = bounds[1] + CONFIG_1.VOFF + (myRowHeight * (rowCounter - 1));
                             myY2 = myY1 + CONFIG_1.FRM_HEIGHT;
@@ -1042,6 +1054,8 @@ try {
                                         svgFile = doc.groupItems.createFromFile(f);
                                         var liveWidth = (CONFIG_1.COLS * (CONFIG_1.FRM_WIDTH + CONFIG_1.GUTTER)) - CONFIG_1.GUTTER;
                                         var hoff = Math.ceil((CONFIG_1.PG_WIDTH - liveWidth) / 2);
+                                        var myX1 = void 0;
+                                        var myX2 = void 0;
                                         myX1 = bounds[0] + hoff + (myColumnWidth * (columnCounter - 1));
                                         myX2 = myX1 + CONFIG_1.FRM_HEIGHT;
                                         var shiftX = Math.ceil((CONFIG_1.FRM_WIDTH - svgFile.width) / 2);
@@ -1103,6 +1117,10 @@ try {
      * @return void
      */
     function arrangeItems(sel) {
+        var theItem;
+        var rows;
+        var doc;
+        var y1;
         var board;
         var bounds;
         var itemBounds;
@@ -1182,23 +1200,25 @@ try {
         if (app.documents.length > 0) {
             var options = new IllustratorSaveOptions();
             var theDoc = new File(dest);
-            options.compatibility = CONFIG_1.AIFORMAT;
-            options.flattenOutput = OutputFlattening.PRESERVEAPPEARANCE;
-            options.pdfCompatible = true;
+            IllustratorSaveOptions.compatibility = CONFIG_1.AIFORMAT;
+            IllustratorSaveOptions.flattenOutput = OutputFlattening.PRESERVEAPPEARANCE;
+            IllustratorSaveOptions.pdfCompatible = true;
             app.activeDocument.saveAs(theDoc, options);
         }
     }
+    function redraw() { }
     /**
      * Aligns selection to nearest whole pixel
      * @param <selection> sel The selection object
      * @return void
      */
-    function alignToNearestPixel(sel) {
+    function alignToNearestPixel2(sel) {
         try {
             if (typeof sel != "object") {
                 logger(LANG_1.NO_SELECTION);
             }
             else {
+                var i = void 0;
                 for (i = 0; i < sel.length; i++) {
                     sel[i].left = Math.round(sel[i].left);
                     sel[i].top = Math.round(sel[i].top);
@@ -1216,7 +1236,7 @@ try {
      * @return void
      */
     function logger(txt) {
-        if (CONFIG_1.LOGGING == 0)
+        if (CONFIG_1.LOGGING == true)
             return;
         var file = new File(CONFIG_1.LOG_FILE_PATH);
         file.open("e", "TEXT", "????");

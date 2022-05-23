@@ -768,23 +768,23 @@ try {
     saveAsSVGByDimensions(bgLayer.name);
     saveAsEPSByDimensions(bgLayer.name);
     // Save them to sorted-by-icon
-    // saveAsPNGAt24x24ByIcon(bgLayer.name);
-    // saveAsPNGAt32x32ByIcon(bgLayer.name);
-    // saveAsPNGAt48x48ByIcon(bgLayer.name);
-    // saveAsPNGAt64x64ByIcon(bgLayer.name);
-    // saveAsPNGAt300x300ByIcon(bgLayer.name);
-    // saveAsPNGAt512x512ByIcon(bgLayer.name);
-    // saveAsSVGByIcon(bgLayer.name);
-    // saveAsEPSByIcon(bgLayer.name);
+    saveAsPNGAt24x24ByIcon(bgLayer.name);
+    saveAsPNGAt32x32ByIcon(bgLayer.name);
+    saveAsPNGAt48x48ByIcon(bgLayer.name);
+    saveAsPNGAt64x64ByIcon(bgLayer.name);
+    saveAsPNGAt300x300ByIcon(bgLayer.name);
+    saveAsPNGAt512x512ByIcon(bgLayer.name);
+    saveAsSVGByIcon(bgLayer.name);
+    saveAsEPSByIcon(bgLayer.name);
     // Save them to sorted-by-color
-    // saveAsPNGAt24x24ByColor(bgLayer.name);
-    // saveAsPNGAt32x32ByColor(bgLayer.name);
-    // saveAsPNGAt48x48ByColor(bgLayer.name);
-    // saveAsPNGAt64x64ByColor(bgLayer.name);
-    // saveAsPNGAt300x300ByColor(bgLayer.name);
-    // saveAsPNGAt512x512ByColor(bgLayer.name);
-    // saveAsSVGByColor(bgLayer.name);
-    // saveAsEPSByColor(bgLayer.name);
+    saveAsPNGAt24x24ByColor(bgLayer.name);
+    saveAsPNGAt32x32ByColor(bgLayer.name);
+    saveAsPNGAt48x48ByColor(bgLayer.name);
+    saveAsPNGAt64x64ByColor(bgLayer.name);
+    saveAsPNGAt300x300ByColor(bgLayer.name);
+    saveAsPNGAt512x512ByColor(bgLayer.name);
+    saveAsSVGByColor(bgLayer.name);
+    saveAsEPSByColor(bgLayer.name);
     bgLayer.visible = false;
     // Next we create a contact sheet here
   }
@@ -813,10 +813,15 @@ try {
     BUTTON_CANCEL: "Cancel",
     BUTTON_OK: "Ok",
     DOES_NOT_EXIST: " does not exist",
-    LAYER_NOT_CREATED: "Could not create layer. "
+    LAYER_NOT_CREATED: "Could not create layer. ",
+    DOES_NOT_EXIT: "Does not exist"
+
   }
 
   let CONFIG = {
+
+    NUM_ROWS: "",
+    NUM_COLS: "",
 
     /**
      * Whether or not to add the file name as text 
@@ -854,6 +859,9 @@ try {
 
     ROW_WIDTH: 128,
 
+
+    ROW_HEIGHT: 128,
+
     /**
      * Column Height. This is set programmatically.
      */
@@ -885,6 +893,9 @@ try {
      */
 
     PG_HEIGHT: 2688,
+
+
+    PG_COUNT: 1,
 
     /**
      * Not yet fully-implemented. Will support multiple units
@@ -979,7 +990,7 @@ try {
    */
   function doDisplayDialog() {
 
-    let dialog = new Window("dialog", LANG.LABEL_SETTINGS, [550, 350, 900, 700]) as any;
+    let dialog = new Window("dialog", LANG.LABEL_SETTINGS, [550, 350, 900, 700] as Bounds) as any;
     let response = false;
 
     try {
@@ -1073,6 +1084,7 @@ try {
     let bits = filename.split(".");
     let bit = bits[bits.length - 1];
     let found = false;
+    let ext;
     if (bits.length > 1 && bit) {
       for (ext in CONFIG.STRIP) {
         if (ext.toLowerCase() == bit.toLowerCase()) {
@@ -1143,7 +1155,9 @@ try {
         );
 
         for (let i = 0; i < svgFileList.length; i++) {
-
+          let y1;
+          let y2;
+          let x2;
           let board;
           let bounds;
           let x1 = y1 = x2 = y2 = 0;
@@ -1154,7 +1168,7 @@ try {
           let myFrameHeight = CONFIG.FRM_HEIGHT
 
           for (let pageCounter = CONFIG.PG_COUNT - 1; pageCounter >= 0; pageCounter--) {
-
+            let boardWidth;
             doc.artboards.setActiveArtboardIndex(pageCounter);
             board = doc.artboards[pageCounter];
             bounds = board.artboardRect;
@@ -1174,7 +1188,8 @@ try {
             if (CONFIG.SKIP_COLS > 0) {
               rowCount++;
             }
-
+            let myY1;
+            let myY2;
             for (let rowCounter = 1; rowCounter <= rowCount; rowCounter++) {
 
               myY1 = bounds[1] + CONFIG.VOFF + (myRowHeight * (rowCounter - 1));
@@ -1223,7 +1238,8 @@ try {
 
                     let liveWidth = (CONFIG.COLS * (CONFIG.FRM_WIDTH + CONFIG.GUTTER)) - CONFIG.GUTTER;
                     let hoff = Math.ceil((CONFIG.PG_WIDTH - liveWidth) / 2);
-
+                    let myX1;
+                    let myX2;
                     myX1 = bounds[0] + hoff + (myColumnWidth * (columnCounter - 1));
                     myX2 = myX1 + CONFIG.FRM_HEIGHT;
 
@@ -1286,7 +1302,10 @@ try {
    * @return void
    */
   function arrangeItems(sel) {
-
+    let theItem;
+    let rows;
+    let doc;
+    let y1;
     let board;
     let bounds;
     let itemBounds;
@@ -1387,25 +1406,26 @@ try {
     if (app.documents.length > 0) {
       let options = new IllustratorSaveOptions();
       let theDoc = new File(dest);
-      options.compatibility = CONFIG.AIFORMAT;
-      options.flattenOutput = OutputFlattening.PRESERVEAPPEARANCE;
-      options.pdfCompatible = true;
+      IllustratorSaveOptions.compatibility = CONFIG.AIFORMAT;
+      IllustratorSaveOptions.flattenOutput = OutputFlattening.PRESERVEAPPEARANCE;
+      IllustratorSaveOptions.pdfCompatible = true;
       app.activeDocument.saveAs(theDoc, options);
     }
   }
 
+  function redraw() { }
   /**
    * Aligns selection to nearest whole pixel
    * @param <selection> sel The selection object
    * @return void
    */
-  function alignToNearestPixel(sel) {
+  function alignToNearestPixel2(sel) {
     try {
       if (typeof sel != "object") {
 
         logger(LANG.NO_SELECTION);
       } else {
-
+        let i;
         for (i = 0; i < sel.length; i++) {
           sel[i].left = Math.round(sel[i].left);
           sel[i].top = Math.round(sel[i].top);
@@ -1423,7 +1443,7 @@ try {
    * @return void
    */
   function logger(txt) {
-    if (CONFIG.LOGGING == 0) return;
+    if (CONFIG.LOGGING == true) return;
     let file = new File(CONFIG.LOG_FILE_PATH);
     file.open("e", "TEXT", "????");
     file.seek(0, 2);
