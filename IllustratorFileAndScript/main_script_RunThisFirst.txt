@@ -48,9 +48,17 @@ try {
     try {
         guideLayer.visible = false;
         myColorsLayer.visible = true;
+        // guide layer for removal
+        // let guideLayer = sourceDoc.layers["Guides (DO NOT MOVE)"];
+        // guideLayer.visible = true;
+        // if (guideLayer.visible === true) {
+        //   guideLayer.locked = false;
+        // This needs work we dont want to delete it, just remove/ignore it from loop somehow
+        // can we cut at beginning and paste at end
+        // guideLayer.remove();
     }
     catch (e) {
-        alert("Issues with layer hiding the guides or icons.", e.message);
+        alert("the guide layer doesn't exist, the script will still work though.", e.message);
     }
     /**********************************
      ** CREATE REQUIRED FOLDERS

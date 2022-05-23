@@ -57,18 +57,9 @@ try {
   try {
     guideLayer.visible = false;
     myColorsLayer.visible = true;
-    // guide layer for removal
-    // let guideLayer = sourceDoc.layers["Guides (DO NOT MOVE)"];
-    // guideLayer.visible = true;
-    // if (guideLayer.visible === true) {
-    //   guideLayer.locked = false;
-    // This needs work we dont want to delete it, just remove/ignore it from loop somehow
-    // can we cut at beginning and paste at end
-    // guideLayer.remove();
-
   } catch (e) {
     alert(
-      "the guide layer doesn't exist, the script will still work though.",
+      "Issues with layer hiding the guides or icons.",
       e.message
     );
   }
@@ -768,23 +759,23 @@ try {
     saveAsSVGByDimensions(bgLayer.name);
     saveAsEPSByDimensions(bgLayer.name);
     // Save them to sorted-by-icon
-    // saveAsPNGAt24x24ByIcon(bgLayer.name);
-    // saveAsPNGAt32x32ByIcon(bgLayer.name);
-    // saveAsPNGAt48x48ByIcon(bgLayer.name);
-    // saveAsPNGAt64x64ByIcon(bgLayer.name);
-    // saveAsPNGAt300x300ByIcon(bgLayer.name);
-    // saveAsPNGAt512x512ByIcon(bgLayer.name);
-    // saveAsSVGByIcon(bgLayer.name);
-    // saveAsEPSByIcon(bgLayer.name);
+    saveAsPNGAt24x24ByIcon(bgLayer.name);
+    saveAsPNGAt32x32ByIcon(bgLayer.name);
+    saveAsPNGAt48x48ByIcon(bgLayer.name);
+    saveAsPNGAt64x64ByIcon(bgLayer.name);
+    saveAsPNGAt300x300ByIcon(bgLayer.name);
+    saveAsPNGAt512x512ByIcon(bgLayer.name);
+    saveAsSVGByIcon(bgLayer.name);
+    saveAsEPSByIcon(bgLayer.name);
     // Save them to sorted-by-color
-    // saveAsPNGAt24x24ByColor(bgLayer.name);
-    // saveAsPNGAt32x32ByColor(bgLayer.name);
-    // saveAsPNGAt48x48ByColor(bgLayer.name);
-    // saveAsPNGAt64x64ByColor(bgLayer.name);
-    // saveAsPNGAt300x300ByColor(bgLayer.name);
-    // saveAsPNGAt512x512ByColor(bgLayer.name);
-    // saveAsSVGByColor(bgLayer.name);
-    // saveAsEPSByColor(bgLayer.name);
+    saveAsPNGAt24x24ByColor(bgLayer.name);
+    saveAsPNGAt32x32ByColor(bgLayer.name);
+    saveAsPNGAt48x48ByColor(bgLayer.name);
+    saveAsPNGAt64x64ByColor(bgLayer.name);
+    saveAsPNGAt300x300ByColor(bgLayer.name);
+    saveAsPNGAt512x512ByColor(bgLayer.name);
+    saveAsSVGByColor(bgLayer.name);
+    saveAsEPSByColor(bgLayer.name);
     bgLayer.visible = false;
     // Next we create a contact sheet here
   }
