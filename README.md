@@ -40,6 +40,12 @@
 </ol>
 </details>
 
+# Video tutorial located on youtube.com
+
+Please consult the video walkthrough to help you get set up using this script:
+
+https://youtu.be/9hrQIdJDNxY
+
 # Overview
 
 This script automates exports from a specific Illustrator template contained in this repo. The script is split into 2 parts. The first part exports and saves the icons to various sorting folders. The second part generates a contact sheet based on the results. The second part goes into all svgs folder and uses it to create the contact sheet.
