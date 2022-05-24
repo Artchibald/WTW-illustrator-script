@@ -6,7 +6,7 @@
     <img src="imagesInReadme/WTW.png" alt="Logo" width="180" height="180">
   </a>
 
-<h3 align="center">A Typescript file that converts into ECMA 3 target JS file for use in Adobe Illustrator 2022. JS script that automates icon export processes in Adobe Illustrator</h3>
+<h3 align="center">A Typescript file that converts into ECMA 3 target JS file for use in Adobe Illustrator 2022. JS script that automates icon export processes in Adobe Illustrator. It will compare the layer of icons against the layer of background colors and export them as PNG at 24, 32, 48, 64, 300, 512, SVG and EPS. It will categorize these outputs to three separate folders: by type, by color and by icon.</h3>
 
   <p align="center">
     Useful links 
