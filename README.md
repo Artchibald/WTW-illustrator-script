@@ -312,3 +312,18 @@ I think I will be needing your next project to start on tomorrow if at all possi
 
 Looking forward to hearing about it on our call at 11am.
 
+## Day 10
+
+Created a video tutorial to help employees get set up faster. https://www.youtube.com/watch?v=9hrQIdJDNxY
+
+Call with Steve and Mike 11am.
+
+Minor liaise with Diane to see if she needs help, she will confirm tomorrow because she hasn't had time to look at it yet.
+
+Reviewing the scripts that were supplied by Monigle in depth and testing it with random icons I create. This will help prepare me for the next step of the script.
+
+Setting up a new repository for the next project and defining some basic readme architecture in there to keep myself busy.
+
+Tomorrow if there is lots of time, I will continue reviewing the supllied scripts in even more depth and I may have some questions for Mike around brand colors and font families used.
+
+Have a nice evening.
