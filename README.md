@@ -68,6 +68,9 @@ WTW_51660_Brand Icons_May22
 - Uses node js dependency types for adobe NPM https://registry.npmjs.org/types-for-adobe
 - SOON Extendscript toolkit on Windows
 
+# How long does the script take to run?
+
+If there are 38 icons and 8 background colors, 3 sets of folder saves, that is 7320 total exported icons and roughly (38 x 8 x 3 folders) 4560 loops. This takes about 2 hours to perform. Total of (34*8) 304 icons in the contact sheet.
 
 
 ## Script instructions:
@@ -141,43 +144,43 @@ File > Scripts > Other Scripts > Add WTW_main_script.js
 
 # To be done
 
-Remove typescript bugs from contact sheet script.
+- need to enlarge the contact sheet to accomodate more icons
 
-Be sure you allocate time for testing on MacOS and Windows
+- Be sure you allocate time for testing on MacOS and Windows
 
-If all layers are on show only first
+- If all layers are on show only first
 
+- Organize the readme better
 
+- Simplify repetitions
 
-Organize the readme better
+- Change functions to arrow functions
 
-Simplify
+- if all layers on turn them off before running
 
-Change functions to arrow functions
-
-change all vars to lets
-
-if all layers on turn them off before running
-
-if locked unlock
+- if locked unlock all
 
 # Done
 
-URGENT FROM CLIENT, NAMES in contact sheet
+- change all vars to lets
 
-ignore locked guides layer
+- Remove all typescript bugs from contact sheet script.
 
-add -24x24 ...etc to all exports AGAIN
+- URGENT FROM CLIENT, NAMES in contact sheet
 
-GET Extendscript toolkit for Windows!
+- ignore locked guides layer
 
-Move colors into its own layer to avoid deleting the guides
+- add -24x24 ...etc to all exports AGAIN
 
-Time off half day tue 31 MAY, need afternoon off
+- GET Extendscript toolkit for Windows!
 
-Tuesday 7 June need day off please
+- Move colors into its own layer to avoid deleting the guides
 
-URGENT DISCREPANCY BETWEEN AI FILE AND THE ICON STYLE GRID PDF!!
+- Time off half day tue 31 MAY, need afternoon off
+ 
+- Tuesday 7 June need day off please
+
+- URGENT DISCREPANCY BETWEEN AI FILE AND THE ICON STYLE GRID PDF!!
 
 # Questions for client
 
@@ -326,4 +329,10 @@ Setting up a new repository for the next project and defining some basic readme 
 
 Tomorrow if there is lots of time, I will continue reviewing the supllied scripts in even more depth and I may have some questions for Mike around brand colors and font families used.
 
-Have a nice evening.
+
+## Day 11
+
+Spent the day debugging a bug I hadnt noticed through out around 1 icon wrong sizes throughout
+Fixed it around 4pm
+Trialled a big script, worked perfectly.
+need to enlarge the contact sheet to accomodate more icons

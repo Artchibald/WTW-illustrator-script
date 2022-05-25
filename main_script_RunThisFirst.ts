@@ -270,10 +270,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 9.375; // 24px x 24px
+        // @ts-ignore        
         opts.verticalScale = 9.375; // 24px x 24px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -291,10 +296,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 12.5; // 32px x 32px
+        // @ts-ignore        
         opts.verticalScale = 12.5; // 32px x 32px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -312,10 +322,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 18.75; // 48px x 48px
+        // @ts-ignore        
         opts.verticalScale = 18.75; // 48px x 48px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -333,10 +348,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 25; // 300px x 300px
+        // @ts-ignore        
         opts.verticalScale = 25; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -354,10 +374,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 117.2; // 300px x 300px
+        // @ts-ignore        
         opts.verticalScale = 117.2; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -375,10 +400,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 200;
+        // @ts-ignore        
         opts.verticalScale = 200;
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -443,10 +473,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 9.375; // 24px x 24px
+        // @ts-ignore        
         opts.verticalScale = 9.375; // 24px x 24px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -464,10 +499,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 12.5; // 32px x 32px
+        // @ts-ignore        
         opts.verticalScale = 12.5; // 32px x 32px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -485,10 +525,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 18.75; // 48px x 48px
+        // @ts-ignore        
         opts.verticalScale = 18.75; // 48px x 48px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -506,10 +551,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 25; // 300px x 300px
+        // @ts-ignore        
         opts.verticalScale = 25; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -527,10 +577,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 117.2; // 300px x 300px
+        // @ts-ignore        
         opts.verticalScale = 117.2; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -548,10 +603,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 200;
+        // @ts-ignore        
         opts.verticalScale = 200;
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -617,10 +677,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 9.375; // 24px x 24px
+        // @ts-ignore        
         opts.verticalScale = 9.375; // 24px x 24px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -638,10 +703,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 12.5; // 32px x 32px
+        // @ts-ignore        
         opts.verticalScale = 12.5; // 32px x 32px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -659,10 +729,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 18.75; // 48px x 48px
+        // @ts-ignore        
         opts.verticalScale = 18.75; // 48px x 48px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -680,10 +755,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 25; // 300px x 300px
+        // @ts-ignore        
         opts.verticalScale = 25; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -701,10 +781,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 117.2; // 300px x 300px
+        // @ts-ignore        
         opts.verticalScale = 117.2; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -722,10 +807,15 @@ try {
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
+        // @ts-ignore
         opts.antiAliasing = false;
+        // @ts-ignore
         opts.transparency = true;
+        // @ts-ignore        
         opts.artBoardClipping = true;
+        // @ts-ignore
         opts.horizontalScale = 200;
+        // @ts-ignore        
         opts.verticalScale = 200;
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;

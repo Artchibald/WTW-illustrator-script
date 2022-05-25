@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
-/IllustratorFileAndScript/sorted-by-dimensions
+/IllustratorFileAndScript/sorted-by-type
 /IllustratorFileAndScript/sorted-by-color
 /IllustratorFileAndScript/sorted-by-icon
+/IllustratorFileAndScript/Archive.zip
