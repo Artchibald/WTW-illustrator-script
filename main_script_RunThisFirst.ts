@@ -268,11 +268,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 9.375; // 24px x 24px
-        ExportOptionsPNG24.verticalScale = 9.375; // 24px x 24px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 9.375; // 24px x 24px
+        opts.verticalScale = 9.375; // 24px x 24px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -287,11 +289,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 12.5; // 32px x 32px
-        ExportOptionsPNG24.verticalScale = 12.5; // 32px x 32px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 12.5; // 32px x 32px
+        opts.verticalScale = 12.5; // 32px x 32px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -306,11 +310,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 18.75; // 48px x 48px
-        ExportOptionsPNG24.verticalScale = 18.75; // 48px x 48px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 18.75; // 48px x 48px
+        opts.verticalScale = 18.75; // 48px x 48px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -325,11 +331,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 25; // 300px x 300px
-        ExportOptionsPNG24.verticalScale = 25; // 300px x 300px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 25; // 300px x 300px
+        opts.verticalScale = 25; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -344,11 +352,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 117.2; // 300px x 300px
-        ExportOptionsPNG24.verticalScale = 117.2; // 300px x 300px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 117.2; // 300px x 300px
+        opts.verticalScale = 117.2; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -363,11 +373,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 200;
-        ExportOptionsPNG24.verticalScale = 200;
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 200;
+        opts.verticalScale = 200;
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -429,11 +441,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 9.375; // 24px x 24px
-        ExportOptionsPNG24.verticalScale = 9.375; // 24px x 24px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 9.375; // 24px x 24px
+        opts.verticalScale = 9.375; // 24px x 24px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -448,11 +462,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 12.5; // 32px x 32px
-        ExportOptionsPNG24.verticalScale = 12.5; // 32px x 32px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 12.5; // 32px x 32px
+        opts.verticalScale = 12.5; // 32px x 32px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -467,11 +483,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 18.75; // 48px x 48px
-        ExportOptionsPNG24.verticalScale = 18.75; // 48px x 48px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 18.75; // 48px x 48px
+        opts.verticalScale = 18.75; // 48px x 48px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -486,11 +504,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 25; // 300px x 300px
-        ExportOptionsPNG24.verticalScale = 25; // 300px x 300px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 25; // 300px x 300px
+        opts.verticalScale = 25; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -505,11 +525,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 117.2; // 300px x 300px
-        ExportOptionsPNG24.verticalScale = 117.2; // 300px x 300px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 117.2; // 300px x 300px
+        opts.verticalScale = 117.2; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -524,11 +546,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 200;
-        ExportOptionsPNG24.verticalScale = 200;
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 200;
+        opts.verticalScale = 200;
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -591,11 +615,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 9.375; // 24px x 24px
-        ExportOptionsPNG24.verticalScale = 9.375; // 24px x 24px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 9.375; // 24px x 24px
+        opts.verticalScale = 9.375; // 24px x 24px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -610,11 +636,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 12.5; // 32px x 32px
-        ExportOptionsPNG24.verticalScale = 12.5; // 32px x 32px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 12.5; // 32px x 32px
+        opts.verticalScale = 12.5; // 32px x 32px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -629,11 +657,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 18.75; // 48px x 48px
-        ExportOptionsPNG24.verticalScale = 18.75; // 48px x 48px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 18.75; // 48px x 48px
+        opts.verticalScale = 18.75; // 48px x 48px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -648,11 +678,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 25; // 300px x 300px
-        ExportOptionsPNG24.verticalScale = 25; // 300px x 300px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 25; // 300px x 300px
+        opts.verticalScale = 25; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -667,11 +699,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 117.2; // 300px x 300px
-        ExportOptionsPNG24.verticalScale = 117.2; // 300px x 300px
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 117.2; // 300px x 300px
+        opts.verticalScale = 117.2; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
@@ -686,11 +720,13 @@ try {
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
-        ExportOptionsPNG24.antiAliasing = false;
-        ExportOptionsPNG24.transparency = true;
-        ExportOptionsPNG24.artBoardClipping = true;
-        ExportOptionsPNG24.horizontalScale = 200;
-        ExportOptionsPNG24.verticalScale = 200;
+        //ignore errors on the 5 lines below
+        // it has to be set up like that because of an export bug
+        opts.antiAliasing = false;
+        opts.transparency = true;
+        opts.artBoardClipping = true;
+        opts.horizontalScale = 200;
+        opts.verticalScale = 200;
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
       }
