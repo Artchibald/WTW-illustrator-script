@@ -148,8 +148,6 @@ File > Scripts > Other Scripts > Add WTW_main_script.js
 
 - Compress contact sheet layers into 1, its 15mb currently
 
-- Compress the pngs and use png8
-
 - Be sure you allocate time for testing on MacOS and Windows
 
 - If all layers are on show only first
@@ -167,6 +165,8 @@ File > Scripts > Other Scripts > Add WTW_main_script.js
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # Done
+
+- Compress the pngs and use png8 TOO LOW QUALITY
 
 - need to enlarge the contact sheet to accomodate more icons
 
