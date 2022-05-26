@@ -908,9 +908,10 @@ try {
   // revert the doc from a .svg to a .ai, I don't want it to be svg!
   DocumentType.ILLUSTRATOR;
   sourceDoc.save();
+
   /**********************************
- ** CREATE CONTACT SHEET (2nd part of the script and separate, but relies on the above to work)
- ***********************************/
+   ** CREATE CONTACT SHEET (2nd part of the script and separate, but relies on the above to work)
+   ***********************************/
   let userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;;
 
   let originalInteractionLevel = userInteractionLevel;
@@ -950,7 +951,7 @@ try {
      * Number of rows
      */
 
-    ROWS: 80,
+    ROWS: 120,
 
     /**
      * Number of columns
@@ -1009,7 +1010,7 @@ try {
      * 20 rows 128 px tall, with 64 px page margins
      */
 
-    PG_HEIGHT: 10240,
+    PG_HEIGHT: 15360,
 
 
     PG_COUNT: 1,

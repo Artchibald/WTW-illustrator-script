@@ -831,8 +831,8 @@ try {
     DocumentType.ILLUSTRATOR;
     sourceDoc_1.save();
     /**********************************
-   ** CREATE CONTACT SHEET (2nd part of the script and separate, but relies on the above to work)
-   ***********************************/
+     ** CREATE CONTACT SHEET (2nd part of the script and separate, but relies on the above to work)
+     ***********************************/
     var userInteractionLevel = UserInteractionLevel.DONTDISPLAYALERTS;
     ;
     var originalInteractionLevel = userInteractionLevel;
@@ -865,7 +865,7 @@ try {
         /**
          * Number of rows
          */
-        ROWS: 80,
+        ROWS: 120,
         /**
          * Number of columns
          */
@@ -906,7 +906,7 @@ try {
          *
          * 20 rows 128 px tall, with 64 px page margins
          */
-        PG_HEIGHT: 10240,
+        PG_HEIGHT: 15360,
         PG_COUNT: 1,
         /**
          * Not yet fully-implemented. Will support multiple units
