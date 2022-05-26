@@ -950,7 +950,7 @@ try {
      * Number of rows
      */
 
-    ROWS: 20,
+    ROWS: 80,
 
     /**
      * Number of columns
@@ -1009,7 +1009,7 @@ try {
      * 20 rows 128 px tall, with 64 px page margins
      */
 
-    PG_HEIGHT: 2688,
+    PG_HEIGHT: 10240,
 
 
     PG_COUNT: 1,
@@ -1623,7 +1623,6 @@ try {
   //app.system(terminalCommand)
 
   //photoshop
-  //app.system(terminalCommand)
 } catch (e) {
   alert(e.message);
 }

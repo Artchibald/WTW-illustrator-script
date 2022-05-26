@@ -70,7 +70,7 @@ WTW_51660_Brand Icons_May22
 
 # How long does the script take to run?
 
-If there are 38 icons and 8 background colors, 3 sets of folder saves, that is 7320 total exported icons and roughly (38 x 8 x 3 folders) 4560 loops. This takes about 2 hours to perform. Total of (34*8) 304 icons in the contact sheet.
+If there are 38 icons and 8 background colors, 3 sets of folder saves, that is 7320 total exported icons in (38 * 8 * 3 folders) 4560 loops. This takes about 2 hours to perform. Total of (34*8) 304 icons in the contact sheet.
 
 
 ## Script instructions:
@@ -142,7 +142,13 @@ File > Scripts > Other Scripts > Add WTW_main_script.js
 - TBD:
 - Grouped in folders by Category and by filetype, for example Business Communication SVG, Business Communication EPS, Business Communication PNG (all sizes except 300), Business Communication PPT (300 size only)
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 # To be done
+
+- Compress contact sheet layers into 1, its 15mb currently
+
+- Compress the pngs and use png8
 
 - need to enlarge the contact sheet to accomodate more icons
 
@@ -159,6 +165,8 @@ File > Scripts > Other Scripts > Add WTW_main_script.js
 - if all layers on turn them off before running
 
 - if locked unlock all
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 # Done
 
@@ -182,6 +190,8 @@ File > Scripts > Other Scripts > Add WTW_main_script.js
 
 - URGENT DISCREPANCY BETWEEN AI FILE AND THE ICON STYLE GRID PDF!!
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 # Questions for client
 
 Why are there 2 templates core and expressive?
@@ -196,6 +206,8 @@ Implemented the latest Javascript tech stack, called Typescript. This is a langu
 Reviewed the Javascript code supplied by the client and typescript has flagged some issues I need to address. Parts of the script are not working as expected. I want to re-use as much as I can to save time, this is on going. If I have any new breakthroughs here, I will let you know.
 Started writing the new version of the script. Took a while to figure out how to declare the size of the exported pngs. Successfully managed to turn on and off multiple background color layers in the script, and automatically save a set of icons in the 512x512 category with different background colours. These include the color in the filename too. This has lead me to think about how to refactor my code to avoid unnecessary repetitions as I progress.
 My next task for this afternoon is to sketch/draw out the functionality/requirements of this script based on the brief from the client. I think that will be useful to make sure we are on the same page. I will send over soon. I will add this to the repository on github.com too.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Day 2
 
@@ -215,6 +227,8 @@ The script currently does:
    https://www.youtube.com/watch?v=N26Mwt0gQoo
    Because I can't attach files to this chat.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Day 3
 
 Improved readme
@@ -231,6 +245,8 @@ Some bits we will need soon from the design team:
 - Discuss the exact file naming convention
 - Can I get an example of the 'Contact sheet' mentioned in the brief please?
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Day 4 Sat fustrated weekend
 
 Nice showing the progress to Mike this morning.
@@ -243,6 +259,8 @@ Moving onto sorting the icons by color or icon type next
 Then moving on to Contact sheet functionality.
 I think I am ahead of schedule
 Have a nice evening.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Day 5
 
@@ -262,6 +280,8 @@ Exploring the new app I am using called the extensdcript toolkit for debugging
 
 [objectmodel]: imagesInReadme/objectmodel.png
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 ## Day 6
 
@@ -270,12 +290,16 @@ got a script working for the contact sheet
 Removed lots of bugs all day
 Brief completion as a prototype ready 
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Day 7
 
 Basically removing as many bugs as possible all day long.
 Review with Micheal
 Review with the design team
 Started on adding the filenames to the contact sheet as per last client request, no breakthrough yet.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Day 8
 
@@ -288,6 +312,7 @@ New bugs appeared I ironed out.
 Liaising with Diane.
 Sent new script to Diane.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Day 9
 
@@ -315,6 +340,8 @@ I think I will be needing your next project to start on tomorrow if at all possi
 
 Looking forward to hearing about it on our call at 11am.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Day 10
 
 Created a video tutorial to help employees get set up faster. https://www.youtube.com/watch?v=9hrQIdJDNxY
@@ -329,10 +356,12 @@ Setting up a new repository for the next project and defining some basic readme 
 
 Tomorrow if there is lots of time, I will continue reviewing the supllied scripts in even more depth and I may have some questions for Mike around brand colors and font families used.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Day 11
 
 Spent the day debugging a bug I hadnt noticed through out around 1 icon wrong sizes throughout
 Fixed it around 4pm
-Trialled a big script, worked perfectly.
+Trialled a big script, 2 hours, exported 304 icons correctly. Worked perfectly this time!
 need to enlarge the contact sheet to accomodate more icons
+Need to compress pngs
