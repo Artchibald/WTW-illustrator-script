@@ -271,15 +271,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore 
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 9.375; // 24px x 24px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 9.375; // 24px x 24px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -294,15 +294,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 12.5; // 32px x 32px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 12.5; // 32px x 32px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -317,15 +317,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 18.75; // 48px x 48px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 18.75; // 48px x 48px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -340,15 +340,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 25; // 300px x 300px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 25; // 300px x 300px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -363,15 +363,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 117.2; // 300px x 300px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 117.2; // 300px x 300px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -386,15 +386,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 200;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 200;
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -447,15 +447,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 9.375; // 24px x 24px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 9.375; // 24px x 24px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -470,15 +470,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 12.5; // 32px x 32px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 12.5; // 32px x 32px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -493,15 +493,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 18.75; // 48px x 48px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 18.75; // 48px x 48px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -516,15 +516,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 25; // 300px x 300px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 25; // 300px x 300px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -539,15 +539,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 117.2; // 300px x 300px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 117.2; // 300px x 300px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -562,15 +562,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 200;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 200;
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -623,15 +623,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 9.375; // 24px x 24px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 9.375; // 24px x 24px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -646,15 +646,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 12.5; // 32px x 32px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 12.5; // 32px x 32px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -669,15 +669,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 18.75; // 48px x 48px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 18.75; // 48px x 48px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -692,15 +692,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 25; // 300px x 300px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 25; // 300px x 300px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -715,15 +715,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 117.2; // 300px x 300px
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 117.2; // 300px x 300px
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
@@ -738,15 +738,15 @@ try {
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
                 // it has to be set up like that because of an export bug
-                // @ts-ignore
+                // // @ts-ignore
                 opts.antiAliasing = false;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.transparency = true;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.artBoardClipping = true;
-                // @ts-ignore
+                // // @ts-ignore
                 opts.horizontalScale = 200;
-                // @ts-ignore        
+                // // @ts-ignore        
                 opts.verticalScale = 200;
                 sourceDoc_1.exportFile(pngFile, type, opts);
                 iconLayer.visible = false;
