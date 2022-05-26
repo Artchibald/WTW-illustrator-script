@@ -150,8 +150,6 @@ File > Scripts > Other Scripts > Add WTW_main_script.js
 
 - Compress the pngs and use png8
 
-- need to enlarge the contact sheet to accomodate more icons
-
 - Be sure you allocate time for testing on MacOS and Windows
 
 - If all layers are on show only first
@@ -169,6 +167,8 @@ File > Scripts > Other Scripts > Add WTW_main_script.js
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # Done
+
+- need to enlarge the contact sheet to accomodate more icons
 
 - change all vars to lets
 
@@ -363,5 +363,14 @@ Tomorrow if there is lots of time, I will continue reviewing the supllied script
 Spent the day debugging a bug I hadnt noticed through out around 1 icon wrong sizes throughout
 Fixed it around 4pm
 Trialled a big script, 2 hours, exported 304 icons correctly. Worked perfectly this time!
-need to enlarge the contact sheet to accomodate more icons
-Need to compress pngs
+Enlarged the contact sheet canvas to accomodate more icons
+Need to compress pngs more
+
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Day 12
+
+Fixed contact sheet to accomodate 1000 variations
+
