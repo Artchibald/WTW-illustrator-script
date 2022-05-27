@@ -65,7 +65,7 @@ WTW_51660_Brand Icons_May22
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-# How long does the script take to run?
+# How long does the script take to run? ...
 
 If there are 38 icons and 8 background colors, 3 sets of folder saves, that is 7320 total exported icons in (38 * 8 * 3 folders) 4560 loops. This takes about 2 hours to perform. Total of (34*8) 304 icons in the contact sheet.
 
