@@ -23,7 +23,7 @@ try {
   let name32x32 = "32x32";
   let name24x24 = "24x24";
   let nameSVG = "SVG";
-  let nameEPS = "EPS";
+  let nameEPS = "all-EPS";
   // target icons for main loop
   let myIconsLayer = sourceDoc.layers["icons"];
   let myIconsSublayers = myIconsLayer.layers;
@@ -37,7 +37,7 @@ try {
    ** INSTRUCTIONS DIALOG
    ***********************************/
   alert(
-    "FULL README: https://github.com/Artchibald/WTW-illustrator-script   \n\n Video set up tutorial available here: https://youtu.be/9hrQIdJDNxY \n\n   Make a coffee, this may take a while.  \n\n If you run the script again, you should probably delete the previous assets created. \n\n  Artboard size must be exactly 256px x 256px. \n\n Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\n Make sure there are no spaces in the layer names, use hyphens(-) instead.  \n\n Make sure all layers and sublayers are invisible and unlocked to avoid bugs. <path>s (sub sub sub layers) should remain visible though in layers panel(this is standard). \n\n Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. Make sure all colors are on sublayers inside the layer called 'colors' with correct naming. \n\n Exported assets will be saved where the .ai file is saved. \n\n"
+    "FULL README: https://github.com/Artchibald/WTW-illustrator-script   \n\nVideo set up tutorial available here: https://youtu.be/9hrQIdJDNxY \n\nMake a coffee, this may take a while.  \n\n If you run the script again, you should probably delete the previous assets created. \n\nArtboard size must be exactly 256px x 256px. \n\nGuides must be on a layer called exactly 'Guides (DO NOT MOVE)'. \n\nMake sure all layers and sublayers are invisible and unlocked to avoid bugs. <path>s (sub sub sub layers) should remain visible though in layers panel(this is standard). \n\nMake sure all icons are on sublayers inside the layer called 'icons' with correct naming. Make sure all colors are on sublayers inside the layer called 'colors' with correct naming. \n\nWhen the contact sheet is ready to be generated, you can edit the rows and columns. If you increase the columns, you should increase the rows, to avoid overlapping. There is also a separate version of just the contact-sheet script. You must have these 2 folders in the root, for it to work though: /sorted-by-type/SVG/. \n\nExported assets will be saved where the .ai file is saved. \n\nAny issues: archie@archibaldbutler.com."
   );
 
   /**********************************
@@ -233,20 +233,8 @@ try {
     createSVGFolders();
 
     function createEPSFolders() {
-      let destFolder = Folder(`${sourceDoc.path}/${nameByDimensions}/${nameEPS}`);
+      let destFolder = Folder(`${sourceDoc.path}/${nameEPS}`);
       if (!destFolder.exists) destFolder.create();
-      // loop through all Folders By Icons and add required folder
-      for (let j = 0; j < myIconsSublayers.length; j++) {
-        let iconLayerName = myIconsSublayers[j].name;
-        let destFolder = Folder(`${sourceDoc.path}/${nameByIcon}/${iconLayerName}/${nameEPS}`);
-        if (!destFolder.exists) destFolder.create();
-      }
-      // loop through all Folders By Colors and add required folder
-      for (let j = 0; j < myColorsSublayers.length; j++) {
-        let colorLayerName = myColorsSublayers[j].name;
-        let destFolder = Folder(`${sourceDoc.path}/${nameByColor}/${colorLayerName}/${nameEPS}`);
-        if (!destFolder.exists) destFolder.create();
-      }
     }
     createEPSFolders();
 
@@ -264,21 +252,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${name24x24}/${iconLayer.name}--${layerName}--24x24-PNG.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name24x24}/${iconLayer.name}-${layerName}--24x24-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore 
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 9.375; // 24px x 24px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 9.375; // 24px x 24px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -290,21 +278,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${name32x32}/${iconLayer.name}--${layerName}--32x32-PNG.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name32x32}/${iconLayer.name}-${layerName}--32x32-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 12.5; // 32px x 32px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 12.5; // 32px x 32px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -316,21 +304,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${name48x48}/${iconLayer.name}--${layerName}--48x48-PNG.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name48x48}/${iconLayer.name}-${layerName}--48x48-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 18.75; // 48px x 48px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 18.75; // 48px x 48px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -342,21 +330,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${name64x64}/${iconLayer.name}--${layerName}--64x64-PNG.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name64x64}/${iconLayer.name}-${layerName}--64x64-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 25; // 300px x 300px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 25; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -368,21 +356,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${name300x300}/${iconLayer.name}--${layerName}--300x300-PNG.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name300x300}/${iconLayer.name}-${layerName}--300x300-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 117.2; // 300px x 300px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 117.2; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -394,21 +382,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${name512x512}/${iconLayer.name}--${layerName}--512x512-PNG.png`
+          `${sourceDoc.path}/${nameByDimensions}/${name512x512}/${iconLayer.name}-${layerName}--512x512-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 200;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 200;
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -420,7 +408,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let svgFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${nameSVG}/${iconLayer.name}--${layerName}--SVG`
+          `${sourceDoc.path}/${nameByDimensions}/${nameSVG}/${iconLayer.name}-${layerName}--SVG`
         );
         let aiFile = new File(
           `${sourceDoc.path}/${sourceDoc.name}`
@@ -441,7 +429,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let epsFile = new File(
-          `${sourceDoc.path}/${nameByDimensions}/${nameEPS}/${iconLayer.name}${layerName}--EPS.eps`
+          `${sourceDoc.path}/${nameEPS}/${iconLayer.name}${layerName}--EPS.eps`
         );
         let aiFile = new File(
           `${sourceDoc.path}/${sourceDoc.name}`
@@ -467,21 +455,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${name24x24}/${iconLayer.name}--${layerName}--24x24-PNG.png`
+          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${name24x24}/${iconLayer.name}-${layerName}--24x24-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 9.375; // 24px x 24px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 9.375; // 24px x 24px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -493,21 +481,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${name32x32}/${iconLayer.name}--${layerName}--32x32-PNG.png`
+          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${name32x32}/${iconLayer.name}-${layerName}--32x32-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 12.5; // 32px x 32px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 12.5; // 32px x 32px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -519,21 +507,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${name48x48}/${iconLayer.name}--${layerName}--48x48-PNG.png`
+          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${name48x48}/${iconLayer.name}-${layerName}--48x48-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 18.75; // 48px x 48px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 18.75; // 48px x 48px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -545,21 +533,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${name64x64}/${iconLayer.name}--${layerName}--64x64-PNG.png`
+          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${name64x64}/${iconLayer.name}-${layerName}--64x64-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 25; // 300px x 300px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 25; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -571,21 +559,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${name300x300}/${iconLayer.name}--${layerName}--300x300-PNG.png`
+          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${name300x300}/${iconLayer.name}-${layerName}--300x300-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 117.2; // 300px x 300px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 117.2; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -597,21 +585,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${name512x512}/${iconLayer.name}--${layerName}--512x512-PNG.png`
+          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${name512x512}/${iconLayer.name}-${layerName}--512x512-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 200;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 200;
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -623,7 +611,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let svgFile = new File(
-          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${nameSVG}/${iconLayer.name}--${layerName}--SVG`
+          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${nameSVG}/${iconLayer.name}-${layerName}--SVG`
         );
         let aiFile = new File(
           `${sourceDoc.path}/${sourceDoc.name}`
@@ -639,29 +627,29 @@ try {
       }
     }
 
-    function saveAsEPSByIcon(layerName) {
-      for (let j = 0; j < myIconsSublayers.length; j++) {
-        let iconLayer = myIconsSublayers[j];
-        iconLayer.visible = true;
-        let epsFile = new File(
-          `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${nameEPS}/${iconLayer.name}${layerName}--EPS.eps`
-        );
-        let aiFile = new File(
-          `${sourceDoc.path}/${sourceDoc.name}`
-        );
-        let opts = new EPSSaveOptions();
-        // EPSSaveOptions.cmykPostScript = false;
-        // EPSSaveOptions.embedAllFonts = false;
-        // EPSSaveOptions.artboardRange = "";
-        // EPSSaveOptions.embedLinkedFiles = true;
-        // EPSSaveOptions.includeDocumentThumbnails = true;
-        // EPSSaveOptions.saveMultipleArtboards = true;
-        sourceDoc.saveAs(epsFile, opts);
-        iconLayer.visible = false;
-        DocumentType.ILLUSTRATOR;
-        sourceDoc.saveAs(aiFile);
-      }
-    }
+    // function saveAsEPSByIcon(layerName) {
+    //   for (let j = 0; j < myIconsSublayers.length; j++) {
+    //     let iconLayer = myIconsSublayers[j];
+    //     iconLayer.visible = true;
+    //     let epsFile = new File(
+    //       `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${nameEPS}/${iconLayer.name}${layerName}--EPS.eps`
+    //     );
+    //     let aiFile = new File(
+    //       `${sourceDoc.path}/${sourceDoc.name}`
+    //     );
+    //     let opts = new EPSSaveOptions();
+    //     // EPSSaveOptions.cmykPostScript = false;
+    //     // EPSSaveOptions.embedAllFonts = false;
+    //     // EPSSaveOptions.artboardRange = "";
+    //     // EPSSaveOptions.embedLinkedFiles = true;
+    //     // EPSSaveOptions.includeDocumentThumbnails = true;
+    //     // EPSSaveOptions.saveMultipleArtboards = true;
+    //     sourceDoc.saveAs(epsFile, opts);
+    //     iconLayer.visible = false;
+    //     DocumentType.ILLUSTRATOR;
+    //     sourceDoc.saveAs(aiFile);
+    //   }
+    // }
 
     /**********************************
  ** Save to By Color Folder
@@ -671,21 +659,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByColor}/${layerName}/${name24x24}/${iconLayer.name}--${layerName}--24x24-PNG.png`
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${name24x24}/${iconLayer.name}-${layerName}--24x24-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 9.375; // 24px x 24px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 9.375; // 24px x 24px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -697,21 +685,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByColor}/${layerName}/${name32x32}/${iconLayer.name}--${layerName}--32x32-PNG.png`
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${name32x32}/${iconLayer.name}-${layerName}--32x32-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 12.5; // 32px x 32px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 12.5; // 32px x 32px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -723,21 +711,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByColor}/${layerName}/${name48x48}/${iconLayer.name}--${layerName}--48x48-PNG.png`
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${name48x48}/${iconLayer.name}-${layerName}--48x48-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 18.75; // 48px x 48px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 18.75; // 48px x 48px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -749,21 +737,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByColor}/${layerName}/${name64x64}/${iconLayer.name}--${layerName}--64x64-PNG.png`
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${name64x64}/${iconLayer.name}-${layerName}--64x64-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 25; // 300px x 300px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 25; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -775,21 +763,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByColor}/${layerName}/${name300x300}/${iconLayer.name}--${layerName}--300x300-PNG.png`
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${name300x300}/${iconLayer.name}-${layerName}--300x300-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 117.2; // 300px x 300px
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 117.2; // 300px x 300px
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -801,21 +789,21 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let pngFile = new File(
-          `${sourceDoc.path}/${nameByColor}/${layerName}/${name512x512}/${iconLayer.name}--${layerName}--512x512-PNG.png`
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${name512x512}/${iconLayer.name}-${layerName}--512x512-PNG.png`
         );
         let type = ExportType.PNG24;
         let opts = new ExportOptionsPNG24();
         //ignore errors on the 5 lines below
         // it has to be set up like that because of an export bug
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.antiAliasing = false;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.transparency = true;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.artBoardClipping = true;
-        //// @ts-ignore
+        /*@ts-ignore*/
         opts.horizontalScale = 200;
-        //// @ts-ignore        
+        /*@ts-ignore*/
         opts.verticalScale = 200;
         sourceDoc.exportFile(pngFile, type, opts);
         iconLayer.visible = false;
@@ -827,7 +815,7 @@ try {
         let iconLayer = myIconsSublayers[j];
         iconLayer.visible = true;
         let svgFile = new File(
-          `${sourceDoc.path}/${nameByColor}/${layerName}/${nameSVG}/${iconLayer.name}--${layerName}--SVG`
+          `${sourceDoc.path}/${nameByColor}/${layerName}/${nameSVG}/${iconLayer.name}-${layerName}--SVG`
         );
         let aiFile = new File(
           `${sourceDoc.path}/${sourceDoc.name}`
@@ -843,29 +831,29 @@ try {
       }
     }
 
-    function saveAsEPSByColor(layerName) {
-      for (let j = 0; j < myIconsSublayers.length; j++) {
-        let iconLayer = myIconsSublayers[j];
-        iconLayer.visible = true;
-        let epsFile = new File(
-          `${sourceDoc.path}/${nameByColor}/${layerName}/${nameEPS}/${iconLayer.name}--${layerName}--EPS`
-        );
-        let aiFile = new File(
-          `${sourceDoc.path}/${sourceDoc.name}`
-        );
-        let opts = new EPSSaveOptions();
-        // EPSSaveOptions.cmykPostScript = false;
-        // EPSSaveOptions.embedAllFonts = false;
-        // EPSSaveOptions.artboardRange = "";
-        // EPSSaveOptions.embedLinkedFiles = true;
-        // EPSSaveOptions.includeDocumentThumbnails = true;
-        // EPSSaveOptions.saveMultipleArtboards = true;
-        sourceDoc.saveAs(epsFile, opts);
-        iconLayer.visible = false;
-        DocumentType.ILLUSTRATOR;
-        sourceDoc.saveAs(aiFile);
-      }
-    }
+    // function saveAsEPSByColor(layerName) {
+    //   for (let j = 0; j < myIconsSublayers.length; j++) {
+    //     let iconLayer = myIconsSublayers[j];
+    //     iconLayer.visible = true;
+    //     let epsFile = new File(
+    //       `${sourceDoc.path}/${nameByColor}/${layerName}/${nameEPS}/${iconLayer.name}-${layerName}--EPS`
+    //     );
+    //     let aiFile = new File(
+    //       `${sourceDoc.path}/${sourceDoc.name}`
+    //     );
+    //     let opts = new EPSSaveOptions();
+    //     // EPSSaveOptions.cmykPostScript = false;
+    //     // EPSSaveOptions.embedAllFonts = false;
+    //     // EPSSaveOptions.artboardRange = "";
+    //     // EPSSaveOptions.embedLinkedFiles = true;
+    //     // EPSSaveOptions.includeDocumentThumbnails = true;
+    //     // EPSSaveOptions.saveMultipleArtboards = true;
+    //     sourceDoc.saveAs(epsFile, opts);
+    //     iconLayer.visible = false;
+    //     DocumentType.ILLUSTRATOR;
+    //     sourceDoc.saveAs(aiFile);
+    //   }
+    // }
   } catch (e) {
     alert("Something went wrong while trying to export the icons.", e.message);
   }
@@ -892,7 +880,7 @@ try {
     saveAsPNGAt300x300ByIcon(bgLayer.name);
     saveAsPNGAt512x512ByIcon(bgLayer.name);
     saveAsSVGByIcon(bgLayer.name);
-    saveAsEPSByIcon(bgLayer.name);
+    //saveAsEPSByIcon(bgLayer.name);
     // Save them to sorted-by-color
     saveAsPNGAt24x24ByColor(bgLayer.name);
     saveAsPNGAt32x32ByColor(bgLayer.name);
@@ -901,7 +889,7 @@ try {
     saveAsPNGAt300x300ByColor(bgLayer.name);
     saveAsPNGAt512x512ByColor(bgLayer.name);
     saveAsSVGByColor(bgLayer.name);
-    saveAsEPSByColor(bgLayer.name);
+    //saveAsEPSByColor(bgLayer.name);
     bgLayer.visible = false;
     // Next we create a contact sheet here
   }

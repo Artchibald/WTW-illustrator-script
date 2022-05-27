@@ -1,0 +1,15 @@
+FULL README: https://github.com/Artchibald/WTW-illustrator-script   
+
+Video set up tutorial available here: https://youtu.be/9hrQIdJDNxY
+
+THIS IS JUST THE CONTACT SHEET GENERATOR. 
+
+The main icons .ai template must be open and active. Not the contact-sheet.ai file. 
+
+You can only run this script if you have run the other one first, Otherwise it won't work.
+
+When the contact sheet is ready to be generated, you can edit the rows and columns in the pop up. If you increase the columns, you should increase the rows, to avoid overlapping icons. The script will look in here: /sorted-by-type/SVG/ and generate the contact sheet from the .svg files saved there. 
+
+Exported assets will be saved where the .ai file is saved. 
+
+Any issues: archie@archibaldbutler.com.

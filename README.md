@@ -23,22 +23,9 @@
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-<ol>
-   <li><a href="#WTF">Overview</a></li>
-   <li><a href="#xxx">TBC</a></li>
-      <li><a href="#Promises">TBC</a></li>
-   <li>
-      <a href="#Core-types">TBC</a>
-      <ul>
-         <li><a href="#Type-assignment-and-type-inference">TBC</a></li>
-         <li><a href="#The-core-job-of-typescript">TBC</a></li>
-      </ul>
-   </li>
-</ol>
-</details>
+# Issues? Need support?
+
+Email me at archie@archibaldbutler.com.
 
 # Video tutorial located on youtube.com
 
@@ -68,6 +55,16 @@ WTW_51660_Brand Icons_May22
 - Uses node js dependency types for adobe NPM https://registry.npmjs.org/types-for-adobe
 - SOON Extendscript toolkit on Windows
 
+# How to use this script?
+
+1. Open Adobe illustrator
+2. Open the icons template in Illustrator that you will find in this repository (no others, just this one).
+3. Go to File > Scripts > Other Scripts...
+4. Select the JS file from this repo called main_script_RunThisFirst.js, it will run automatically.
+5. View the exported assets in the folder where the .ai is saved.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 # How long does the script take to run?
 
 If there are 38 icons and 8 background colors, 3 sets of folder saves, that is 7320 total exported icons in (38 * 8 * 3 folders) 4560 loops. This takes about 2 hours to perform. Total of (34*8) 304 icons in the contact sheet.
@@ -75,14 +72,25 @@ If there are 38 icons and 8 background colors, 3 sets of folder saves, that is 7
 
 ## Script instructions:
 
-- Make a coffee, this may take a while.  
-- If you run the script again, you should probably delete the previous assets created. 
--  Artboard size must be exactly 256px x 256px. 
-- Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. 
-- Make sure there are no spaces in the layer names, use hyphens(-) instead.  
-- Make sure all layers and sublayers are invisible and unlocked to avoid bugs. <path>s (sub sub sub layers) should remain visible though in layers panel(this is standard). 
-- Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. Make sure all colors are on sublayers inside the layer called 'colors' with correct naming. 
-- Exported assets will be saved where the .ai file is saved. 
+FULL README: https://github.com/Artchibald/WTW-illustrator-script   
+
+Video set up tutorial available here: https://youtu.be/9hrQIdJDNxY 
+
+Make a coffee, this may take a while.  
+
+If you run the script again, you should probably delete the previous assets created. 
+
+Artboard size must be exactly 256px x 256px. 
+
+Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. 
+
+Make sure all layers and sublayers are invisible and unlocked to avoid bugs. < path > s(sub sub sub layers) should remain visible though in layers panel(this is standard). 
+
+Make sure all icons are on sublayers inside the layer called 'icons' with correct naming.Make sure all colors are on sublayers inside the layer called 'colors' with correct naming. 
+
+When the contact sheet is ready to be generated, you can edit the rows and columns.If you increase the columns, you should increase the rows, to avoid overlapping.There is also a separate version of just the contact - sheet script.You must have these 2 folders in the root, for it to work though: /sorted-by-type/SVG /. 
+
+Exported assets will be saved where the .ai file is saved. 
 
   # How to use  
 
@@ -114,16 +122,6 @@ File > Scripts > Other Scripts > Add WTW_main_script.js
 
 <img src="imagesInReadme/objectmodel.png" alt="outline" >
 
-# How to use this script?
-
-1. Open Adobe illustrator
-2. Open the icons template in Illustrator that you will find in this repository (no others, just this one).
-3. Go to File > Scripts > Other Scripts...
-4. Select the JS file from this repo called XXXXXXXX.js, it will run automatically.
-5. View the exported assets in your folder XXXXXX.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 # Brief from client to be implemented
 
 - Take an established artboard (provided by WTW in Illustrator format)
@@ -145,6 +143,10 @@ File > Scripts > Other Scripts > Add WTW_main_script.js
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # To be done
+
+- Add any issues email me at...
+
+- Make sure there is a working separate copy of contach sheet before final export!
 
 - Compress contact sheet layers into 1, its 15mb currently
 
@@ -373,4 +375,7 @@ Need to compress pngs more
 ## Day 12
 
 Fixed contact sheet to accomodate 1000 variations
-
+Moved EPS folder to drop file size from 600MB to 240MB
+Liaised with Diane, and created new version with design team amends
+Run test scripts multpile times to make sure every thing is working as expected
+Tomorrow I am packaging to send a copy to the design team, they seemed very happy so far!
