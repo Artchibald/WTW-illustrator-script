@@ -12,8 +12,6 @@ try {
     var sourceDoc_1 = app.activeDocument;
     //folder names
     var nameByDimensions_1 = "sorted-by-type";
-    var nameByIcon_1 = "sorted-by-icon";
-    var nameByColor_1 = "sorted-by-color";
     var name300x300_1 = "300x300";
     var name512x512_1 = "512x512";
     var name64x64_1 = "64x64";
@@ -27,7 +25,7 @@ try {
     var myIconsSublayers_1 = myIconsLayer.layers;
     // target colors for main loop
     var myColorsLayer = sourceDoc_1.layers["colors"];
-    var myColorsSublayers_1 = myColorsLayer.layers;
+    var myColorsSublayers = myColorsLayer.layers;
     var guideLayer = sourceDoc_1.layers["Guides (DO NOT MOVE)"];
     /**********************************
      ** INSTRUCTIONS DIALOG
@@ -62,176 +60,46 @@ try {
                 destFolder.create();
         }
         createByDimensionsFolder();
-        function createByIconFolder() {
-            var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1));
-            if (!destFolder.exists)
-                destFolder.create();
-        }
-        createByIconFolder();
-        function createByColorFolder() {
-            var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1));
-            if (!destFolder.exists)
-                destFolder.create();
-        }
-        createByColorFolder();
-        // loop through icon names and create folder for each icon name
-        function createPerIconFolders() {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayerName = myIconsSublayers_1[j].name;
-                var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName));
-                if (!destFolder.exists)
-                    destFolder.create();
-            }
-        }
-        createPerIconFolders();
-        // loop through colors and create folder for each color
-        function createPerColorFolders() {
-            for (var j = 0; j < myColorsSublayers_1.length; j++) {
-                var colorLayerName = myColorsSublayers_1[j].name;
-                var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName));
-                if (!destFolder.exists)
-                    destFolder.create();
-            }
-        }
-        createPerColorFolders();
         function create24x24Folders() {
             var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name24x24_1));
             if (!destFolder.exists)
                 destFolder.create();
-            // loop through all Folders By Icons and add required folder
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayerName = myIconsSublayers_1[j].name;
-                var destFolder_1 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(name24x24_1));
-                if (!destFolder_1.exists)
-                    destFolder_1.create();
-            }
-            // loop through all Folders By Colors and add required folder
-            for (var j = 0; j < myColorsSublayers_1.length; j++) {
-                var colorLayerName = myColorsSublayers_1[j].name;
-                var destFolder_2 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(name24x24_1));
-                if (!destFolder_2.exists)
-                    destFolder_2.create();
-            }
         }
         create24x24Folders();
         function create32x32Folders() {
             var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name32x32_1));
             if (!destFolder.exists)
                 destFolder.create();
-            // loop through all Folders By Icons and add required folder
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayerName = myIconsSublayers_1[j].name;
-                var destFolder_3 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(name32x32_1));
-                if (!destFolder_3.exists)
-                    destFolder_3.create();
-            }
-            // loop through all Folders By Colors and add required folder
-            for (var j = 0; j < myColorsSublayers_1.length; j++) {
-                var colorLayerName = myColorsSublayers_1[j].name;
-                var destFolder_4 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(name32x32_1));
-                if (!destFolder_4.exists)
-                    destFolder_4.create();
-            }
         }
         create32x32Folders();
         function create48x48Folders() {
             var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name48x48_1));
             if (!destFolder.exists)
                 destFolder.create();
-            // loop through all Folders By Icons and add required folder
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayerName = myIconsSublayers_1[j].name;
-                var destFolder_5 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(name48x48_1));
-                if (!destFolder_5.exists)
-                    destFolder_5.create();
-            }
-            // loop through all Folders By Colors and add required folder
-            for (var j = 0; j < myColorsSublayers_1.length; j++) {
-                var colorLayerName = myColorsSublayers_1[j].name;
-                var destFolder_6 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(name48x48_1));
-                if (!destFolder_6.exists)
-                    destFolder_6.create();
-            }
         }
         create48x48Folders();
         function create64x64Folders() {
             var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name64x64_1));
             if (!destFolder.exists)
                 destFolder.create();
-            // loop through all Folders By Icons and add required folder
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayerName = myIconsSublayers_1[j].name;
-                var destFolder_7 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(name64x64_1));
-                if (!destFolder_7.exists)
-                    destFolder_7.create();
-            }
-            // loop through all Folders By Colors and add required folder
-            for (var j = 0; j < myColorsSublayers_1.length; j++) {
-                var colorLayerName = myColorsSublayers_1[j].name;
-                var destFolder_8 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(name64x64_1));
-                if (!destFolder_8.exists)
-                    destFolder_8.create();
-            }
         }
         create64x64Folders();
         function create300x300Folders() {
             var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name300x300_1));
             if (!destFolder.exists)
                 destFolder.create();
-            // loop through all Folders By Icons and add required folder
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayerName = myIconsSublayers_1[j].name;
-                var destFolder_9 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(name300x300_1));
-                if (!destFolder_9.exists)
-                    destFolder_9.create();
-            }
-            // loop through all Folders By Colors and add required folder
-            for (var j = 0; j < myColorsSublayers_1.length; j++) {
-                var colorLayerName = myColorsSublayers_1[j].name;
-                var destFolder_10 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(name300x300_1));
-                if (!destFolder_10.exists)
-                    destFolder_10.create();
-            }
         }
         create300x300Folders();
         function create512x512Folders() {
             var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name512x512_1));
             if (!destFolder.exists)
                 destFolder.create();
-            // loop through all Folders By Icons and add required folder
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayerName = myIconsSublayers_1[j].name;
-                var destFolder_11 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(name512x512_1));
-                if (!destFolder_11.exists)
-                    destFolder_11.create();
-            }
-            // loop through all Folders By Colors and add required folder
-            for (var j = 0; j < myColorsSublayers_1.length; j++) {
-                var colorLayerName = myColorsSublayers_1[j].name;
-                var destFolder_12 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(name512x512_1));
-                if (!destFolder_12.exists)
-                    destFolder_12.create();
-            }
         }
         create512x512Folders();
         function createSVGFolders() {
             var destFolder = Folder("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(nameSVG_1));
             if (!destFolder.exists)
                 destFolder.create();
-            // loop through all Folders By Icons and add required folder
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayerName = myIconsSublayers_1[j].name;
-                var destFolder_13 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayerName, "/").concat(nameSVG_1));
-                if (!destFolder_13.exists)
-                    destFolder_13.create();
-            }
-            // loop through all Folders By Colors and add required folder
-            for (var j = 0; j < myColorsSublayers_1.length; j++) {
-                var colorLayerName = myColorsSublayers_1[j].name;
-                var destFolder_14 = Folder("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(colorLayerName, "/").concat(nameSVG_1));
-                if (!destFolder_14.exists)
-                    destFolder_14.create();
-            }
         }
         createSVGFolders();
         function createEPSFolders() {
@@ -252,7 +120,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name24x24_1, "/").concat(iconLayer.name, "-").concat(layerName, "--24x24-PNG.png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name24x24_1, "/").concat(iconLayer.name, "-").concat(layerName, "-24x24-PNG.png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
@@ -275,7 +143,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name32x32_1, "/").concat(iconLayer.name, "-").concat(layerName, "--32x32-PNG.png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name32x32_1, "/").concat(iconLayer.name, "-").concat(layerName, "-32x32-PNG.png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
@@ -298,7 +166,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name48x48_1, "/").concat(iconLayer.name, "-").concat(layerName, "--48x48-PNG.png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name48x48_1, "/").concat(iconLayer.name, "-").concat(layerName, "-48x48-PNG.png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
@@ -321,7 +189,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name64x64_1, "/").concat(iconLayer.name, "-").concat(layerName, "--64x64-PNG.png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name64x64_1, "/").concat(iconLayer.name, "-").concat(layerName, "-64x64-PNG.png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
@@ -344,7 +212,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name300x300_1, "/").concat(iconLayer.name, "-").concat(layerName, "--300x300-PNG.png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name300x300_1, "/").concat(iconLayer.name, "-").concat(layerName, "-300x300-PNG.png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
@@ -367,7 +235,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name512x512_1, "/").concat(iconLayer.name, "-").concat(layerName, "--512x512-PNG.png"));
+                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(name512x512_1, "/").concat(iconLayer.name, "-").concat(layerName, "-512x512-PNG.png"));
                 var type = ExportType.PNG24;
                 var opts = new ExportOptionsPNG24();
                 //ignore errors on the 5 lines below
@@ -390,7 +258,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var svgFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(nameSVG_1, "/").concat(iconLayer.name, "-").concat(layerName, "--SVG"));
+                var svgFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByDimensions_1, "/").concat(nameSVG_1, "/").concat(iconLayer.name, "-").concat(layerName, "-SVG"));
                 var aiFile = new File("".concat(sourceDoc_1.path, "/").concat(sourceDoc_1.name));
                 var type = ExportType.SVG;
                 // ExportOptionsSVG.optimizeForSVGViewer = true;
@@ -406,7 +274,7 @@ try {
             for (var j = 0; j < myIconsSublayers_1.length; j++) {
                 var iconLayer = myIconsSublayers_1[j];
                 iconLayer.visible = true;
-                var epsFile = new File("".concat(sourceDoc_1.path, "/").concat(nameEPS_1, "/").concat(iconLayer.name).concat(layerName, "--EPS.eps"));
+                var epsFile = new File("".concat(sourceDoc_1.path, "/").concat(nameEPS_1, "/").concat(iconLayer.name).concat(layerName, "-EPS.eps"));
                 var aiFile = new File("".concat(sourceDoc_1.path, "/").concat(sourceDoc_1.name));
                 var opts = new EPSSaveOptions();
                 // EPSSaveOptions.cmykPostScript = false;
@@ -421,366 +289,6 @@ try {
                 sourceDoc_1.saveAs(aiFile);
             }
         }
-        /**********************************
-         ** Save to By Icon Folder
-         ***********************************/
-        function saveAsPNGAt24x24ByIcon(layerName) {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayer = myIconsSublayers_1[j];
-                iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayer.name, "/").concat(name24x24_1, "/").concat(iconLayer.name, "-").concat(layerName, "--24x24-PNG.png"));
-                var type = ExportType.PNG24;
-                var opts = new ExportOptionsPNG24();
-                //ignore errors on the 5 lines below
-                // it has to be set up like that because of an export bug
-                /*@ts-ignore*/
-                opts.antiAliasing = false;
-                /*@ts-ignore*/
-                opts.transparency = true;
-                /*@ts-ignore*/
-                opts.artBoardClipping = true;
-                /*@ts-ignore*/
-                opts.horizontalScale = 9.375; // 24px x 24px
-                /*@ts-ignore*/
-                opts.verticalScale = 9.375; // 24px x 24px
-                sourceDoc_1.exportFile(pngFile, type, opts);
-                iconLayer.visible = false;
-            }
-        }
-        function saveAsPNGAt32x32ByIcon(layerName) {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayer = myIconsSublayers_1[j];
-                iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayer.name, "/").concat(name32x32_1, "/").concat(iconLayer.name, "-").concat(layerName, "--32x32-PNG.png"));
-                var type = ExportType.PNG24;
-                var opts = new ExportOptionsPNG24();
-                //ignore errors on the 5 lines below
-                // it has to be set up like that because of an export bug
-                /*@ts-ignore*/
-                opts.antiAliasing = false;
-                /*@ts-ignore*/
-                opts.transparency = true;
-                /*@ts-ignore*/
-                opts.artBoardClipping = true;
-                /*@ts-ignore*/
-                opts.horizontalScale = 12.5; // 32px x 32px
-                /*@ts-ignore*/
-                opts.verticalScale = 12.5; // 32px x 32px
-                sourceDoc_1.exportFile(pngFile, type, opts);
-                iconLayer.visible = false;
-            }
-        }
-        function saveAsPNGAt48x48ByIcon(layerName) {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayer = myIconsSublayers_1[j];
-                iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayer.name, "/").concat(name48x48_1, "/").concat(iconLayer.name, "-").concat(layerName, "--48x48-PNG.png"));
-                var type = ExportType.PNG24;
-                var opts = new ExportOptionsPNG24();
-                //ignore errors on the 5 lines below
-                // it has to be set up like that because of an export bug
-                /*@ts-ignore*/
-                opts.antiAliasing = false;
-                /*@ts-ignore*/
-                opts.transparency = true;
-                /*@ts-ignore*/
-                opts.artBoardClipping = true;
-                /*@ts-ignore*/
-                opts.horizontalScale = 18.75; // 48px x 48px
-                /*@ts-ignore*/
-                opts.verticalScale = 18.75; // 48px x 48px
-                sourceDoc_1.exportFile(pngFile, type, opts);
-                iconLayer.visible = false;
-            }
-        }
-        function saveAsPNGAt64x64ByIcon(layerName) {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayer = myIconsSublayers_1[j];
-                iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayer.name, "/").concat(name64x64_1, "/").concat(iconLayer.name, "-").concat(layerName, "--64x64-PNG.png"));
-                var type = ExportType.PNG24;
-                var opts = new ExportOptionsPNG24();
-                //ignore errors on the 5 lines below
-                // it has to be set up like that because of an export bug
-                /*@ts-ignore*/
-                opts.antiAliasing = false;
-                /*@ts-ignore*/
-                opts.transparency = true;
-                /*@ts-ignore*/
-                opts.artBoardClipping = true;
-                /*@ts-ignore*/
-                opts.horizontalScale = 25; // 300px x 300px
-                /*@ts-ignore*/
-                opts.verticalScale = 25; // 300px x 300px
-                sourceDoc_1.exportFile(pngFile, type, opts);
-                iconLayer.visible = false;
-            }
-        }
-        function saveAsPNGAt300x300ByIcon(layerName) {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayer = myIconsSublayers_1[j];
-                iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayer.name, "/").concat(name300x300_1, "/").concat(iconLayer.name, "-").concat(layerName, "--300x300-PNG.png"));
-                var type = ExportType.PNG24;
-                var opts = new ExportOptionsPNG24();
-                //ignore errors on the 5 lines below
-                // it has to be set up like that because of an export bug
-                /*@ts-ignore*/
-                opts.antiAliasing = false;
-                /*@ts-ignore*/
-                opts.transparency = true;
-                /*@ts-ignore*/
-                opts.artBoardClipping = true;
-                /*@ts-ignore*/
-                opts.horizontalScale = 117.2; // 300px x 300px
-                /*@ts-ignore*/
-                opts.verticalScale = 117.2; // 300px x 300px
-                sourceDoc_1.exportFile(pngFile, type, opts);
-                iconLayer.visible = false;
-            }
-        }
-        function saveAsPNGAt512x512ByIcon(layerName) {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayer = myIconsSublayers_1[j];
-                iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayer.name, "/").concat(name512x512_1, "/").concat(iconLayer.name, "-").concat(layerName, "--512x512-PNG.png"));
-                var type = ExportType.PNG24;
-                var opts = new ExportOptionsPNG24();
-                //ignore errors on the 5 lines below
-                // it has to be set up like that because of an export bug
-                /*@ts-ignore*/
-                opts.antiAliasing = false;
-                /*@ts-ignore*/
-                opts.transparency = true;
-                /*@ts-ignore*/
-                opts.artBoardClipping = true;
-                /*@ts-ignore*/
-                opts.horizontalScale = 200;
-                /*@ts-ignore*/
-                opts.verticalScale = 200;
-                sourceDoc_1.exportFile(pngFile, type, opts);
-                iconLayer.visible = false;
-            }
-        }
-        function saveAsSVGByIcon(layerName) {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayer = myIconsSublayers_1[j];
-                iconLayer.visible = true;
-                var svgFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByIcon_1, "/").concat(iconLayer.name, "/").concat(nameSVG_1, "/").concat(iconLayer.name, "-").concat(layerName, "--SVG"));
-                var aiFile = new File("".concat(sourceDoc_1.path, "/").concat(sourceDoc_1.name));
-                var type = ExportType.SVG;
-                // ExportOptionsSVG.optimizeForSVGViewer = true;
-                // ExportOptionsSVG.saveMultipleArtboards = true;
-                sourceDoc_1.exportFile(svgFile, type);
-                iconLayer.visible = false;
-                // redeclare what and where to original to avoid SVG export MEGA bug
-                DocumentType.ILLUSTRATOR;
-                sourceDoc_1.saveAs(aiFile);
-            }
-        }
-        // function saveAsEPSByIcon(layerName) {
-        //   for (let j = 0; j < myIconsSublayers.length; j++) {
-        //     let iconLayer = myIconsSublayers[j];
-        //     iconLayer.visible = true;
-        //     let epsFile = new File(
-        //       `${sourceDoc.path}/${nameByIcon}/${iconLayer.name}/${nameEPS}/${iconLayer.name}${layerName}--EPS.eps`
-        //     );
-        //     let aiFile = new File(
-        //       `${sourceDoc.path}/${sourceDoc.name}`
-        //     );
-        //     let opts = new EPSSaveOptions();
-        //     // EPSSaveOptions.cmykPostScript = false;
-        //     // EPSSaveOptions.embedAllFonts = false;
-        //     // EPSSaveOptions.artboardRange = "";
-        //     // EPSSaveOptions.embedLinkedFiles = true;
-        //     // EPSSaveOptions.includeDocumentThumbnails = true;
-        //     // EPSSaveOptions.saveMultipleArtboards = true;
-        //     sourceDoc.saveAs(epsFile, opts);
-        //     iconLayer.visible = false;
-        //     DocumentType.ILLUSTRATOR;
-        //     sourceDoc.saveAs(aiFile);
-        //   }
-        // }
-        /**********************************
-     ** Save to By Color Folder
-     ***********************************/
-        function saveAsPNGAt24x24ByColor(layerName) {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayer = myIconsSublayers_1[j];
-                iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(layerName, "/").concat(name24x24_1, "/").concat(iconLayer.name, "-").concat(layerName, "--24x24-PNG.png"));
-                var type = ExportType.PNG24;
-                var opts = new ExportOptionsPNG24();
-                //ignore errors on the 5 lines below
-                // it has to be set up like that because of an export bug
-                /*@ts-ignore*/
-                opts.antiAliasing = false;
-                /*@ts-ignore*/
-                opts.transparency = true;
-                /*@ts-ignore*/
-                opts.artBoardClipping = true;
-                /*@ts-ignore*/
-                opts.horizontalScale = 9.375; // 24px x 24px
-                /*@ts-ignore*/
-                opts.verticalScale = 9.375; // 24px x 24px
-                sourceDoc_1.exportFile(pngFile, type, opts);
-                iconLayer.visible = false;
-            }
-        }
-        function saveAsPNGAt32x32ByColor(layerName) {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayer = myIconsSublayers_1[j];
-                iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(layerName, "/").concat(name32x32_1, "/").concat(iconLayer.name, "-").concat(layerName, "--32x32-PNG.png"));
-                var type = ExportType.PNG24;
-                var opts = new ExportOptionsPNG24();
-                //ignore errors on the 5 lines below
-                // it has to be set up like that because of an export bug
-                /*@ts-ignore*/
-                opts.antiAliasing = false;
-                /*@ts-ignore*/
-                opts.transparency = true;
-                /*@ts-ignore*/
-                opts.artBoardClipping = true;
-                /*@ts-ignore*/
-                opts.horizontalScale = 12.5; // 32px x 32px
-                /*@ts-ignore*/
-                opts.verticalScale = 12.5; // 32px x 32px
-                sourceDoc_1.exportFile(pngFile, type, opts);
-                iconLayer.visible = false;
-            }
-        }
-        function saveAsPNGAt48x48ByColor(layerName) {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayer = myIconsSublayers_1[j];
-                iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(layerName, "/").concat(name48x48_1, "/").concat(iconLayer.name, "-").concat(layerName, "--48x48-PNG.png"));
-                var type = ExportType.PNG24;
-                var opts = new ExportOptionsPNG24();
-                //ignore errors on the 5 lines below
-                // it has to be set up like that because of an export bug
-                /*@ts-ignore*/
-                opts.antiAliasing = false;
-                /*@ts-ignore*/
-                opts.transparency = true;
-                /*@ts-ignore*/
-                opts.artBoardClipping = true;
-                /*@ts-ignore*/
-                opts.horizontalScale = 18.75; // 48px x 48px
-                /*@ts-ignore*/
-                opts.verticalScale = 18.75; // 48px x 48px
-                sourceDoc_1.exportFile(pngFile, type, opts);
-                iconLayer.visible = false;
-            }
-        }
-        function saveAsPNGAt64x64ByColor(layerName) {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayer = myIconsSublayers_1[j];
-                iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(layerName, "/").concat(name64x64_1, "/").concat(iconLayer.name, "-").concat(layerName, "--64x64-PNG.png"));
-                var type = ExportType.PNG24;
-                var opts = new ExportOptionsPNG24();
-                //ignore errors on the 5 lines below
-                // it has to be set up like that because of an export bug
-                /*@ts-ignore*/
-                opts.antiAliasing = false;
-                /*@ts-ignore*/
-                opts.transparency = true;
-                /*@ts-ignore*/
-                opts.artBoardClipping = true;
-                /*@ts-ignore*/
-                opts.horizontalScale = 25; // 300px x 300px
-                /*@ts-ignore*/
-                opts.verticalScale = 25; // 300px x 300px
-                sourceDoc_1.exportFile(pngFile, type, opts);
-                iconLayer.visible = false;
-            }
-        }
-        function saveAsPNGAt300x300ByColor(layerName) {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayer = myIconsSublayers_1[j];
-                iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(layerName, "/").concat(name300x300_1, "/").concat(iconLayer.name, "-").concat(layerName, "--300x300-PNG.png"));
-                var type = ExportType.PNG24;
-                var opts = new ExportOptionsPNG24();
-                //ignore errors on the 5 lines below
-                // it has to be set up like that because of an export bug
-                /*@ts-ignore*/
-                opts.antiAliasing = false;
-                /*@ts-ignore*/
-                opts.transparency = true;
-                /*@ts-ignore*/
-                opts.artBoardClipping = true;
-                /*@ts-ignore*/
-                opts.horizontalScale = 117.2; // 300px x 300px
-                /*@ts-ignore*/
-                opts.verticalScale = 117.2; // 300px x 300px
-                sourceDoc_1.exportFile(pngFile, type, opts);
-                iconLayer.visible = false;
-            }
-        }
-        function saveAsPNGAt512x512ByColor(layerName) {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayer = myIconsSublayers_1[j];
-                iconLayer.visible = true;
-                var pngFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(layerName, "/").concat(name512x512_1, "/").concat(iconLayer.name, "-").concat(layerName, "--512x512-PNG.png"));
-                var type = ExportType.PNG24;
-                var opts = new ExportOptionsPNG24();
-                //ignore errors on the 5 lines below
-                // it has to be set up like that because of an export bug
-                /*@ts-ignore*/
-                opts.antiAliasing = false;
-                /*@ts-ignore*/
-                opts.transparency = true;
-                /*@ts-ignore*/
-                opts.artBoardClipping = true;
-                /*@ts-ignore*/
-                opts.horizontalScale = 200;
-                /*@ts-ignore*/
-                opts.verticalScale = 200;
-                sourceDoc_1.exportFile(pngFile, type, opts);
-                iconLayer.visible = false;
-            }
-        }
-        function saveAsSVGByColor(layerName) {
-            for (var j = 0; j < myIconsSublayers_1.length; j++) {
-                var iconLayer = myIconsSublayers_1[j];
-                iconLayer.visible = true;
-                var svgFile = new File("".concat(sourceDoc_1.path, "/").concat(nameByColor_1, "/").concat(layerName, "/").concat(nameSVG_1, "/").concat(iconLayer.name, "-").concat(layerName, "--SVG"));
-                var aiFile = new File("".concat(sourceDoc_1.path, "/").concat(sourceDoc_1.name));
-                var type = ExportType.SVG;
-                // ExportOptionsSVG.optimizeForSVGViewer = true;
-                // ExportOptionsSVG.saveMultipleArtboards = true;
-                sourceDoc_1.exportFile(svgFile, type);
-                iconLayer.visible = false;
-                // redeclare what and where to original to avoid SVG export MEGA bug
-                DocumentType.ILLUSTRATOR;
-                sourceDoc_1.saveAs(aiFile);
-            }
-        }
-        // function saveAsEPSByColor(layerName) {
-        //   for (let j = 0; j < myIconsSublayers.length; j++) {
-        //     let iconLayer = myIconsSublayers[j];
-        //     iconLayer.visible = true;
-        //     let epsFile = new File(
-        //       `${sourceDoc.path}/${nameByColor}/${layerName}/${nameEPS}/${iconLayer.name}-${layerName}--EPS`
-        //     );
-        //     let aiFile = new File(
-        //       `${sourceDoc.path}/${sourceDoc.name}`
-        //     );
-        //     let opts = new EPSSaveOptions();
-        //     // EPSSaveOptions.cmykPostScript = false;
-        //     // EPSSaveOptions.embedAllFonts = false;
-        //     // EPSSaveOptions.artboardRange = "";
-        //     // EPSSaveOptions.embedLinkedFiles = true;
-        //     // EPSSaveOptions.includeDocumentThumbnails = true;
-        //     // EPSSaveOptions.saveMultipleArtboards = true;
-        //     sourceDoc.saveAs(epsFile, opts);
-        //     iconLayer.visible = false;
-        //     DocumentType.ILLUSTRATOR;
-        //     sourceDoc.saveAs(aiFile);
-        //   }
-        // }
     }
     catch (e) {
         alert("Something went wrong while trying to export the icons.", e.message);
@@ -788,8 +296,8 @@ try {
     /**********************************
      ** LOOP LAYER VISIBILITY OF ICONS AGAINST BACKGROUND COLORS AND EXECUTE SAVE EXPORT FUNCTIONS
      ***********************************/
-    for (var i = 0; i < myColorsSublayers_1.length; i++) {
-        var bgLayer = myColorsSublayers_1[i];
+    for (var i = 0; i < myColorsSublayers.length; i++) {
+        var bgLayer = myColorsSublayers[i];
         bgLayer.visible = true;
         // Save them to sorted-by-types
         saveAsPNGAt24x24ByDimensions(bgLayer.name);
@@ -800,24 +308,6 @@ try {
         saveAsPNGAt512x512ByDimensions(bgLayer.name);
         saveAsSVGByDimensions(bgLayer.name);
         saveAsEPSByDimensions(bgLayer.name);
-        // Save them to sorted-by-icon
-        saveAsPNGAt24x24ByIcon(bgLayer.name);
-        saveAsPNGAt32x32ByIcon(bgLayer.name);
-        saveAsPNGAt48x48ByIcon(bgLayer.name);
-        saveAsPNGAt64x64ByIcon(bgLayer.name);
-        saveAsPNGAt300x300ByIcon(bgLayer.name);
-        saveAsPNGAt512x512ByIcon(bgLayer.name);
-        saveAsSVGByIcon(bgLayer.name);
-        //saveAsEPSByIcon(bgLayer.name);
-        // Save them to sorted-by-color
-        saveAsPNGAt24x24ByColor(bgLayer.name);
-        saveAsPNGAt32x32ByColor(bgLayer.name);
-        saveAsPNGAt48x48ByColor(bgLayer.name);
-        saveAsPNGAt64x64ByColor(bgLayer.name);
-        saveAsPNGAt300x300ByColor(bgLayer.name);
-        saveAsPNGAt512x512ByColor(bgLayer.name);
-        saveAsSVGByColor(bgLayer.name);
-        //saveAsEPSByColor(bgLayer.name);
         bgLayer.visible = false;
         // Next we create a contact sheet here
     }

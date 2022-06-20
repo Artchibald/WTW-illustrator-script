@@ -379,3 +379,8 @@ Moved EPS folder to drop file size from 600MB to 240MB
 Liaised with Diane, and created new version with design team amends
 Run test scripts multpile times to make sure every thing is working as expected
 Tomorrow I am packaging to send a copy to the design team, they seemed very happy so far!
+
+
+## Post initial contract amends
+
+mon 20 june 2 hours Diane asked for less folders to speed up script and to remove double dashes. Done and sent  back to her.

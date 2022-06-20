@@ -1,17 +1,3 @@
-
-# How to use this script?
-
-1. Open Adobe illustrator
-2. Open the icons template in Illustrator that you will find in this repository (no others, just this one).
-3. Go to File > Scripts > Other Scripts...
-4. Select the JS file from this repo called main_script_RunThisFirst.js, it will run automatically.
-5. View the exported assets in the folder where the .ai is saved.
-
-# How long does the script take to run?
-
-If there are 38 icons and 8 background colors, 3 sets of folder saves, that is 7320 total exported icons in (38 * 8 * 3 folders) 4560 loops. This takes about 2 hours to perform. Total of (34*8) 304 icons in the contact sheet.
-
-
 ## Script instructions:
 
 FULL README: https://github.com/Artchibald/WTW-illustrator-script   
@@ -26,12 +12,10 @@ Artboard size must be exactly 256px x 256px.
 
 Guides must be on a layer called exactly 'Guides (DO NOT MOVE)'. 
 
-Make sure all layers and sublayers are invisible and unlocked to avoid bugs. <path>s(sub sub sub layers) should remain visible though in layers panel(this is standard). 
+Make sure all layers and sublayers are invisible and unlocked to avoid bugs. < path > s(sub sub sub layers) should remain visible though in layers panel(this is standard). 
 
-Make sure all icons are on sublayers inside the layer called 'icons' with correct naming. Make sure all colors are on sublayers inside the layer called 'colors' with correct naming. 
+Make sure all icons are on sublayers inside the layer called 'icons' with correct naming.Make sure all colors are on sublayers inside the layer called 'colors' with correct naming. 
 
-When the contact sheet is ready to be generated, you can edit the rows and columns. If you increase the columns, you should increase the rows, to avoid overlapping. There is also a separate version of just the contact-sheet script. You must the run the other script first, before running the contact sheet. The script will look in here: /sorted-by-type/SVG/ and generate the contact sheet from the .svg files saved there. 
+When the contact sheet is ready to be generated, you can edit the rows and columns.If you increase the columns, you should increase the rows, to avoid overlapping.There is also a separate version of just the contact - sheet script.You must have these 2 folders in the root, for it to work though: /sorted-by-type/SVG /. 
 
 Exported assets will be saved where the .ai file is saved. 
-
-Any issues: archie@archibaldbutler.com.
