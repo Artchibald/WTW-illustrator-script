@@ -355,7 +355,7 @@ try {
     saveAsPNGAt512x512ByDimensions(bgLayer.name);
     saveAsSVGByDimensions(bgLayer.name);
     saveAsEPSByDimensions(bgLayer.name);
-
+    
     bgLayer.visible = false;
     // Next we create a contact sheet here
   }

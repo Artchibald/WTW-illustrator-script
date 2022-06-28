@@ -18,4 +18,4 @@ Make sure all icons are on sublayers inside the layer called 'icons' with correc
 
 When the contact sheet is ready to be generated, you can edit the rows and columns.If you increase the columns, you should increase the rows, to avoid overlapping.There is also a separate version of just the contact - sheet script.You must have these 2 folders in the root, for it to work though: /sorted-by-type/SVG /. 
 
-Exported assets will be saved where the .ai file is saved. 
+Exported assets will be saved where the .ai file is saved. n
